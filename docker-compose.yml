@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - "8000:80"
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./:/var/www/html

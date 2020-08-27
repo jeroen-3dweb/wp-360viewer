@@ -1,0 +1,5 @@
+*
+!.gitignore
+!example.env
+!wp-content/plugins/360-js-viewer
+
