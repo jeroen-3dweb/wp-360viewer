@@ -2,7 +2,7 @@
 /*
 Plugin Name: 360&deg; Javascript Viewer
 Plugin URI: https://www.360-javascriptviewer.com
-Description: 360 Product Viewer.Creates a 360 product view from a series of photos
+Description: Small 360 Product Viewer. Creates a 360 product view from a series of photos. Check for examples at https://www-360-javascriptviewer.com
 Author: 3DWeb
 Author URI: https://www.360-javascriptviewer.com/
 Developer: Jeroen Termaat

@@ -50,12 +50,13 @@ class JSV
          * core plugin.
          */
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-360-jsv-loader.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-360-jsv-parser.php';
 
         /**
          * The class responsible for defining all actions that occur in the public-facing
          * side of the site.
          */
-        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-plugin-name-public.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-360-jsv-public.php';
 
         $this->loader = new JSV_Loader();
     }
@@ -70,9 +71,12 @@ class JSV
     private function definePublicHooks()
     {
         $pluginPublic = new JSV_Public($this->pluginName, $this->version);
+        $parser = new JSV_Parser($this->pluginName, $this->version);
 
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_scripts');
+
+        $this->loader->add_filter('the_content', $parser, 'parse');
     }
 
     public function run()
