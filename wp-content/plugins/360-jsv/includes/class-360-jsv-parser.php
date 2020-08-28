@@ -49,8 +49,7 @@ class JSV_Parser
 
         $code = sprintf($code, $holderId, $imageId, $src);
 
-return $code;
-        return sprintf('<h5>%s images</h5>', $data['images']);
+        return $code;
     }
 
     private function getRandomId($type)
