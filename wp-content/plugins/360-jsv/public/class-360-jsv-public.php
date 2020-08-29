@@ -83,20 +83,7 @@ class JSV_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Plugin_Name_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Plugin_Name_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-
-		wp_enqueue_script( $this->plugin_name, 'https://cdn.jsdelivr.net/npm/@3dweb/360javascriptviewer/lib/JavascriptViewer.min.js', array( 'jquery' ), $this->version, false );
+	    wp_enqueue_script( $this->plugin_name, 'https://cdn.jsdelivr.net/npm/@3dweb/360javascriptviewer/lib/JavascriptViewer.min.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script( $this->plugin_name. '-custom', plugin_dir_url( __FILE__ ) . 'public/js/jsv.js', array('jsv'), '1.0' );
 	}
-
 }

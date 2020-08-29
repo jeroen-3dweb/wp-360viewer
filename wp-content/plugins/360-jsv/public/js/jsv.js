@@ -48,14 +48,16 @@ class jsvInstance {
 
 }
 
+//  Initialize the container for referencing the viewer
 window.JSV = {
     items: [],
     errors: []
 };
 
+//  Search for presentations
 window.addEventListener('load', () => {
     const nodes = document.getElementsByClassName("jsv-holder");
     for (let index = 0; index < nodes.length; ++index) {
-        window.JSV.items.push(a[index]);
+        window.JSV.items.push(new jsvInstance(a[index]));
     }
 });
