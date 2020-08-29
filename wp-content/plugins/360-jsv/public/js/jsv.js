@@ -13,15 +13,17 @@ class jsvInstance {
         this.run();
     }
 
-    getMainImageId(){
+    getMainImageId(node) {
+        return node.getElementsByTagName('img')[0].id;
+    }
 
+    getMainHolderId(node) {
+        return node.id;
     }
-    getMainHolderId(node){
-      return node.id;
-    }
-    getData(node){
+
+    getData(node) {
         let data = {};
-        [].forEach.call(node.attributes, function(attr) {
+        [].forEach.call(node.attributes, function (attr) {
             if (/^data-/.test(attr.name)) {
                 var camelCaseName = attr.name.substr(5).replace(/-(.)/g, function ($0, $1) {
                     return $1.toUpperCase();
@@ -31,19 +33,19 @@ class jsvInstance {
         });
         return data;
     }
+
     run() {
-        const data = this.getData(this.node)
 
         const jsv = new JavascriptViewer({
-            mainHolderId: this.getMainHolderId(),
-            mainImageId: this.getMainImageId(),
-            totalFrames: data.totalFrames,
+            mainHolderId: this.mainHolderId,
+            mainImageId: this.mainImageId,
+            totalFrames: this.data.totalFrames,
             defaultProgressBar: true,
             speed: 90,
             inertia: 12
         });
 
-        jsv.start();
+       jsv.start();
     }
 
 }
@@ -58,6 +60,6 @@ window.JSV = {
 window.addEventListener('load', () => {
     const nodes = document.getElementsByClassName("jsv-holder");
     for (let index = 0; index < nodes.length; ++index) {
-        window.JSV.items.push(new jsvInstance(a[index]));
+        window.JSV.items.push(new jsvInstance(nodes[index]));
     }
 });

@@ -107,11 +107,13 @@ class JSV_Parser
      */
     private function getDataAttributes($data)
     {
-        $data = [];
+        $arr = [];
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
-            $data[]  = sprintf('data-%s="%s"', $saveKey, $value);
+            $arr[]  = sprintf('data-%s="%s"', $saveKey, $value);
         }
-        return implode(' ', $data);
+        var_dump($arr);
+
+        return implode(' ', $arr);
     }
 }
