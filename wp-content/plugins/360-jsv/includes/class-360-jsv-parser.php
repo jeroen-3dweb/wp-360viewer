@@ -67,7 +67,7 @@ class JSV_Parser
 
         $code = '<div %s id="%s" class="jsv-holder"><img id="%s" alt="your 360 images" src="%s"> </div>';
 
-        $dataAttributes = $this->getDataAttributes($data);
+        $dataAttributes = $this->getDataAttributes($data, $holderId, $imageId);
         $code           = sprintf($code, $dataAttributes, $holderId, $imageId, $src);
          return $code;
     }
@@ -103,16 +103,20 @@ class JSV_Parser
 
     /**
      * @param $data
+     * @param $holderId
+     * @param $imageId
      * @return string
      */
-    private function getDataAttributes($data)
+    private function getDataAttributes($data, $holderId, $imageId)
     {
         $arr = [];
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
             $arr[]  = sprintf('data-%s="%s"', $saveKey, $value);
         }
-        var_dump($arr);
+
+        $arr[] = sprintf('data-main-holder-id="%s"', $holderId);
+        $arr[] = sprintf('data-main-image-id="%s"', $imageId);
 
         return implode(' ', $arr);
     }

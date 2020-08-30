@@ -23,28 +23,28 @@ class jsvInstance {
 
     getData(node) {
         let data = {};
+
+        var camelCase = (function () {
+            var DEFAULT_REGEX = /[-_]+(.)?/g;
+
+            function toUpper(match, group1) {
+                return group1 ? group1.toUpperCase() : '';
+            }
+            return function (str, delimiters) {
+                return str.replace(delimiters ? new RegExp('[' + delimiters + ']+(.)?', 'g') : DEFAULT_REGEX, toUpper);
+            };
+        })();
+
         [].forEach.call(node.attributes, function (attr) {
             if (/^data-/.test(attr.name)) {
-                var camelCaseName = attr.name.substr(5).replace(/-(.)/g, function ($0, $1) {
-                    return $1.toUpperCase();
-                });
-                data[camelCaseName] = attr.value;
+                data[camelCase(attr.name.substr(5), '-')] = attr.value;
             }
         });
         return data;
     }
 
     run() {
-
-        const jsv = new JavascriptViewer({
-            mainHolderId: this.mainHolderId,
-            mainImageId: this.mainImageId,
-            totalFrames: this.data.totalFrames,
-            defaultProgressBar: true,
-            speed: 90,
-            inertia: 12
-        });
-
+        const jsv = new JavascriptViewer(this.data);
        jsv.start();
     }
 

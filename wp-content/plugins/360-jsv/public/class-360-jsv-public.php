@@ -83,8 +83,6 @@ class JSV_Public {
 	 * @since    1.0.0
 	 */
 	public function enqueue_scripts() {
-	    var_dump(plugin_dir_url( __FILE__ ) . 'js/jsv.js');
-//	    die;
 	    wp_enqueue_script( $this->plugin_name, 'https://cdn.jsdelivr.net/npm/@3dweb/360javascriptviewer/lib/JavascriptViewer.min.js', array( 'jquery' ), $this->version, false );
         wp_enqueue_script( 'jsv', plugin_dir_url( __FILE__ ) . 'js/jsv.js', array($this->plugin_name), '1.0' );
 	}
