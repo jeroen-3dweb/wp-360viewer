@@ -69,7 +69,7 @@ class JSV_Parser
 
         $dataAttributes = $this->getDataAttributes($data, $holderId, $imageId);
         $code           = sprintf($code, $dataAttributes, $holderId, $imageId, $src);
-         return $code;
+        return $code;
     }
 
     /**
@@ -78,7 +78,7 @@ class JSV_Parser
      */
     private function getRandomId($type)
     {
-        $permitted_chars = 'abcdefghijklmnopqrstuvwxyz';
+        $permitted_chars = implode('', range('a', 'z'));
         return 'jsv-' . $type . '-' . substr(str_shuffle($permitted_chars), 0, 10);
     }
 
@@ -112,7 +112,7 @@ class JSV_Parser
         $arr = [];
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
-            $arr[]  = sprintf('data-%s="%s"', $saveKey, $value);
+            $arr[]   = sprintf('data-%s="%s"', $saveKey, $value);
         }
 
         $arr[] = sprintf('data-main-holder-id="%s"', $holderId);
