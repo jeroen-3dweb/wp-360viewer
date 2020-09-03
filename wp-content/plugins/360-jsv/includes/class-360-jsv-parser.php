@@ -112,12 +112,13 @@ class JSV_Parser
         $arr = [];
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
+            $value = is_numeric($value) ? (int)$value : $value;
             $arr[]   = sprintf('data-%s="%s"', $saveKey, $value);
         }
 
         $arr[] = sprintf('data-main-holder-id="%s"', $holderId);
         $arr[] = sprintf('data-main-image-id="%s"', $imageId);
-
+var_dump($arr);
         return implode(' ', $arr);
     }
 }

@@ -10,7 +10,8 @@ class jsvInstance {
         this.mainHolderId = this.getMainHolderId(node);
         this.mainImageId = this.getMainImageId(node);
 
-        this.run();
+        this.jsv = new JavascriptViewer(this.data);
+        this.jsv.start();
     }
 
     getMainImageId(node) {
@@ -37,15 +38,11 @@ class jsvInstance {
 
         [].forEach.call(node.attributes, function (attr) {
             if (/^data-/.test(attr.name)) {
-                data[camelCase(attr.name.substr(5), '-')] = attr.value;
+                let val = parseInt(attr.value) || attr.value;
+                data[camelCase(attr.name.substr(5), '-')] = val;
             }
         });
         return data;
-    }
-
-    run() {
-        const jsv = new JavascriptViewer(this.data);
-       jsv.start();
     }
 
 }
