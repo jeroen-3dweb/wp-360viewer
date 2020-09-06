@@ -21,28 +21,28 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Copy files to special folder
-        run: cp -a wp-content/plugins/360-jsv tmp/360-jsv
+        run: mkdir -p /tmp/360-jsv && cp -a wp-content/plugins/360-jsv tmp/360-jsv
 
-
-      # Create zip file 
+#
+      # Create zip file
       - name: Create zip file
         uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r 360-jsv.zip tmp
-
-      # Deploy on Freemius
-      - name: Deploy on Freemius
-        uses: buttonizer/freemius-deploy@v0.1.0
-        with:
-          fileName: 360-jsv.zip
-          releaseMode: pending
-          version: 1.0.0
-          sandbox: false
-        env:
-          PUBLIC_KEY: ${{ secrets.FREEMIUS_PUBLIC_KEY }}
-          DEV_ID: 9358
-          SECRET_KEY: ${{ secrets.FREEMIUS_SECRET_KEY }}
-          PLUGIN_SLUG: 360-javascriptviewer
-          PLUGIN_ID: 6844
+#
+#      # Deploy on Freemius
+#      - name: Deploy on Freemius
+#        uses: buttonizer/freemius-deploy@v0.1.0
+#        with:
+#          fileName: 360-jsv.zip
+#          releaseMode: pending
+#          version: 1.0.0
+#          sandbox: false
+#        env:
+#          PUBLIC_KEY: ${{ secrets.FREEMIUS_PUBLIC_KEY }}
+#          DEV_ID: 9358
+#          SECRET_KEY: ${{ secrets.FREEMIUS_SECRET_KEY }}
+#          PLUGIN_SLUG: 360-javascriptviewer
+#          PLUGIN_ID: 6844
  
   
