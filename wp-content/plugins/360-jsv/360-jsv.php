@@ -26,14 +26,19 @@ if ( ! function_exists( 'jsv_viewer' ) ) {
                 'slug'                => '360-javascriptviewer',
                 'type'                => 'plugin',
                 'public_key'          => 'pk_fee47e6ac1ee46ff1b2373fa23500',
-                'is_premium'          => false,
+                'is_premium'          => true,
+                'premium_suffix'      => 'Business',
+                // If your plugin is a serviceware, set this option to false.
+                'has_premium_version' => true,
                 'has_addons'          => false,
-                'has_paid_plans'      => false,
+                'has_paid_plans'      => true,
                 'menu'                => array(
                     'first-path'     => 'plugins.php',
-                    'account'        => false,
                     'support'        => false,
                 ),
+                // Set the SDK to work in a sandbox mode (for development & testing).
+                // IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
+                'secret_key'          => 'sk_P%xNq#9MpD]R?a)E?(!b2g7C[[YHN',
             ) );
         }
 

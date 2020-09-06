@@ -28,7 +28,17 @@ jobs:
 
       # Deploy on Freemius
       - name: Deploy on Freemius
-        uses: buttonizer/freemius-deploy@v0.1.0,
-        fileName: './dist/360-jsv.zip360-jsv.zip'
+        uses: buttonizer/freemius-deploy@v0.1.0
+        with:
+          file_name: ./dist/360-jsv.zip360-jsv.zip
+          release_mode: pending
+          version: 1.0.0
+          sandbox: true
+        env:
+          PUBLIC_KEY: ${{ secrets.FREEMIUS_PUBLIC_KEY }}
+          DEV_ID: 9358
+          SECRET_KEY: ${{ secrets.FREEMIUS_SECRET_KEY }}
+          PLUGIN_SLUG: 360-javascriptviewer-premium
+          PLUGIN_ID: 6844
  
   

@@ -65,10 +65,12 @@ class JSV_Parser
 
         $src = 'https:///azipdtpxfp.cloudimg.io/v7/https://www.360-javascriptviewer.com/images/ipod/ipod.jpg';
 
-        $code = '<div %s id="%s" class="jsv-holder"><img id="%s" alt="your 360 images" src="%s"> </div>';
+        $code = '<div %s id="%s" class="jsv-holder"><img id="%s" alt="your 360 images" src="%s"> %s</div>';
 
         $dataAttributes = $this->getDataAttributes($data, $holderId, $imageId);
-        $code           = sprintf($code, $dataAttributes, $holderId, $imageId, $src);
+        $branding = '';
+//        if()
+        $code           = sprintf($code, $dataAttributes, $holderId, $imageId, $src, $branding);
         return $code;
     }
 
@@ -89,13 +91,17 @@ class JSV_Parser
      */
     private function replaceJsvShortCodes($content, $codes)
     {
-        $questions = [];
+        $bbCodes = [];
         $pattern   = sprintf('/\[%s(.*?)\]/s', self::SHORTCODE_ID);
-        preg_match_all($pattern, $content, $questions);
+        preg_match_all($pattern, $content, $bbCodes);
 
-        if (isset($questions[0]) && is_array($questions[0])) {
-            foreach ($questions[0] as $key => $question) {
-                $content = str_replace($question, $codes[$key], $content);
+
+        if (isset($bbCodes[0]) && is_array($bbCodes[0])) {
+            foreach ($bbCodes[0] as $key => $bbCode) {
+                $pos = strpos($content, $bbCode);
+                if ($pos !== false) {
+                    $content = substr_replace($content, $codes[$key], $pos, strlen($bbCode));
+                }
             }
         }
         return $content;
@@ -118,7 +124,6 @@ class JSV_Parser
 
         $arr[] = sprintf('data-main-holder-id="%s"', $holderId);
         $arr[] = sprintf('data-main-image-id="%s"', $imageId);
-var_dump($arr);
         return implode(' ', $arr);
     }
 }
