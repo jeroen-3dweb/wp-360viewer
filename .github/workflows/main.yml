@@ -24,7 +24,7 @@ jobs:
       - name: Create zip file
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r 360-jsv.zip . -i ./wp-content/plugins/360-jsv/*
+          args: zip -r 360-jsv.zip . -i ./wp-content/plugins/360-jsv/
 
       # Deploy on Freemius
       - name: Deploy on Freemius
