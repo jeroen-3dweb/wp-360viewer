@@ -33,7 +33,7 @@ jobs:
           fileName: ./360-jsv.zip
           releaseMode: pending
           version: 1.0.0
-          sandbox: true
+          sandbox: false
         env:
           PUBLIC_KEY: ${{ secrets.FREEMIUS_PUBLIC_KEY }}
           DEV_ID: 9358
