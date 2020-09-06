@@ -24,13 +24,13 @@ jobs:
       - name: Create zip file
         uses: montudor/action-zip@v0.1.0
         with:
-          args: zip -qq -r ./dist/360-jsv.zip ./wp-content/plugins/360-jsv
+          args: zip -qq -r ./360-jsv.zip ./wp-content/plugins/360-jsv
 
       # Deploy on Freemius
       - name: Deploy on Freemius
         uses: buttonizer/freemius-deploy@v0.1.0
         with:
-          file_name: ./dist/360-jsv.zip360-jsv.zip
+          file_name: ./360-jsv.zip
           release_mode: pending
           version: 1.0.0
           sandbox: true
