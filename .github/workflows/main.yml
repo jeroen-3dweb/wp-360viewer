@@ -30,8 +30,8 @@ jobs:
       - name: Deploy on Freemius
         uses: buttonizer/freemius-deploy@v0.1.0
         with:
-          file_name: ./360-jsv.zip
-          release_mode: pending
+          fileName: ./360-jsv.zip
+          releaseMode: pending
           version: 1.0.0
           sandbox: true
         env:
