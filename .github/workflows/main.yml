@@ -29,7 +29,10 @@ jobs:
         uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r 360-jsv.zip tmp
-#
+
+      - name: Check folder
+        run: ls -lat
+
       # Deploy on Freemius
       - name: Deploy on Freemius
         uses: buttonizer/freemius-deploy@v0.1.0
