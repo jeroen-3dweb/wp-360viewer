@@ -37,7 +37,7 @@ jobs:
       - name: Unpake zip file
         uses: montudor/action-zip@v0.1.0
         with:
-          args: unzip -qq  360-jsv.zip tmp2
+          args: unzip -qq  360-jsv.zip -d tmp2
 
       - name: Check folder
         run: cd tmp2 && ls -lat
