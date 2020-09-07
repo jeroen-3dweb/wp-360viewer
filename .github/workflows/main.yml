@@ -29,34 +29,34 @@ jobs:
         uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r 360-jsv.zip 360-jsv
-
-      - name: Check folder
-        run: ls -lat
-
-        # Check zip file
-      - name: Unpake zip file
-        uses: montudor/action-zip@v0.1.0
-        with:
-          args: unzip -qq  360-jsv.zip -d tmp2
-
-      - name: Check folder
-        run: cd tmp2 && ls -lat
+#
+#      - name: Check folder
+#        run: ls -lat
+#
+#        # Check zip file
+#      - name: Unpake zip file
+#        uses: montudor/action-zip@v0.1.0
+#        with:
+#          args: unzip -qq  360-jsv.zip -d tmp2
+#
+#      - name: Check folder
+#        run: cd tmp2 && ls -lat
 
 
 #
-#      # Deploy on Freemius
-#      - name: Deploy on Freemius
-#        uses: buttonizer/freemius-deploy@v0.1.0
-#        with:
-#          fileName: 360-jsv.zip
-#          version: 1.0.0
-#          sandbox: false
-#        env:
-#          PUBLIC_KEY: ${{ secrets.FREEMIUS_PUBLIC_KEY }}
-#          DEV_ID: 9358
-#          SECRET_KEY: ${{ secrets.FREEMIUS_SECRET_KEY }}
-#          PLUGIN_SLUG: 360-jsv
-#          PLUGIN_ID: 6844
-#          file_name: 360-jsv.zip
-#          INPUT_FILE_NAME: 360-jsv.zip
+      # Deploy on Freemius
+      - name: Deploy on Freemius
+        uses: buttonizer/freemius-deploy@v0.1.0
+        with:
+          fileName: 360-jsv.zip
+          version: 1.0.0
+          sandbox: false
+        env:
+          PUBLIC_KEY: ${{ secrets.FREEMIUS_PUBLIC_KEY }}
+          DEV_ID: 9358
+          SECRET_KEY: ${{ secrets.FREEMIUS_SECRET_KEY }}
+          PLUGIN_SLUG: 360-jsv
+          PLUGIN_ID: 6844
+          file_name: 360-jsv.zip
+          INPUT_FILE_NAME: 360-jsv.zip
 
