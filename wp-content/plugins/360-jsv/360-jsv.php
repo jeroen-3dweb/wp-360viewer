@@ -22,24 +22,29 @@ if ( ! function_exists( 'jsv_viewer' ) ) {
             require_once dirname(__FILE__) . '/freemius/start.php';
 
             $jsv_viewer = fs_dynamic_init( array(
-                'id'                  => '6844',
-                'slug'                => '360-javascriptviewer',
-                'type'                => 'plugin',
-                'public_key'          => 'pk_fee47e6ac1ee46ff1b2373fa23500',
-                'is_premium'          => true,
-                'premium_suffix'      => 'Business',
-                // If your plugin is a serviceware, set this option to false.
-                'has_premium_version' => true,
-                'has_addons'          => false,
-                'has_paid_plans'      => true,
-                'menu'                => array(
-                    'first-path'     => 'plugins.php',
-                    'support'        => false,
-                ),
-                // Set the SDK to work in a sandbox mode (for development & testing).
-                // IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
-                'secret_key'          => 'sk_P%xNq#9MpD]R?a)E?(!b2g7C[[YHN',
-            ) );
+                                               'id'                  => '6844',
+                                               'slug'                => '360-javascriptviewer',
+                                               'premium_slug'        => '360-jsv-premium',
+                                               'type'                => 'plugin',
+                                               'public_key'          => 'pk_fee47e6ac1ee46ff1b2373fa23500',
+                                               'is_premium'          => true,
+                                               'premium_suffix'      => 'Business',
+                                               // If your plugin is a serviceware, set this option to false.
+                                               'has_premium_version' => true,
+                                               'has_addons'          => false,
+                                               'has_paid_plans'      => true,
+                                               'trial'               => array(
+                                                   'days'               => 14,
+                                                   'is_require_payment' => false,
+                                               ),
+                                               'menu'                => array(
+                                                   'first-path'     => 'plugins.php',
+                                                   'support'        => false,
+                                               ),
+                                               // Set the SDK to work in a sandbox mode (for development & testing).
+                                               // IMPORTANT: MAKE SURE TO REMOVE SECRET KEY BEFORE DEPLOYMENT.
+                                               'secret_key'          => 'sk_P%xNq#9MpD]R?a)E?(!b2g7C[[YHN',
+                                           ) );
         }
 
         return $jsv_viewer;
@@ -50,7 +55,6 @@ if ( ! function_exists( 'jsv_viewer' ) ) {
     // Signal that SDK was initiated.
     do_action( 'jsv_viewer_loaded' );
 }
-
 // If this file is called directly, abort.
 if (!defined('WPINC')) {
     die;
