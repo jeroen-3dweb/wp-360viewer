@@ -1,9 +1,4 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [ master ]
@@ -14,8 +9,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -23,27 +16,12 @@ jobs:
       - name: Copy files to special folder
         run: mkdir -p 360-jsv && cp -a wp-content/plugins/360-jsv/* 360-jsv
 
-#
       # Create zip file
       - name: Create zip file
         uses: montudor/action-zip@v0.1.0
         with:
           args: zip -qq -r 360-jsv.zip 360-jsv
-#
-#      - name: Check folder
-#        run: ls -lat
-#
-#        # Check zip file
-#      - name: Unpake zip file
-#        uses: montudor/action-zip@v0.1.0
-#        with:
-#          args: unzip -qq  360-jsv.zip -d tmp2
-#
-#      - name: Check folder
-#        run: cd tmp2 && ls -lat
 
-
-#
       # Deploy on Freemius
       - name: Deploy on Freemius
         uses: buttonizer/freemius-deploy@v0.1.0
