@@ -47,6 +47,5 @@ jobs:
           PLUGIN_SLUG: 360-javascriptviewer
           PLUGIN_ID: 6844
           file_name: 360-jsv.zip
+          INPUT_FILE_NAME: 360-jsv.zip
 
- 
-  
