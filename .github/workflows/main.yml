@@ -37,7 +37,6 @@ jobs:
       - name: Deploy on Freemius
         uses: buttonizer/freemius-deploy@v0.1.0
         with:
-          args: --file_name 360-jsv.zip
           fileName: 360-jsv.zip
           version: 1.0.0
           sandbox: false
