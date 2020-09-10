@@ -2,7 +2,6 @@
 
 class JSV
 {
-
     /**
      * @var string
      */
@@ -40,7 +39,8 @@ class JSV
     /**
      * Load dependencies
      *
-     * @since 1.0.0
+     * @since    1.0.0
+     * @access   private
      */
     private function loadDependencies()
     {
@@ -69,6 +69,9 @@ class JSV
         $this->loader->add_filter('the_content', $parser, 'parse');
     }
 
+    /**
+     * @since 1.0.0
+     */
     public function run()
     {
         $this->loader->run();

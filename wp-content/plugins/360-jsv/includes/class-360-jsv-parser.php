@@ -4,6 +4,8 @@ class JSV_Parser
 {
     const SHORTCODE_ID = '360-jsv';
 
+    const DEFAULT_URL = 'https:///azipdtpxfp.cloudimg.io/v7/https://www.360-javascriptviewer.com/images/ipod/ipod.jpg';
+
     /**
      * @var string $pluginName
      */
@@ -56,22 +58,34 @@ class JSV_Parser
 
     /**
      * @param $data
+     *
      * @return string
      */
     private function getHtml($data)
     {
+        var_dump($data);
+
         $holderId = $this->getRandomId('holder');
         $imageId  = $this->getRandomId('img');
 
-        $src = 'https:///azipdtpxfp.cloudimg.io/v7/https://www.360-javascriptviewer.com/images/ipod/ipod.jpg';
-
-        $code = '<div %s id="%s" class="jsv-holder"><img id="%s" alt="your 360 images" src="%s"> %s</div>';
+        $code = '<div %s id="%s" class="jsv-holder"><img id="%s" alt="your 360 images" src="%s"></div>';
 
         $dataAttributes = $this->getDataAttributes($data, $holderId, $imageId);
-        $branding = '';
-//        if()
-        $code           = sprintf($code, $dataAttributes, $holderId, $imageId, $src, $branding);
-        return $code;
+        $src = $this->getImageUrl($data);
+
+        return sprintf($code, $dataAttributes, $holderId, $imageId, $src);
+    }
+
+    /**
+     * @param $dataAttributes
+     *
+     * @return mixed|string
+     */
+    private function getImageUrl($dataAttributes){
+        if(isset($dataAttributes['main-image-url'])){
+            return $dataAttributes['main-image-url'];
+        }
+        return self::DEFAULT_URL;
     }
 
     /**
@@ -94,7 +108,6 @@ class JSV_Parser
         $bbCodes = [];
         $pattern   = sprintf('/\[%s(.*?)\]/s', self::SHORTCODE_ID);
         preg_match_all($pattern, $content, $bbCodes);
-
 
         if (isset($bbCodes[0]) && is_array($bbCodes[0])) {
             foreach ($bbCodes[0] as $key => $bbCode) {

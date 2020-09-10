@@ -1,4 +1,4 @@
-=== 360 Product Rotation ===
+=== 360 Javascript Viewer ===
 Contributors: 360 Javascript Viewer
 Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 3d product viewer, 360 view software,
 product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin
@@ -15,9 +15,17 @@ Turn a series of product photos into an interactive 360 degree view.
 ####Features####
 * Full 360° view
 * Responsive design
-* Works on mobile devices (retina support)
-* Works with Woocommerce (storefront theme tested)
-* Cloud or Self Hosted option
+* Works on mobile devices
+* Unlimited presentations on a single page
+* Customize speed and inertia
+* Reverse dragging
 
 == Installation ==
-* Install 360 Product Rotation Plugin by installing from your Wordpress Admin area
+* Install 360 Product Rotation Plugin by installing from your Wordpress Admin area.
+
+####Shortcode parameters####
+* **mainImageUrl** is the url to the main image, that is the base for all the other frames
+* **totalFrames** is the total number of frames in the presentation
+* **speed** is the speed of rotating
+* **inertia** is the delay when the user stops dragging
+* **reverse** inverts the rotation direction when dragging
