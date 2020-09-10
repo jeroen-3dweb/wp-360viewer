@@ -132,6 +132,8 @@ class JSV_Parser
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
             $value = is_numeric($value) ? (int)$value : $value;
+            $value = str_replace(['”',"'",'&#8221;' ], "", $value);
+//            var_dump($value . PHP_EOL);
             $arr[]   = sprintf('data-%s="%s"', $saveKey, $value);
         }
 

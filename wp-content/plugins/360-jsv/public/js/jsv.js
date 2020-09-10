@@ -11,7 +11,9 @@ class jsvInstance {
         this.mainImageId = this.getMainImageId(node);
 
         this.jsv = new JavascriptViewer(this.data);
-        this.jsv.start();
+        this.jsv.start()
+            .then()
+            .catch((reason => console.warn(reason)));
     }
 
     getMainImageId(node) {
@@ -32,19 +34,21 @@ class jsvInstance {
                 return group1 ? group1.toUpperCase() : '';
             }
             return function (str, delimiters) {
-                return str.replace(delimiters ? new RegExp('[' + delimiters + ']+(.)?', 'g') : DEFAULT_REGEX, toUpper);
+                return str.replace(delimiters ?
+                    new RegExp('[' + delimiters + ']+(.)?', 'g') :
+                    DEFAULT_REGEX, toUpper);
             };
         })();
 
         [].forEach.call(node.attributes, function (attr) {
             if (/^data-/.test(attr.name)) {
                 let val = parseInt(attr.value) || attr.value;
+                val = val.toString().length === attr.value.length ? val : attr.value;
                 data[camelCase(attr.name.substr(5), '-')] = val;
             }
         });
         return data;
     }
-
 }
 
 //  Initialize the container for referencing the viewer
