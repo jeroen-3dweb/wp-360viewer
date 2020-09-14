@@ -10,3 +10,20 @@ services:
       - .env
     volumes:
       - ./:/var/www/html
+    links:
+      - mysql
+    networks:
+      - wptest
+  mysql:
+    restart: always
+    image: mysql:5.7
+    networks:
+      - wptest
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: 'wp'
+      MYSQL_USER: 'wp'
+      MYSQL_PASSWORD: 'wp'
+networks:
+  wptest:
+    external: false
