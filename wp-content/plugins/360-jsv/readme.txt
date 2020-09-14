@@ -26,17 +26,18 @@ Turn a series of product images into an interactive 360 degree view.
 == Installation ==
 
 1. Upload the plugin files to the `your_wordpress_plugins_dir/360-jsv` directory, or Install as a regular WordPress plugin
-2. Go your Plugins page via WordPress Dashboard and activate it
+2. Go your Plugins page in the WordPress Dashboard and activate it
 
 ####Shortcode parameters####
-example [360-jsv total-frames=72 speed=90 inertia=30]  // will take the default image
+example [360-jsv total-frames=72 speed=90 inertia=30 max-width=200]  // will take the default image
 example [360-jsv main-image-url=your/image.jpg total-frames=16 speed=90 inertia=30 image-url-format=your/image_xx.jpg]
 * **main-image-url** is the url to the main image, that is the base for all the other frames
 * **total-frames** is the total number of frames in the presentation
 * **speed** is the speed of rotating
 * **inertia** is the delay when the user stops dragging
 * **reverse** inverts the rotation direction when dragging
-* **image-url-format=** give a format for the next frames
+* **image-url-format** give a format for the next frames
+* **max-width** sets the max-width of the presentation in px
 
 == Changelog ==
 = 1.0 =
