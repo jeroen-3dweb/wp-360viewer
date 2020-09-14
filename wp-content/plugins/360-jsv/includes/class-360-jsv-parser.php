@@ -63,8 +63,6 @@ class JSV_Parser
      */
     private function getHtml($data)
     {
-        var_dump($data);
-
         $holderId = $this->getRandomId('holder');
         $imageId  = $this->getRandomId('img');
 
@@ -133,7 +131,6 @@ class JSV_Parser
             $saveKey = strtolower($key);
             $value = is_numeric($value) ? (int)$value : $value;
             $value = str_replace(['”',"'",'&#8221;' ], "", $value);
-//            var_dump($value . PHP_EOL);
             $arr[]   = sprintf('data-%s="%s"', $saveKey, $value);
         }
 

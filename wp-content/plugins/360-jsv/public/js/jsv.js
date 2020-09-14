@@ -1,19 +1,17 @@
-// Find all the nodes with class .jsv
-
-//  For each node create a new viewer and add them in window.jsvholder
-// Read data from data container
-
-class jsvInstance {
-
+/* global JSV:[] */
+class JsvInstance {
     constructor(node) {
         this.data = this.getData(node);
         this.mainHolderId = this.getMainHolderId(node);
         this.mainImageId = this.getMainImageId(node);
-
-        this.jsv = new JavascriptViewer(this.data);
-        this.jsv.start()
-            .then()
-            .catch((reason => console.warn(reason)));
+        if (window.JavascriptViewer !== undefined) {
+            this.jsv = new JavascriptViewer(this.data);
+            this.jsv.start()
+                .then()
+                .catch((reason => console.warn(reason)));
+        } else {
+            console.warn('JavascriptViewer is not loaded');
+        }
     }
 
     getMainImageId(node) {
@@ -27,12 +25,13 @@ class jsvInstance {
     getData(node) {
         let data = {};
 
-        var camelCase = (function () {
-            var DEFAULT_REGEX = /[-_]+(.)?/g;
+        const camelCase = (function () {
+            const DEFAULT_REGEX = /[-_]+(.)?/g;
 
             function toUpper(match, group1) {
                 return group1 ? group1.toUpperCase() : '';
             }
+
             return function (str, delimiters) {
                 return str.replace(delimiters ?
                     new RegExp('[' + delimiters + ']+(.)?', 'g') :
@@ -51,16 +50,16 @@ class jsvInstance {
     }
 }
 
-//  Initialize the container for referencing the viewer
+// Initialize the container for referencing the viewer.
 window.JSV = {
     items: [],
     errors: []
 };
 
-//  Search for presentations
+// Search for presentations.
 window.addEventListener('load', () => {
-    const nodes = document.getElementsByClassName("jsv-holder");
+    const nodes = document.getElementsByClassName('jsv-holder');
     for (let index = 0; index < nodes.length; ++index) {
-        window.JSV.items.push(new jsvInstance(nodes[index]));
+        window.JSV.items.push(new JsvInstance(nodes[index]));
     }
 });
