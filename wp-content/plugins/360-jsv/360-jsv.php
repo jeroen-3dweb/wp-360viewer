@@ -16,16 +16,16 @@ if (!defined('WPINC')) {
     die;
 }
 
-if ( ! function_exists( 'jsv_viewer' ) ) {
+if ( ! function_exists( 'jsv_360viewer' ) ) {
     // Create a helper function for easy SDK access.
-    function jsv_viewer() {
-        global $jsv_viewer;
+    function jsv360_viewer() {
+        global $jsv360_viewer;
 
-        if ( ! isset( $jsv_viewer ) ) {
+        if ( ! isset( $jsv360_viewer ) ) {
             // Include Freemius SDK.
             require_once dirname(__FILE__) . '/freemius/start.php';
 
-            $jsv_viewer = fs_dynamic_init( array(
+            $jsv360_viewer = fs_dynamic_init( array(
                 'id'                  => '6844',
                 'slug'                => '360-jsv',
                 'type'                => 'plugin',
@@ -40,22 +40,22 @@ if ( ! function_exists( 'jsv_viewer' ) ) {
             ) );
         }
 
-        return $jsv_viewer;
+        return $jsv360_viewer;
     }
 
     // Init Freemius.
-    jsv_viewer();
+    jsv360_viewer();
     // Signal that SDK was initiated.
     do_action( 'jsv_viewer_loaded' );
 }
 
-define('JSV_VERSION', '1.0.0');
+define('JSV360_VERSION', '1.0.0');
 
-require plugin_dir_path(__FILE__) . 'includes/class-360-jsv.php';
+require plugin_dir_path(__FILE__) . 'includes/class-jsv-360.php';
 
-function run_360_jsv()
+function run_jsv360()
 {
-    (new JSV())->run();
+    (new JSV_360())->run();
 }
 
-run_360_jsv();
+run_jsv360();
