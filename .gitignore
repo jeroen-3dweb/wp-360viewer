@@ -3,4 +3,5 @@
 !example.env
 !wp-content/plugins/360-js-viewer/**/
 !.github/**/
+!plugin-assets/**/
 .env
