@@ -27,7 +27,7 @@ if ( ! function_exists( 'jsv_360viewer' ) ) {
 
             $jsv360_viewer = fs_dynamic_init( array(
                 'id'                  => '6844',
-                'slug'                => '360-jsv',
+                'slug'                => '360deg-javascript-viewer',
                 'type'                => 'plugin',
                 'public_key'          => 'pk_fee47e6ac1ee46ff1b2373fa23500',
                 'is_premium'          => false,
