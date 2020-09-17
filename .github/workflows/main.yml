@@ -30,7 +30,7 @@ jobs:
       # Deploy to Wordpress
       - name: WordPress Plugin Deploy
         id: deploy
-        uses: 10up/action-wordpress-plugin-deploy@stable
+        uses: ./.github/actions/wp-deploy
         with:
           generate-zip: true
         env:
