@@ -93,7 +93,7 @@ else
 
 	# This will exclude everything in the .gitattributes file with the export-ignore flag
 	# git archive HEAD | tar x --directory="$TMP_DIR"
-	rsync -rc "$GITHUB_WORKSPACE/360-jsv" "$TMP_DIR/"
+	rsync -rc "$GITHUB_WORKSPACE/360-jsv/" "$TMP_DIR/"
 
 	cd "$SVN_DIR"
 
