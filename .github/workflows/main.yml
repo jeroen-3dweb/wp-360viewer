@@ -22,6 +22,21 @@ jobs:
         with:
           args: zip -qq -r 360-jsv.zip 360-jsv
 
+      # Enter new working dir
+      - name: enter work dir
+        run: cd 360-jsv
+
+      # Deploy to Wordpress
+      - name: WordPress Plugin Deploy
+        id: deploy
+        uses: 10up/action-wordpress-plugin-deploy@stable
+        with:
+          generate-zip: true
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG : 360deg-javascript-viewer
+
       # Deploy on Freemius
       - name: Deploy on Freemius
         uses: buttonizer/freemius-deploy@v0.1.0
