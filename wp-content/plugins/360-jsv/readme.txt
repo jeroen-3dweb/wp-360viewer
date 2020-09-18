@@ -25,7 +25,7 @@ Turn a series of product images into an interactive 360 degree view.
 
 == Installation ==
 
-1. Upload the plugin files to the `your_wordpress_plugins_dir/360-jsv` directory, or Install as a regular WordPress plugin
+1. Upload the plugin files to the `your_wordpress_plugins_dir/360deg-javascript-viewer` directory, or Install as a regular WordPress plugin
 2. Go your Plugins page in the WordPress Dashboard and activate it
 
 ####Shortcode parameters####
