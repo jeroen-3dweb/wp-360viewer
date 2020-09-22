@@ -1,4 +1,4 @@
-name: CI
+name: ASSETS
 on:
   push:
     branches:
