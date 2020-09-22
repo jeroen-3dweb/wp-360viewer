@@ -28,7 +28,7 @@ Turn a series of product images into an interactive 360 degree view.
 2. Go your Plugins page in the WordPress Dashboard and activate it
 
 ####Shortcode parameters####
-
+[Generate the shortcodes online](https://www.360-javascriptviewer.com/wordpress)
 
 `example: [360-jsv total-frames=72 speed=90 inertia=30 max-width=200]  // will take the default image`
 `example: [360-jsv main-image-url=your/image.jpg total-frames=16 speed=90 inertia=30 image-url-format=your/image_xx.jpg]`
