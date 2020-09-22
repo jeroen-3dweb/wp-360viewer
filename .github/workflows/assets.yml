@@ -5,11 +5,8 @@ on:
       - trunk
 jobs:
   trunk:
-    - name: WordPress Plugin Deploy no version
-      id: deploy
+    - name: WordPress Single Deploy
       uses: ./.github/actions/wp-assets
-      with:
-        generate-zip: true
       env:
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
