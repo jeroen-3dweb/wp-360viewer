@@ -8,17 +8,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Copy files to special folder
-          run: mkdir -p 360-jsv && cp -a wp-content/plugins/360-jsv/* 360-jsv
+        run: mkdir -p 360-jsv && cp -a wp-content/plugins/360-jsv/* 360-jsv
 
         # Create zip file
       - name: Create zip file
-          uses: montudor/action-zip@v0.1.0
-          with:
-            args: zip -qq -r 360-jsv.zip 360-jsv
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -qq -r 360-jsv.zip 360-jsv
 
         # Enter new working dir
       - name: enter work dir
-          run: cd 360-jsv
+        run: cd 360-jsv
+
       - name: WordPress Single Deploy
         uses: ./.github/actions/wp-assets
         env:
