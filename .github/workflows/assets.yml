@@ -4,11 +4,12 @@ on:
     branches:
       - trunk
 jobs:
-  trunk:
-    - name: WordPress Single Deploy
-      uses: ./.github/actions/wp-assets
-      env:
-        SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-        SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-        SLUG : 360deg-javascript-viewer
-        ASSETS_DIR : plugin-assets
+  build:
+    steps:
+      - name: WordPress Single Deploy
+        uses: ./.github/actions/wp-assets
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG : 360deg-javascript-viewer
+          ASSETS_DIR : plugin-assets
