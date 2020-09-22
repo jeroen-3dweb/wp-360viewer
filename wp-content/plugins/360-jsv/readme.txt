@@ -1,6 +1,6 @@
 === 360 Javascript Viewer ===
 Contributors: jtermaat
-Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 3d product viewer, 360 view software,
+Tags: 360, 360 product view, 360 product rotation, 360 product viewer,360 image, 3d product viewer, 360 view software,
 product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin
 Requires at least: 3.3.0
 Requires PHP: 5.6
@@ -16,11 +16,10 @@ Turn a series of product images into an interactive 360 degree view.
 ####Features####
 * Full 360° view
 * Responsive design
-* Works on mobile devices
 * Unlimited presentations on a single page
 * Customize speed and inertia
 * Reverse dragging
-* ShortCodes System
+* ShortCodes system
 * Very Lightweight
 
 == Installation ==
@@ -29,8 +28,11 @@ Turn a series of product images into an interactive 360 degree view.
 2. Go your Plugins page in the WordPress Dashboard and activate it
 
 ####Shortcode parameters####
-example [360-jsv total-frames=72 speed=90 inertia=30 max-width=200]  // will take the default image
-example [360-jsv main-image-url=your/image.jpg total-frames=16 speed=90 inertia=30 image-url-format=your/image_xx.jpg]
+
+
+`example: [360-jsv total-frames=72 speed=90 inertia=30 max-width=200]  // will take the default image`
+`example: [360-jsv main-image-url=your/image.jpg total-frames=16 speed=90 inertia=30 image-url-format=your/image_xx.jpg]`
+
 * **main-image-url** is the url to the main image, that is the base for all the other frames
 * **total-frames** is the total number of frames in the presentation
 * **speed** is the speed of rotating
@@ -41,4 +43,6 @@ example [360-jsv main-image-url=your/image.jpg total-frames=16 speed=90 inertia=
 
 == Changelog ==
 = 1.0 =
-Basic version, still under development
+* Basic version, still under development
+= 1.0.1 =
+* Bugfixes in viewer, update to v0.0.45
