@@ -5,6 +5,7 @@ on:
       - trunk
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
       - name: WordPress Single Deploy
         uses: ./.github/actions/wp-assets
