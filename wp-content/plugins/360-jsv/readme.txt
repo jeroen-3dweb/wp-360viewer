@@ -20,7 +20,7 @@ Turn a series of product images into an interactive 360 degree view.
 * Customize speed and inertia
 * Reverse dragging
 * ShortCodes system
-* Very Lightweight
+* Very lightweight (50kb)
 
 == Installation ==
 
