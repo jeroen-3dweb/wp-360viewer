@@ -57,6 +57,13 @@ Turn a series of product images into an interactive 360 degree view.
 * **margin-top** set the top margin
 * **margin-bottom** set the bottom margin
 
+== Screenshots ==
+
+1. Put your 360 images in your own media library.
+2. Configure the viewer and get shortcodes [here](https://www.360-javascriptviewer.com/wordpress)
+3. Paste the shortcode anywhere in a post or page
+3. Responsive viewer integrated on a page
+
 == Changelog ==
 = 1.0 =
 * Basic version, still under development
