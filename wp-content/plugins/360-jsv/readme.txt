@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Stable tag: 1.5.6
 
-Turn a series of product images into an interactive 360 degree view.
+Turn a series of images into an interactive 360 degree view.
 
 == Description ==
 
@@ -18,15 +18,15 @@ Turn a series of product images into an interactive 360 degree view.
 * Responsive design
 * Unlimited presentations on a single page
 * Just upload your images to your media library, no external service needed
-* Variable amount of frames, limit is 365 images
+* Variable amount of images, limit is 365 images
 * Customize speed and inertia
 * Reverse dragging
 * Custom frame format, no renaming of files
-* Optional autorotation on start
+* Optional autorotation on start 1 is one rotation after start and 2 is 2 rotations and so on
 * Reverse autorotation
-* Speed autorotation
+* Speed autorotation otherwise it uses the speed of the viewer
 * Custom start frame
-* Float and margin
+* Float and margin for some placement control
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
 * Very lightweight (50kb)
 
@@ -60,7 +60,7 @@ Turn a series of product images into an interactive 360 degree view.
 == Screenshots ==
 
 1. Put your 360 images in your own media library.
-2. Configure the viewer and get shortcodes [here](https://www.360-javascriptviewer.com/wordpress)
+2. Configure the viewer and create a shortcode at 360-javascriptviewer.com
 3. Paste the shortcode anywhere in a post or page
 3. Responsive viewer integrated on a page
 
