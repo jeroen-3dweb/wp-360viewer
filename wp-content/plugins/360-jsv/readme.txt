@@ -26,6 +26,7 @@ Turn a series of product images into an interactive 360 degree view.
 * Reverse autorotation
 * Speed autorotation
 * Custom start frame
+* Float and margin
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
 * Very lightweight (50kb)
 
@@ -46,7 +47,15 @@ Turn a series of product images into an interactive 360 degree view.
 * **inertia** is the delay when the user stops dragging
 * **reverse** inverts the rotation direction when dragging
 * **image-url-format** give a format for the next frames
+* **auto-rotate** use this setting for rotating the view at start. Rotation stops when user drags the model or another animation method is called. 0 is no rotation and 10 is 10 rotations at start
+* **auto-rotate-speed** use this setting for changing the speed of the auto rotating
+* **auto-rotate-reverse** use this setting for changing the direction of the auto rotating
 * **max-width** sets the max-width of the presentation in px
+* **float** use left or right to align the presentation
+* **margin-left** set the left margin
+* **margin-right** set the right margin
+* **margin-top** set the top margin
+* **margin-bottom** set the bottom margin
 
 == Changelog ==
 = 1.0 =
