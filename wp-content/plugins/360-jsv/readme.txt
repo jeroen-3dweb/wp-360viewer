@@ -4,7 +4,7 @@ Tags: 360, 360 product view, 360 product rotation, 360 product viewer,360 image,
 product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin
 Requires at least: 3.3.0
 Requires PHP: 5.6
-Tested up to: 5.5.0
+Tested up to: 5.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Stable tag: 1.5.6
@@ -17,10 +17,17 @@ Turn a series of product images into an interactive 360 degree view.
 * Full 360° view
 * Responsive design
 * Unlimited presentations on a single page
+* Just upload your images to your media library, no external service needed
+* Variable amount of frames, limit is 365 images
 * Customize speed and inertia
 * Reverse dragging
-* ShortCodes system
-* Very Lightweight
+* Custom frame format, no renaming of files
+* Optional autorotation on start
+* Reverse autorotation
+* Speed autorotation
+* Custom start frame
+* ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
+* Very lightweight (50kb)
 
 == Installation ==
 
@@ -46,3 +53,5 @@ Turn a series of product images into an interactive 360 degree view.
 * Basic version, still under development
 = 1.0.1 =
 * Bugfixes in viewer, update to v0.0.45
+= 1.1.0 =
+* Added optional autorotation on start
