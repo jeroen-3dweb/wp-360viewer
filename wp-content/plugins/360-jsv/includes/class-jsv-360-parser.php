@@ -68,8 +68,24 @@ class JSV_360_Parser
 
         $dataAttributes = $this->getDataAttributes($data, $holderId, $imageId);
         $src = $this->getImageUrl($data);
-        $mw = $this->getMaxWidth($data);
-        $style = $mw ? sprintf('style="max-width:%spx"', $mw) : '';
+        $mw = $this->getAttribute($data, 'max-width');
+        $float = $this->getAttribute($data, 'float');
+        $marginLeft = $this->getAttribute($data, 'margin-left');
+        $marginRight = $this->getAttribute($data, 'margin-right');
+        $marginTop = $this->getAttribute($data, 'margin-top');
+        $marginBottom = $this->getAttribute($data, 'margin-bottom');
+        $style = '';
+        if($mw || $float || $marginLeft) {
+            $style = 'style="';
+            $style .= $mw ? sprintf('max-width:%spx; ', $mw) : '';
+            $style .= $float ? sprintf('float:%s; ', $float) : '';
+            $style .= $marginLeft ? sprintf('margin-left:%spx; ', $marginLeft) : '';
+            $style .= $marginRight ? sprintf('margin-right:%spx; ', $marginRight) : '';
+            $style .= $marginTop ? sprintf('margin-top:%spx; ', $marginTop) : '';
+            $style .= $marginBottom ? sprintf('margin-bottom:%spx; ', $marginBottom) : '';
+            $style .= '"';
+        }
+
         $code = '<div %s id="%s" class="jsv-holder" %s><img id="%s" alt="your 360 images" src="%s"></div>';
 
         return sprintf($code, $dataAttributes, $holderId, $style, $imageId, $src);
@@ -100,6 +116,20 @@ class JSV_360_Parser
         }
         return null;
     }
+
+    /**
+     * @param $dataAttributes
+     *
+     * @return null|string
+     */
+    private function getAttribute($dataAttributes, $name)
+    {
+        if (isset($dataAttributes[$name])) {
+            return $dataAttributes[$name];
+        }
+        return null;
+    }
+
 
     /**
      * @param $type

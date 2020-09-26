@@ -1,3 +1,7 @@
 .jsv{
     width: 100%;
 }
+
+.jsv-holder > div > img {
+    width: 100%;
+}
