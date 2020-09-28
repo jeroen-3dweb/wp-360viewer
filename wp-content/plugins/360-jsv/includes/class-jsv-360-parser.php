@@ -4,7 +4,7 @@ class JSV_360_Parser
 {
     const SHORTCODE_ID = '360-jsv';
 
-    const DEFAULT_URL = 'https:///azipdtpxfp.cloudimg.io/v7/https://www.360-javascriptviewer.com/images/ipod/ipod.jpg';
+    const DEFAULT_URL = 'https://www.360-javascriptviewer.com/images/ipod/ipod.jpg';
 
     /**
      * @var string $pluginName
