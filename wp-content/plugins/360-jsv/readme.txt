@@ -16,6 +16,7 @@ Turn a series of images into an interactive 360 degree view.
 ####Features####
 * Full 360° view
 * Responsive design
+* Zoom by wheel(mouse) or pinch(mobile)
 * Unlimited presentations on a single page
 * Just upload your images to your media library, no external service needed
 * Variable amount of images, limit is 365 images
@@ -71,3 +72,5 @@ Turn a series of images into an interactive 360 degree view.
 * Bugfixes in viewer, update to v0.0.45
 = 1.1.0 =
 * Added optional autorotation on start
+= 1.2.0 =
+* Added zoom functions
