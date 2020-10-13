@@ -43,6 +43,9 @@ class JsvInstance {
             if (/^data-/.test(attr.name)) {
                 let val = parseInt(attr.value) || attr.value;
                 val = val.toString().length === attr.value.length ? val : attr.value;
+                if(typeof val === 'string' && (val.toLowerCase() === 'true' || val.toLowerCase() === 'false')){
+                    val = val.toLowerCase() === 'true'
+                }
                 data[camelCase(attr.name.substr(5), '-')] = val;
             }
         });

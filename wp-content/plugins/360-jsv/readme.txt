@@ -75,4 +75,6 @@ Turn a series of images into an interactive 360 degree view.
 = 1.2.0 =
 * Added zoom functions
 = 1.2.1 =
-* Fix scrolling bug, update jsv to v1.2.7
+* Fix scrolling bug, update jsv to v1.2.7=
+1.2.2 =
+* Fix parameter bug
