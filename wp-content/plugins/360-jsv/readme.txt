@@ -22,6 +22,7 @@ Turn a series of images into an interactive 360 degree view.
 * Variable amount of images, limit is 365 images
 * Customize speed and inertia
 * Reverse dragging
+* Rotate to edges
 * Custom frame format, no renaming of files
 * Optional autorotation on start 1 is one rotation after start and 2 is 2 rotations and so on
 * Reverse autorotation
@@ -51,6 +52,7 @@ Turn a series of images into an interactive 360 degree view.
 * **auto-rotate** use this setting for rotating the view at start. Rotation stops when user drags the model or another animation method is called. 0 is no rotation and 10 is 10 rotations at start
 * **auto-rotate-speed** use this setting for changing the speed of the auto rotating
 * **auto-rotate-reverse** use this setting for changing the direction of the auto rotating
+* **stop-at-edges** blocks repeating images after reaching last image
 * **max-width** sets the max-width of the presentation in px
 * **float** use left or right to align the presentation
 * **margin-left** set the left margin
@@ -78,3 +80,5 @@ Turn a series of images into an interactive 360 degree view.
 * Fix scrolling bug, update jsv to v1.2.7=
 1.2.2 =
 * Fix parameter bug
+1.3.0 =
+* Added rotate to edges
