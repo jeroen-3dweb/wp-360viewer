@@ -35,7 +35,14 @@ class JSV_360_Parser
     {
         $codes = [];
         foreach ($this->getShortCodes($content) as $shortCode) {
+            if(empty($shortCode))
+                continue;
+
             $data = shortcode_parse_atts($shortCode);
+            if(empty($data)){
+                echo 'error in shortcode:' . $shortCode . PHP_EOL;
+                continue;
+            }
             $codes[] = $this->getHtml($data);
         };
 
@@ -172,6 +179,7 @@ class JSV_360_Parser
     private function getDataAttributes($data, $holderId, $imageId)
     {
         $arr = [];
+
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
             $value = is_numeric($value) ? (int)$value : $value;

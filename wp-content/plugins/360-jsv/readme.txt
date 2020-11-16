@@ -30,6 +30,7 @@ Turn a series of images into an interactive 360 degree view.
 * Custom start frame
 * Float and margin for some placement control
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
+* Widget
 * Very lightweight (50kb)
 
 == Installation ==
@@ -82,3 +83,5 @@ Turn a series of images into an interactive 360 degree view.
 * Fix parameter bug
 = 1.3.0 =
 * Added rotate to edges
+= 1.4.0 =
+* Added widget
