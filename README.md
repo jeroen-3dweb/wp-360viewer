@@ -1,4 +1,8 @@
-# wp-360viewer
+# 360 Javascript Viewer
 
-user: taamret
-pwd: 658Pkrflzdpt&qiRCZ
+##  Description
+360 Product viewer based on the 360 Javascript Viewer.
+
+##  Contributions
+Anyone is welcome to contribute to the 360 Javascript Viewer plugin
+
