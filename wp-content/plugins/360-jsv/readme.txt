@@ -61,6 +61,8 @@ Turn a series of images into an interactive 360 degree view.
 * **margin-top** set the top margin
 * **margin-bottom** set the bottom margin
 
+[youtube https://www.youtube.com/watch?v=qYCD2sL1lM0&ab_channel=360JavascriptViewer]
+
 == Screenshots ==
 
 1. Put your 360 images in your own media library.
