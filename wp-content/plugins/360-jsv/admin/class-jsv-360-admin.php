@@ -2,8 +2,6 @@
 
 class JSV_360_Admin
 {
-
-
     private $pluginName;
 
     private $version;
@@ -41,7 +39,7 @@ class JSV_360_Admin
 
         wp_enqueue_style(
             $this->pluginName,
-            plugin_dir_url(__FILE__) . 'css/plugin-name-admin.css',
+            plugin_dir_url(__FILE__) . 'css/jsv-360-admin.css',
             array(),
             $this->version,
             'all'
@@ -66,14 +64,14 @@ class JSV_360_Admin
          * between the defined hooks and the functions defined in this
          * class.
          */
-
-        wp_enqueue_script(
-            $this->pluginName,
-            plugin_dir_url(__FILE__) . 'js/plugin-name-admin.js',
-            array('jquery'),
-            $this->version,
-            false
-        );
+//
+//        wp_enqueue_script(
+//            $this->pluginName,
+//            plugin_dir_url(__FILE__) . 'js/plugin-name-admin.js',
+//            array('jquery'),
+//            $this->version,
+//            false
+//        );
     }
 
     public function init_360_admin()

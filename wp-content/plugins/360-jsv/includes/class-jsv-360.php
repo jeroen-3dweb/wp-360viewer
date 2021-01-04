@@ -35,6 +35,8 @@ class JSV_360
         $this->loadDependencies();
         $this->definePublicHooks();
         $this->define_admin_hooks();
+
+        $this->loadPluginHooks();
     }
 
     /**
@@ -51,6 +53,9 @@ class JSV_360
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-jsv-360-admin.php';
         require_once plugin_dir_path(dirname(__FILE__)) . 'widgets/class-jsv-360-widget.php';
 
+        //  Plugins
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/woo/class-jsv-360-woo.php';
+
         $this->loader = new JSV_360_Loader();
     }
 
@@ -61,14 +66,14 @@ class JSV_360
      * @since    1.0.0
      * @access   private
      */
-    private function define_admin_hooks() {
+    private function define_admin_hooks()
+    {
+        $plugin_admin = new JSV_360_Admin($this->pluginName, $this->version);
 
-        $plugin_admin = new JSV_360_Admin( $this->pluginName, $this->version );
+        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+//        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
-        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-        $this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-
-        $this->loader->add_action( 'admin_menu', $plugin_admin, 'load_menu' );
+        $this->loader->add_action('admin_menu', $plugin_admin, 'load_menu');
     }
 
     /**
@@ -82,11 +87,13 @@ class JSV_360
     {
         $pluginPublic = new JSV_360_Public($this->pluginName, $this->version);
         $parser       = new JSV_360_Parser($this->pluginName, $this->version);
-        $widget = new JSV_360_Widget();
+        $widget       = new JSV_360_Widget();
 
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_scripts');
         $this->loader->add_action('widgets_init', $widget, 'register');
+
+
 
         $this->loader->add_filter('the_content', $parser, 'parse');
     }
@@ -97,5 +104,14 @@ class JSV_360
     public function run()
     {
         $this->loader->run();
+    }
+
+    private function loadPluginHooks()
+    {
+        // Woocommerce
+        if (JSV_360_WOO::woocommerceIsActive()) {
+            (new JSV_360_WOO($this->version, $this->pluginName, $this->loader))->run();
+        }
+
     }
 }
