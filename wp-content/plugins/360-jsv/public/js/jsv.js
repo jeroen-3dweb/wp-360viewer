@@ -65,4 +65,46 @@ window.addEventListener('load', () => {
     for (let index = 0; index < nodes.length; ++index) {
         window.JSV.items.push(new JsvInstance(nodes[index]));
     }
+
+    // override photoswipe
+    // overridePhotoSwipe()
 });
+
+function loadjsv(code, id, large){
+    console.log('jsv loaded in div', code, id);
+    setTimeout(() => {
+        const parent = document.getElementById(id);
+        parent.innerHTML = code;
+        setTimeout(()=> {
+            for (let index = 0; index < parent.childNodes.length; ++index) {
+                window.JSV.items.push(new JsvInstance(parent.childNodes[index]));
+            }
+        }, 200)
+
+
+        const trigger =  document.getElementsByClassName('woocommerce-product-gallery__trigger');
+        if(trigger.length > 0){
+            trigger[0].addEventListener('click', () => {
+                setTimeout(()=>{
+                    const nodes =  document.getElementsByClassName('pswp__zoom-wrap');
+                    for (let index = 0; index < nodes.length; ++index) {
+                        if(nodes[index].childNodes.length === 0){
+                            nodes[index].innerHTML = large;
+                            setTimeout(()=> {
+                                debugger
+                                window.JSV.items.push(new JsvInstance(nodes[index].childNodes[0]));
+                            }, 200);
+                        }
+                    }
+                })
+            })
+        }
+
+
+    }, 2000)
+
+
+
+
+
+}
