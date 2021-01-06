@@ -49,8 +49,8 @@ class JSV_360_Public_Woo
                 $htmlLarge = (new JSV_360_Parser($this->plugin_name, $this->version))->parse($bbCode);
                 $randomId = $this->generateId();
 
-                $mainImage  = 'https://placehold.it/600';
-                $thumbImage = 'https://placehold.it/100';
+                $mainImage  = 'https://360-viewer.gumlet.net/blue-shoe-small/20180906-001-blauw.jpg';
+                $thumbImage = plugins_url('/img/icon.png', __FILE__);
                 $text       =
                     <<<EOD
                     <div data-thumb="$thumbImage"  class="woocommerce-product-gallery__image">

@@ -66,9 +66,12 @@ window.addEventListener('load', () => {
         window.JSV.items.push(new JsvInstance(nodes[index]));
     }
 
+
     // override photoswipe
     // overridePhotoSwipe()
 });
+
+
 
 function loadjsv(code, id, large){
     console.log('jsv loaded in div', code, id);
@@ -81,24 +84,42 @@ function loadjsv(code, id, large){
             }
         }, 200)
 
-
-        const trigger =  document.getElementsByClassName('woocommerce-product-gallery__trigger');
-        if(trigger.length > 0){
-            trigger[0].addEventListener('click', () => {
-                setTimeout(()=>{
-                    const nodes =  document.getElementsByClassName('pswp__zoom-wrap');
-                    for (let index = 0; index < nodes.length; ++index) {
-                        if(nodes[index].childNodes.length === 0){
-                            nodes[index].innerHTML = large;
-                            setTimeout(()=> {
-                                debugger
-                                window.JSV.items.push(new JsvInstance(nodes[index].childNodes[0]));
-                            }, 200);
+        loadAnimation = function (){
+           const existing = document.getElementById('360-slide');
+           if(existing && existing.childNodes.length > 0){
+               existing.removeChild(existing.childNodes[0])
+           }
+            setTimeout(()=>{
+                const nodes =  document.getElementsByClassName('pswp__item');
+                for (let index = 0; index < nodes.length; ++index) {
+                    if(nodes[index].childNodes.length === 1){
+                        if(nodes[index].childNodes[0].childNodes.length === 0) {
+                            // nodes[index].parentElement.removeChild(nodes[index])
                         }
+                        // nodes[index].id = "360-slide";
+                        // nodes[index].innerHTML = large;
+                        // setTimeout(()=> {
+                        //     window.JSV.items.push(new JsvInstance(nodes[index].childNodes[0]));
+                        // }, 200);
                     }
-                })
-            })
+                }
+            }, 200)
         }
+        //
+        // const trigger =  document.getElementsByClassName('woocommerce-product-gallery__trigger');
+        // if(trigger.length > 0){
+        //     trigger[0].addEventListener('click',  loadAnimation)
+        // }
+        //
+        // const triggerButtonsLeft =  document.getElementsByClassName('pswp__button--arrow--left');
+        // if(triggerButtonsLeft.length > 0){
+        //     triggerButtonsLeft[0].addEventListener('click',  loadAnimation)
+        // }
+        //
+        // const triggerButtons =  document.getElementsByClassName('pswp__button--arrow--right');
+        // if(triggerButtons.length > 0){
+        //     triggerButtons[0].addEventListener('click',  loadAnimation)
+        // }
 
 
     }, 2000)

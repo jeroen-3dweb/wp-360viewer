@@ -27,6 +27,7 @@ class JSV_360_Parser
         $this->version = $version;
     }
 
+
     /**
      * @param $content
      * @return string
