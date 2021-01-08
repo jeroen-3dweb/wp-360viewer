@@ -49,23 +49,22 @@ class JSV_360_Public_Woo
                 $htmlLarge = (new JSV_360_Parser($this->plugin_name, $this->version))->parse($bbCode);
                 $randomId = $this->generateId();
 
-                $mainImage  = 'https://360-viewer.gumlet.net/blue-shoe-small/20180906-001-blauw.jpg';
                 $thumbImage = plugins_url('/img/icon.png', __FILE__);
                 $text       =
                     <<<EOD
-                    <div data-thumb="$thumbImage"  class="woocommerce-product-gallery__image">
-                        <script lang="text/javascript">loadjsv(`$html`, `$randomId`,'$htmlLarge')</script>
-                          <a href="$mainImage" id="$randomId">
-                            <img width="416" height="312"
-                            src="" 
-                            class="wp-post-image" alt="" loading="lazy" title="blauw" data-caption="" 
-                            data-large_image="$mainImage" 
-                            data-large_image_width="640" 
-                            data-large_image_height="480" />
-                        </a>
-                    </div>                    
+                        <div data-thumb="$thumbImage"  class="woocommerce-product-gallery__image">
+                            <script lang="text/javascript">createJsvWooInstance(`$html`, `$randomId`, `$htmlLarge`)</script>
+                              <a href="$thumbImage" id="$randomId">
+                                <img width="416" height="312"
+                                src="" 
+                                class="wp-post-image" alt="" loading="lazy" title="blauw" data-caption=""  
+                                data-large_image="$thumbImage" 
+                                data-large_image_width="640" 
+                                data-large_image_height="480"
+                                 />                                
+                            </a>                            
+                        </div>                    
                     EOD;
-
 
                 return $d .$text;
             }
@@ -78,5 +77,26 @@ class JSV_360_Public_Woo
         /** @var WC_Product $product */
         global $product;
         return $product->get_meta(JSV_360_WOO_METABOX::FIELD_BBCODE) ?: null;
+    }
+
+
+    /**
+     * Register the JavaScript for the public-facing side of the site.
+     *
+     * @since    1.5.0
+     */
+    public function enqueue_scripts()
+    {
+        wp_enqueue_script($this->plugin_name . '_woo_js', plugin_dir_url(__FILE__) . 'js/woo.js', array('javascriptviewer'), $this->version);
+    }
+
+    /**
+     * Register the stylesheets for the public-facing side of the site.
+     *
+     * @since    1.5.0
+     */
+    public function enqueue_styles()
+    {
+        wp_enqueue_style($this->plugin_name . '_woo_css', plugin_dir_url(__FILE__) . 'css/woo.css', array(), $this->version, 'all');
     }
 }

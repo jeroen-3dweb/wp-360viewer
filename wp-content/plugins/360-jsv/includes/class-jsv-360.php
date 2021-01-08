@@ -71,7 +71,6 @@ class JSV_360
         $plugin_admin = new JSV_360_Admin($this->pluginName, $this->version);
 
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
-//        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
         $this->loader->add_action('admin_menu', $plugin_admin, 'load_menu');
     }
@@ -92,8 +91,6 @@ class JSV_360
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_scripts');
         $this->loader->add_action('widgets_init', $widget, 'register');
-
-
 
         $this->loader->add_filter('the_content', $parser, 'parse');
     }

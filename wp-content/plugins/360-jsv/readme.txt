@@ -15,6 +15,7 @@ Turn a series of images into an interactive 360 degree view.
 
 ####Features####
 * Full 360° view
+* WooCommerce support
 * Responsive design
 * Zoom by wheel(mouse) or pinch(mobile)
 * Unlimited presentations on a single page
@@ -28,6 +29,7 @@ Turn a series of images into an interactive 360 degree view.
 * Reverse autorotation
 * Speed autorotation otherwise it uses the speed of the viewer
 * Custom start frame
+* Stop at edges
 * Float and margin for some placement control
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
 * Widget
@@ -68,7 +70,9 @@ Turn a series of images into an interactive 360 degree view.
 1. Put your 360 images in your own media library.
 2. Configure the viewer and create a shortcode at 360-javascriptviewer.com
 3. Paste the shortcode anywhere in a post or page
-3. Responsive viewer integrated on a page
+4. Responsive viewer integrated on a page
+5. WooCommerce front in product gallery with support for photoswipe in lightbox
+6. WooCommerce product admin, add shortcode to show an 360 product view
 
 == Changelog ==
 = 1.0 =
@@ -87,3 +91,5 @@ Turn a series of images into an interactive 360 degree view.
 * Added rotate to edges
 = 1.4.0 =
 * Added widget
+1.5.0 =
+* Added WooCommerce support

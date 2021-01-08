@@ -77,6 +77,9 @@ class JSV_360_WOO
             10,
             2
         );
+
+        $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_scripts');
+        $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_styles');
     }
 
     /**
