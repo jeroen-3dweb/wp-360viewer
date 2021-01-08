@@ -1,7 +1,6 @@
 /* global JSV:[] */
 class JsvInstance {
     constructor(node) {
-        console.log('create instance')
         this.data = this.getData(node);
         this.mainHolderId = this.getMainHolderId(node);
         this.mainImageId = this.getMainImageId(node);
