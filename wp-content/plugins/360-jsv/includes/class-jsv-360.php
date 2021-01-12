@@ -75,9 +75,9 @@ class JSV_360
         $this->loader->add_action('admin_menu', $plugin_admin, 'load_menu');
 
         register_activation_hook(JSV360_MAIN_URL, [$plugin_admin, 'activation']);
+        register_deactivation_hook(JSV360_MAIN_URL, [$plugin_admin, 'de_activation']);
 
         $this->loader->add_action('admin_init', $plugin_admin, 'load_startup');
-
     }
 
 
@@ -115,6 +115,5 @@ class JSV_360
         if (JSV_360_WOO::woocommerceIsActive()) {
             (new JSV_360_WOO($this->version, $this->pluginName, $this->loader))->run();
         }
-
     }
 }

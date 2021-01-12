@@ -94,4 +94,8 @@ class JSV_360_Admin
     public function activation(){
         add_option(self::REDIRECT_OPTION_NAME, true);
     }
+
+    public function de_activation(){
+        delete_option(self::REDIRECT_OPTION_NAME);
+    }
 }
