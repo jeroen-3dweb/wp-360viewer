@@ -2,6 +2,8 @@
 
 class JSV_360_Admin
 {
+    const REDIRECT_OPTION_NAME = 'jsv360_do_activation_redirect';
+
     private $pluginName;
 
     private $version;
@@ -53,17 +55,6 @@ class JSV_360_Admin
      */
     public function enqueue_scripts()
     {
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Plugin_Name_Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Plugin_Name_Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
 //
 //        wp_enqueue_script(
 //            $this->pluginName,
@@ -90,5 +81,17 @@ class JSV_360_Admin
         );
     }
 
+    public function load_startup()
+    {
+        if (get_option(self::REDIRECT_OPTION_NAME, false)) {
+            delete_option(self::REDIRECT_OPTION_NAME);
+            if(!isset($_GET['activate-multi'])) {
+                wp_redirect("admin.php?page=360-javascript-viewer");
+            }
+        }
+    }
 
+    public function activation(){
+        add_option(self::REDIRECT_OPTION_NAME, true);
+    }
 }

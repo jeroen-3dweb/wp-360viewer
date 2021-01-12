@@ -73,7 +73,13 @@ class JSV_360
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
 
         $this->loader->add_action('admin_menu', $plugin_admin, 'load_menu');
+
+        register_activation_hook(JSV360_MAIN_URL, [$plugin_admin, 'activation']);
+
+        $this->loader->add_action('admin_init', $plugin_admin, 'load_startup');
+
     }
+
 
     /**
      * Register all of the hooks related to the public-facing functionality

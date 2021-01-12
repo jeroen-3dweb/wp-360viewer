@@ -50,6 +50,8 @@ if ( ! function_exists( 'jsv_360viewer' ) ) {
 }
 
 define('JSV360_VERSION', '1.5.0');
+define('JSV360_PATH', plugin_dir_path(__FILE__));
+define('JSV360_MAIN_URL', __FILE__);
 
 require plugin_dir_path(__FILE__) . 'includes/class-jsv-360.php';
 
