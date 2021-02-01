@@ -85,11 +85,13 @@ Turn a series of images into an interactive 360 degree view.
 * Added zoom functions
 = 1.2.1 =
 * Fix scrolling bug, update jsv to v1.2.7
-1.2.2 =
+= 1.2.2 =
 * Fix parameter bug
 = 1.3.0 =
 * Added rotate to edges
 = 1.4.0 =
 * Added widget
-1.5.0 =
+= 1.5.0 =
 * Added WooCommerce support
+= 1.5.2 =
+* Added object support in bb code for notification

@@ -114,20 +114,7 @@ class JSV_360_Parser
 
     /**
      * @param $dataAttributes
-     *
-     * @return null|string
-     */
-    private function getMaxWidth($dataAttributes)
-    {
-        if (isset($dataAttributes['max-width'])) {
-            return $dataAttributes['max-width'];
-        }
-        return null;
-    }
-
-    /**
-     * @param $dataAttributes
-     *
+     * @param $name
      * @return null|string
      */
     private function getAttribute($dataAttributes, $name)
@@ -137,7 +124,6 @@ class JSV_360_Parser
         }
         return null;
     }
-
 
     /**
      * @param $type

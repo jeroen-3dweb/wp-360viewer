@@ -28,34 +28,57 @@ class JsvInstance {
         return node.id;
     }
 
+    deepen(obj) {
+        const result = {};
+
+        // For each object path (property key) in the object
+        for (const objectPath in obj) {
+            // Split path into component parts
+            const parts = objectPath.split('_');
+
+            // Create sub-objects along path as needed
+            let target = result;
+            while (parts.length > 1) {
+                const part = parts.shift();
+                target = target[this.camelCase(part)] = target[part] || {};
+            }
+
+            // Set value at end of path
+            target[this.camelCase(parts[0])] = obj[objectPath]
+        }
+
+        return result;
+    }
+
+    camelCase(str) {
+        const delimiters = '-';
+        const DEFAULT_REGEX = /[-_]+(.)?/g;
+
+        const toUpper = (match, group1) => {
+            return group1 ? group1.toUpperCase() : '';
+        }
+        return str.replace(delimiters ?
+            new RegExp('[' + delimiters + ']+(.)?', 'g') :
+            DEFAULT_REGEX, toUpper);
+    };
+
     getData(node) {
         let data = {};
 
-        const camelCase = (function () {
-            const DEFAULT_REGEX = /[-_]+(.)?/g;
-
-            function toUpper(match, group1) {
-                return group1 ? group1.toUpperCase() : '';
-            }
-
-            return function (str, delimiters) {
-                return str.replace(delimiters ?
-                    new RegExp('[' + delimiters + ']+(.)?', 'g') :
-                    DEFAULT_REGEX, toUpper);
-            };
-        })();
-
-        [].forEach.call(node.attributes, function (attr) {
+        [].forEach.call(node.attributes, (attr) => {
             if (/^data-/.test(attr.name)) {
                 let val = parseInt(attr.value) || attr.value;
                 val = val.toString().length === attr.value.length ? val : attr.value;
                 if (typeof val === 'string' && (val.toLowerCase() === 'true' || val.toLowerCase() === 'false')) {
                     val = val.toLowerCase() === 'true'
                 }
-                data[camelCase(attr.name.substr(5), '-')] = val;
+
+                data[this.camelCase(attr.name.substr(5), '-')] = val;
+
             }
         });
-        return data;
+
+       return this.deepen(data);
     }
 }
 
