@@ -6,11 +6,10 @@ class JSV_360_Loader {
 
 	protected $filters;
 
-	public function __construct() {
+    public function __construct() {
 		$this->actions = array();
 		$this->filters = array();
 	}
-
 
     /**
      * @param string $hook
@@ -23,7 +22,6 @@ class JSV_360_Loader {
 		$this->actions = $this->add( $this->actions, $hook, $component, $callback, $priority, $accepted_args );
 	}
 
-
     /**
      * @param string $hook
      * @param $component
@@ -34,7 +32,6 @@ class JSV_360_Loader {
     public function add_filter($hook, $component, $callback, $priority = 10, $accepted_args = 1 ) {
 		$this->filters = $this->add( $this->filters, $hook, $component, $callback, $priority, $accepted_args );
 	}
-
 
     /**
      * @param array $hooks

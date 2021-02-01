@@ -9,25 +9,30 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Stable tag: 1.5.6
 
-Turn a series of product images into an interactive 360 degree view.
+Turn a series of images into an interactive 360 degree view.
 
 == Description ==
 
 ####Features####
 * Full 360° view
+* WooCommerce support
 * Responsive design
+* Zoom by wheel(mouse) or pinch(mobile)
 * Unlimited presentations on a single page
 * Just upload your images to your media library, no external service needed
-* Variable amount of frames, limit is 365 images
+* Variable amount of images, limit is 365 images
 * Customize speed and inertia
 * Reverse dragging
+* Rotate to edges
 * Custom frame format, no renaming of files
-* Optional autorotation on start
+* Optional autorotation on start 1 is one rotation after start and 2 is 2 rotations and so on
 * Reverse autorotation
-* Speed autorotation
+* Speed autorotation otherwise it uses the speed of the viewer
 * Custom start frame
-* Float and margin
+* Stop at edges
+* Float and margin for some placement control
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
+* Widget
 * Very lightweight (50kb)
 
 == Installation ==
@@ -50,6 +55,7 @@ Turn a series of product images into an interactive 360 degree view.
 * **auto-rotate** use this setting for rotating the view at start. Rotation stops when user drags the model or another animation method is called. 0 is no rotation and 10 is 10 rotations at start
 * **auto-rotate-speed** use this setting for changing the speed of the auto rotating
 * **auto-rotate-reverse** use this setting for changing the direction of the auto rotating
+* **stop-at-edges** blocks repeating images after reaching last image
 * **max-width** sets the max-width of the presentation in px
 * **float** use left or right to align the presentation
 * **margin-left** set the left margin
@@ -57,12 +63,16 @@ Turn a series of product images into an interactive 360 degree view.
 * **margin-top** set the top margin
 * **margin-bottom** set the bottom margin
 
+[youtube https://www.youtube.com/watch?v=qYCD2sL1lM0&ab_channel=360JavascriptViewer]
+
 == Screenshots ==
 
 1. Put your 360 images in your own media library.
-2. Configure the viewer and get shortcodes [here](https://www.360-javascriptviewer.com/wordpress)
+2. Configure the viewer and create a shortcode at 360-javascriptviewer.com
 3. Paste the shortcode anywhere in a post or page
-3. Responsive viewer integrated on a page
+4. Responsive viewer integrated on a page
+5. WooCommerce front in product gallery with support for photoswipe in lightbox
+6. WooCommerce product admin, add shortcode to show an 360 product view
 
 == Changelog ==
 = 1.0 =
@@ -71,3 +81,17 @@ Turn a series of product images into an interactive 360 degree view.
 * Bugfixes in viewer, update to v0.0.45
 = 1.1.0 =
 * Added optional autorotation on start
+= 1.2.0 =
+* Added zoom functions
+= 1.2.1 =
+* Fix scrolling bug, update jsv to v1.2.7
+= 1.2.2 =
+* Fix parameter bug
+= 1.3.0 =
+* Added rotate to edges
+= 1.4.0 =
+* Added widget
+= 1.5.0 =
+* Added WooCommerce support
+= 1.5.2 =
+* Added object support in bb code for notification

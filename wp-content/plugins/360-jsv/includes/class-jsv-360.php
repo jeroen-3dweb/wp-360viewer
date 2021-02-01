@@ -34,6 +34,9 @@ class JSV_360
 
         $this->loadDependencies();
         $this->definePublicHooks();
+        $this->define_admin_hooks();
+
+        $this->loadPluginHooks();
     }
 
     /**
@@ -47,9 +50,36 @@ class JSV_360
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-jsv-360-loader.php';
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-jsv-360-parser.php';
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-jsv-360-public.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-jsv-360-admin.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'widgets/class-jsv-360-widget.php';
+
+        //  Plugins
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/woo/class-jsv-360-woo.php';
 
         $this->loader = new JSV_360_Loader();
     }
+
+    /**
+     * Register all of the hooks related to the admin area functionality
+     * of the plugin.
+     *
+     * @since    1.0.0
+     * @access   private
+     */
+    private function define_admin_hooks()
+    {
+        $plugin_admin = new JSV_360_Admin($this->pluginName, $this->version);
+
+        $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+
+        $this->loader->add_action('admin_menu', $plugin_admin, 'load_menu');
+
+        register_activation_hook(JSV360_MAIN_URL, [$plugin_admin, 'activation']);
+        register_deactivation_hook(JSV360_MAIN_URL, [$plugin_admin, 'de_activation']);
+
+        $this->loader->add_action('admin_init', $plugin_admin, 'load_startup');
+    }
+
 
     /**
      * Register all of the hooks related to the public-facing functionality
@@ -62,9 +92,11 @@ class JSV_360
     {
         $pluginPublic = new JSV_360_Public($this->pluginName, $this->version);
         $parser       = new JSV_360_Parser($this->pluginName, $this->version);
+        $widget       = new JSV_360_Widget();
 
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_scripts');
+        $this->loader->add_action('widgets_init', $widget, 'register');
 
         $this->loader->add_filter('the_content', $parser, 'parse');
     }
@@ -75,5 +107,13 @@ class JSV_360
     public function run()
     {
         $this->loader->run();
+    }
+
+    private function loadPluginHooks()
+    {
+        // Woocommerce
+        if (JSV_360_WOO::woocommerceIsActive()) {
+            (new JSV_360_WOO($this->version, $this->pluginName, $this->loader))->run();
+        }
     }
 }

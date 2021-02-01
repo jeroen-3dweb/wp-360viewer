@@ -4,7 +4,7 @@ class JSV_360_Parser
 {
     const SHORTCODE_ID = '360-jsv';
 
-    const DEFAULT_URL = 'https:///azipdtpxfp.cloudimg.io/v7/https://www.360-javascriptviewer.com/images/ipod/ipod.jpg';
+    const DEFAULT_URL = 'https://www.360-javascriptviewer.com/images/ipod/ipod.jpg';
 
     /**
      * @var string $pluginName
@@ -27,6 +27,7 @@ class JSV_360_Parser
         $this->version = $version;
     }
 
+
     /**
      * @param $content
      * @return string
@@ -35,7 +36,14 @@ class JSV_360_Parser
     {
         $codes = [];
         foreach ($this->getShortCodes($content) as $shortCode) {
+            if(empty($shortCode))
+                continue;
+
             $data = shortcode_parse_atts($shortCode);
+            if(empty($data)){
+                echo 'error in shortcode:' . $shortCode . PHP_EOL;
+                continue;
+            }
             $codes[] = $this->getHtml($data);
         };
 
@@ -106,20 +114,7 @@ class JSV_360_Parser
 
     /**
      * @param $dataAttributes
-     *
-     * @return null|string
-     */
-    private function getMaxWidth($dataAttributes)
-    {
-        if (isset($dataAttributes['max-width'])) {
-            return $dataAttributes['max-width'];
-        }
-        return null;
-    }
-
-    /**
-     * @param $dataAttributes
-     *
+     * @param $name
      * @return null|string
      */
     private function getAttribute($dataAttributes, $name)
@@ -129,7 +124,6 @@ class JSV_360_Parser
         }
         return null;
     }
-
 
     /**
      * @param $type
@@ -172,6 +166,7 @@ class JSV_360_Parser
     private function getDataAttributes($data, $holderId, $imageId)
     {
         $arr = [];
+
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
             $value = is_numeric($value) ? (int)$value : $value;
