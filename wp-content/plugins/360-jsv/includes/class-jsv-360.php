@@ -20,15 +20,12 @@ class JSV_360
     /**
      * JSV constructor.
      *
+     * @param $version
      * @since 1.0.0
      */
-    public function __construct()
+    public function __construct($version)
     {
-        if (defined('JSV_VERSION')) {
-            $this->version = JSV360_VERSION;
-        } else {
-            $this->version = '1.0.0';
-        }
+        $this->version = $version;
 
         $this->pluginName = '360 jsv';
 

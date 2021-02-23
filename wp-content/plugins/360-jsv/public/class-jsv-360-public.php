@@ -50,7 +50,7 @@ class JSV_360_Public
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script('javascriptviewer', 'https://cdn.jsdelivr.net/npm/@3dweb/360javascriptviewer/lib/JavascriptViewer.min.js', array(), '0.0.46');
-        wp_enqueue_script('jsv360', plugin_dir_url(__FILE__) . 'js/jsv.js', array('javascriptviewer'), '1.0');
+        wp_enqueue_script('javascriptviewer', 'https://cdn.jsdelivr.net/npm/@3dweb/360javascriptviewer/lib/JavascriptViewer.min.js', array(), $this->version);
+        wp_enqueue_script('jsv360', plugin_dir_url(__FILE__) . 'js/jsv.js', array('javascriptviewer'), $this->version);
     }
 }

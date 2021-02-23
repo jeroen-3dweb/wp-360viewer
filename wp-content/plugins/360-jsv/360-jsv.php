@@ -7,7 +7,7 @@ Author: 360 Javascript Viewer
 Author URI: https://www.360-javascriptviewer.com/
 Developer: Jeroen Termaat
 Developer URI: https://www.360-javscriptviewer.com/
-Version: 1.5.3
+Version: 1.5.4
 Last Modified: 2020-08-28
 License: GPLv2
 */
@@ -15,16 +15,16 @@ License: GPLv2
 if (!defined('WPINC')) {
     die;
 }
-
-define('JSV360_VERSION', '1.5.3');
+$jsvVersion = '1.5.4';
+define('JSV360_VERSION', $jsvVersion);
 define('JSV360_PATH', plugin_dir_path(__FILE__));
 define('JSV360_MAIN_URL', __FILE__);
 
 require plugin_dir_path(__FILE__) . 'includes/class-jsv-360.php';
 
-function run_jsv360()
+function run_jsv360($version)
 {
-    (new JSV_360())->run();
+    (new JSV_360($version))->run();
 }
 
-run_jsv360();
+run_jsv360($jsvVersion);
