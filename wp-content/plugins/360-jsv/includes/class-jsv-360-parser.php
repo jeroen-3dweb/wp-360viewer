@@ -24,7 +24,7 @@ class JSV_360_Parser
     public function __construct($pluginName, $version)
     {
         $this->pluginName = $pluginName;
-        $this->version = $version;
+        $this->version    = $version;
     }
 
 
@@ -36,11 +36,19 @@ class JSV_360_Parser
     {
         $codes = [];
         foreach ($this->getShortCodes($content) as $shortCode) {
-            if(empty($shortCode))
+            if (empty($shortCode)) {
                 continue;
+            }
 
-            $data = shortcode_parse_atts($shortCode);
-            if(empty($data)){
+            $data  = shortcode_parse_atts($shortCode);
+            $imageId = get_option(JSV_360_Admin::NOTIFIER_IMAGE_ID, null);
+            if ($imageId) {
+               $image = wp_get_attachment_image_src($imageId ) ;
+                $data['notification-config_drag-to-rotate_show-start-to-rotate-default-notification'] = false;
+                $data['notification-config_drag-to-rotate_image-url'] = $image[0];
+            }
+
+            if (empty($data)) {
                 echo 'error in shortcode:' . $shortCode . PHP_EOL;
                 continue;
             }
@@ -57,7 +65,7 @@ class JSV_360_Parser
     private function getShortCodes($content)
     {
         $questions = [];
-        $pattern = sprintf('/\[%s(.*?)\]/', self::SHORTCODE_ID);
+        $pattern   = sprintf('/\[%s(.*?)\]/', self::SHORTCODE_ID);
         if (preg_match_all($pattern, $content, $questions)) {
             $questions = array_key_exists(1, $questions) ? $questions[1] : array();
         }
@@ -72,18 +80,18 @@ class JSV_360_Parser
     private function getHtml($data)
     {
         $holderId = $this->getRandomId('holder');
-        $imageId = $this->getRandomId('img');
+        $imageId  = $this->getRandomId('img');
 
         $dataAttributes = $this->getDataAttributes($data, $holderId, $imageId);
-        $src = $this->getImageUrl($data);
-        $mw = $this->getAttribute($data, 'max-width');
-        $float = $this->getAttribute($data, 'float');
-        $marginLeft = $this->getAttribute($data, 'margin-left');
-        $marginRight = $this->getAttribute($data, 'margin-right');
-        $marginTop = $this->getAttribute($data, 'margin-top');
-        $marginBottom = $this->getAttribute($data, 'margin-bottom');
-        $style = '';
-        if($mw || $float || $marginLeft) {
+        $src            = $this->getImageUrl($data);
+        $mw             = $this->getAttribute($data, 'max-width');
+        $float          = $this->getAttribute($data, 'float');
+        $marginLeft     = $this->getAttribute($data, 'margin-left');
+        $marginRight    = $this->getAttribute($data, 'margin-right');
+        $marginTop      = $this->getAttribute($data, 'margin-top');
+        $marginBottom   = $this->getAttribute($data, 'margin-bottom');
+        $style          = '';
+        if ($mw || $float || $marginLeft) {
             $style = 'style="';
             $style .= $mw ? sprintf('max-width:%spx; ', $mw) : '';
             $style .= $float ? sprintf('float:%s; ', $float) : '';
@@ -169,9 +177,9 @@ class JSV_360_Parser
 
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
-            $value = is_numeric($value) ? (int)$value : $value;
-            $value = str_replace(['”', "'", '&#8221;'], "", $value);
-            $arr[] = sprintf('data-%s="%s"', $saveKey, $value);
+            $value   = is_numeric($value) ? (int)$value : $value;
+            $value   = str_replace(['”', "'", '&#8221;'], "", $value);
+            $arr[]   = sprintf('data-%s="%s"', $saveKey, $value);
         }
 
         $arr[] = sprintf('data-main-holder-id="%s"', $holderId);

@@ -30,6 +30,7 @@ Turn a series of images into an interactive 360 degree view.
 * Speed autorotation otherwise it uses the speed of the viewer
 * Custom start frame
 * Stop at edges
+* Use your own notifier
 * Float and margin for some placement control
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
 * Widget
@@ -95,3 +96,5 @@ Turn a series of images into an interactive 360 degree view.
 * Added WooCommerce support
 = 1.5.2 =
 * Added object support in bb code for notification
+= 1.6.0 =
+* Use your own notifier

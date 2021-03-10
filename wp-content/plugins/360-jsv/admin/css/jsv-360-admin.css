@@ -994,3 +994,13 @@ p.jsv-subtitle {
     background-color: #a2a2a2;
     text-align: center;
 }
+
+/*upload*/
+.jsv-notifier-upload-thumb {
+    width: 80px;
+}
+
+.jsv-notifier-settings{
+    min-height: 200px;
+    padding: 10px;
+}
