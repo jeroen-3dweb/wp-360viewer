@@ -85,6 +85,8 @@
                                     </li>
 
                                 </ul>
+
+
                                 <a id='jsv-go-button'
                                    href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=pluginhome&utm_campaign=3dweb"
                                    target="_blank"
@@ -102,8 +104,19 @@
                                     </span>
                                 </span>
                                 </a>
+
+                                <form method='post'>
+                                    <h2>Notifier settings</h2>
+                                    <p>Change the default image when the viewer has started. </p>
+                                    <div class="jsv-notifier-settings"><?php
+                                        include 'jsv-360-admin-display-notifier.php' ?>
+                                    </div>
+                                </form>
+
+
                             </div>
-                            <div class="jsv-rating">If you like this free plugin please leave us a 5 &#9733 rating. A huge
+                            <div class="jsv-rating">If you like this free plugin please leave us a 5 &#9733 rating. A
+                                huge
                                 thanks in
                                 advance!
                                 <a href="https://wordpress.org/plugins/360deg-javascript-viewer/#reviews?rate=5#new-post"

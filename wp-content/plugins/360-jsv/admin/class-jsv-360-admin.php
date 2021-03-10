@@ -3,6 +3,7 @@
 class JSV_360_Admin
 {
     const REDIRECT_OPTION_NAME = 'jsv360_do_activation_redirect';
+    const NOTIFIER_IMAGE_ID = 'jsv360_notifier_image_id';
 
     private $pluginName;
 
@@ -18,6 +19,21 @@ class JSV_360_Admin
     {
         $this->pluginName = $pluginName;
         $this->version    = $version;
+
+        $this->loadAjaxHooks();
+    }
+
+    private function loadAjaxHooks()
+    {
+        add_action('wp_ajax_jsv_save_settings', array($this, 'save_settings'));
+        add_action('wp_ajax_nopriv_jsv_save_settings', array($this, 'save_settings'));
+    }
+
+    public function save_settings()
+    {
+        $jsvNotifierImage= _sanitize_text_fields($_POST['jsv_notifier_image']);
+        update_option(self::NOTIFIER_IMAGE_ID, $jsvNotifierImage);
+        wp_send_json_success( 'Ajax here!' );
     }
 
     /**
@@ -55,18 +71,24 @@ class JSV_360_Admin
      */
     public function enqueue_scripts()
     {
-//
-//        wp_enqueue_script(
-//            $this->pluginName,
-//            plugin_dir_url(__FILE__) . 'js/plugin-name-admin.js',
-//            array('jquery'),
-//            $this->version,
-//            false
-//        );
+        if (!did_action('wp_enqueue_media')) {
+            wp_enqueue_media();
+        }
+        wp_enqueue_script('jsv-upload', plugin_dir_url(__FILE__) . '/js/upload.js', array('jquery'));
+
+        wp_localize_script(
+            'jsv-upload',
+            'jsvUpload',
+            [
+                'ajaxUrl'  => admin_url('admin-ajax.php'),
+                'security' => wp_create_nonce('jsv_save_setting'),
+            ]
+        );
     }
 
     public function init_360_admin()
     {
+        $image_id = get_option(self::NOTIFIER_IMAGE_ID, null);
         echo require(__DIR__ . '/partials/jsv-360-admin-display.php');
     }
 
@@ -77,7 +99,7 @@ class JSV_360_Admin
             '360 Javascript Viewer',
             'manage_options',
             '360-javascript-viewer',
-          [$this,'init_360_admin']
+            [$this, 'init_360_admin']
         );
     }
 
@@ -85,17 +107,21 @@ class JSV_360_Admin
     {
         if (get_option(self::REDIRECT_OPTION_NAME, false)) {
             delete_option(self::REDIRECT_OPTION_NAME);
-            if(!isset($_GET['activate-multi'])) {
+            if (!isset($_GET['activate-multi'])) {
                 wp_redirect("admin.php?page=360-javascript-viewer");
             }
         }
     }
 
-    public function activation(){
+    public function activation()
+    {
         add_option(self::REDIRECT_OPTION_NAME, true);
     }
 
-    public function de_activation(){
+    public function de_activation()
+    {
         delete_option(self::REDIRECT_OPTION_NAME);
     }
+
+
 }
