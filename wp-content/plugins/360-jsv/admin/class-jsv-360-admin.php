@@ -74,7 +74,7 @@ class JSV_360_Admin
         if (!did_action('wp_enqueue_media')) {
             wp_enqueue_media();
         }
-        wp_enqueue_script('jsv-upload', plugin_dir_url(__FILE__) . '/js/upload.js', array('jquery'));
+        wp_enqueue_script('jsv-upload', plugin_dir_url(__FILE__) . 'js/upload.js', array('jquery'), $this->version);
 
         wp_localize_script(
             'jsv-upload',
