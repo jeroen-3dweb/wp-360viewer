@@ -4,6 +4,7 @@ class JSV_360_Admin
 {
     const REDIRECT_OPTION_NAME = 'jsv360_do_activation_redirect';
     const NOTIFIER_IMAGE_ID = 'jsv360_notifier_image_id';
+    const NOTIFIER_LICENSE = 'jsv360_license';
 
     private $pluginName;
 
@@ -31,9 +32,15 @@ class JSV_360_Admin
 
     public function save_settings()
     {
-        $jsvNotifierImage= _sanitize_text_fields($_POST['jsv_notifier_image']);
-        update_option(self::NOTIFIER_IMAGE_ID, $jsvNotifierImage);
-        wp_send_json_success( 'Ajax here!' );
+        if(isset($_POST['jsv_notifier_image'])) {
+            $jsvNotifierImage = _sanitize_text_fields($_POST['jsv_notifier_image']);
+            update_option(self::NOTIFIER_IMAGE_ID, $jsvNotifierImage);
+        }
+        if(isset($_POST['jsv_license'])) {
+            $jsvLicense= _sanitize_text_fields($_POST['jsv_license']);
+            update_option(self::NOTIFIER_LICENSE, $jsvLicense);
+        }
+        wp_send_json_success( 'success' );
     }
 
     /**
@@ -89,6 +96,7 @@ class JSV_360_Admin
     public function init_360_admin()
     {
         $image_id = get_option(self::NOTIFIER_IMAGE_ID, null);
+        $license = get_option(self::NOTIFIER_LICENSE, null);
         echo require(__DIR__ . '/partials/jsv-360-admin-display.php');
     }
 
