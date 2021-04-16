@@ -9,7 +9,7 @@
                             <div class="jsv-logo-poppins"></div>
                             <div>
                                 <img src="<?php
-                                echo plugins_url('admin/img/logo.webp', JSV360_MAIN_URL) ?>" class="jsv-logo"
+                                echo plugins_url('admin/img/sign-130.png', JSV360_MAIN_URL) ?>" class="jsv-logo"
                                      alt="360 Javascript Viewer">
                             </div>
                         </div>
@@ -24,7 +24,7 @@
                                 </h1>
                                 <h6 class="jsv-typography-root jsv-typography-h6 jsv-mt-4 jsv-mb-2">
                                     <?= __(
-                                        'Official plugin for the 360° javascript viewer. <br>Create unlimited free 360° product presentations with all kind of options.',
+                                        'Official plugin for the 360° javascript viewer. <br>Create unlimited 360° product presentations with all kind of options.',
                                         'jsv'
                                     ) ?>
                                 </h6>
@@ -111,11 +111,20 @@
                                     <div class="jsv-notifier-settings"><?php
                                         include 'jsv-360-admin-display-notifier.php' ?>
                                     </div>
+                                    <p>To remove the powered by icon you need to have a licence.
+                                        You can get it <a id="jsv-purchase-link" target="_blank" href="#" >here </a>
+                                    </p>
+                                    <div class="jsv-notifier-settings"><?php
+                                        include 'jsv-360-admin-display-license.php' ?>
+                                    </div>
                                 </form>
+                                    <button class="jsv-button-base-root jsv-button-root jsv-button-contained jsv-button-contained-primary"
+                                            id="jsv-save-settings">Save
+                                    </button>
 
 
                             </div>
-                            <div class="jsv-rating">If you like this free plugin please leave us a 5 &#9733 rating. A
+                            <div class="jsv-rating">If you like this plugin please leave us a 5 &#9733 rating. A
                                 huge
                                 thanks in
                                 advance!

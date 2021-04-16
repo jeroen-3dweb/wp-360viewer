@@ -92,7 +92,7 @@
     border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     font-weight: 500;
     line-height: inherit;
-    border-radius: 30px;
+    border-radius: 10px;
     text-transform: none;
 }
 
@@ -422,6 +422,7 @@
 .jsv-pr-4,
 .jsv-px-4 {
     padding-right: 1.5rem !important;
+    margin-bottom: 30px;
 }
 .jsv-pl-4,
 .jsv-px-4 {
@@ -1001,6 +1002,6 @@ p.jsv-subtitle {
 }
 
 .jsv-notifier-settings{
-    min-height: 200px;
+    min-height: 100px;
     padding: 10px;
 }

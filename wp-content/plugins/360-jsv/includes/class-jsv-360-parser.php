@@ -48,6 +48,11 @@ class JSV_360_Parser
                 $data['notification-config_drag-to-rotate_image-url'] = $image[0];
             }
 
+            $license = get_option(JSV_360_Admin::NOTIFIER_LICENSE, null);
+            if ($license) {
+                $data['license'] = $license;
+            }
+
             if (empty($data)) {
                 echo 'error in shortcode:' . $shortCode . PHP_EOL;
                 continue;
