@@ -1,6 +1,6 @@
 <?php
 
-/** @var int $license */
+/** @var string $license */
 
     echo '<div>
   <label for="jsv-license">License:&nbsp;</label>
