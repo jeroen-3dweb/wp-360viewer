@@ -17,8 +17,8 @@
                         <div class="jsv-card">
                             <div class="jsv-px-4 jsv-pt-4">
                                 <h1 class="jsv-typography-root jsv-typography-h1">
-                                    <?= __('360 Product Rotations', 'jsv360') ?><br/><?= __(
-                                        'WordPress and WooCommerce',
+                                    <?= __('360 Product Viewer', 'jsv360') ?><br/><?= __(
+                                        'for WordPress and WooCommerce',
                                         'jsv'
                                     ) ?>
                                 </h1>
@@ -104,34 +104,57 @@
                                     </span>
                                 </span>
                                 </a>
+                            </div>
+                                <!--                                settings section-->
+                                <div class="jsv-settings">
+                                    <form method='post'>
+                                        <h2>Viewer Settings</h2>
+                                        <p>These settings applies to all presentations on your site.</p>
+                                        <table class="form-table">
+                                            <tr>
+                                                <th scope="row">
+                                                    <label for="notifierImage">Notifier image</label>
+                                                </th>
+                                                <td>
+                                                    <div class="jsv-notifier-settings">
+                                                        <?php  include 'jsv-360-admin-display-notifier.php' ?>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">
+                                                    <label for="jsv-license">License</label>
+                                                </th>
+                                                <td>
+                                                    <div class="jsv-notifier-settings">
+                                                        <?php  include 'jsv-360-admin-display-license.php' ?>
+                                                        <p class="description">To remove the powered by icon you need to have a licence.
+                                                            You can get it <a id="jsv-purchase-link" target="_blank" href="#">here </a>
+                                                        </p>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                                <form method='post'>
-                                    <h2>Notifier settings</h2>
-                                    <p>Change the default image when the viewer has started. </p>
-                                    <div class="jsv-notifier-settings"><?php
-                                        include 'jsv-360-admin-display-notifier.php' ?>
-                                    </div>
-                                    <p>To remove the powered by icon you need to have a licence.
-                                        You can get it <a id="jsv-purchase-link" target="_blank" href="#" >here </a>
-                                    </p>
-                                    <div class="jsv-notifier-settings"><?php
-                                        include 'jsv-360-admin-display-license.php' ?>
-                                    </div>
-                                </form>
+
+                                        <div class="jsv-notifier-settings">
+
+                                        </div>
+                                    </form>
                                     <button class="jsv-button-base-root jsv-button-root jsv-button-contained jsv-button-contained-primary"
                                             id="jsv-save-settings">Save
                                     </button>
 
 
+                                </div>
+                                <div class="jsv-rating">If you like this plugin please leave us a 5 &#9733 rating. A
+                                    huge
+                                    thanks in
+                                    advance!
+                                    <a href="https://wordpress.org/plugins/360deg-javascript-viewer/#reviews?rate=5#new-post"
+                                       target="_blank" class="jsv-rating-link">&#9733;&#9733;&#9733;&#9733;&#9733;</a>
+                                </div>
                             </div>
-                            <div class="jsv-rating">If you like this plugin please leave us a 5 &#9733 rating. A
-                                huge
-                                thanks in
-                                advance!
-                                <a href="https://wordpress.org/plugins/360deg-javascript-viewer/#reviews?rate=5#new-post"
-                                   target="_blank" class="jsv-rating-link">&#9733;&#9733;&#9733;&#9733;&#9733;</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

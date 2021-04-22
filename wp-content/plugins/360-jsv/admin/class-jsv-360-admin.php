@@ -107,7 +107,8 @@ class JSV_360_Admin
             '360 Javascript Viewer',
             'manage_options',
             '360-javascript-viewer',
-            [$this, 'init_360_admin']
+            [$this, 'init_360_admin'],
+            plugin_dir_url( __FILE__ ) . 'img/sign-36-bw.svg'
         );
     }
 

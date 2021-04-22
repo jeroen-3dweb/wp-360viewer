@@ -47,7 +47,9 @@ jQuery(function ($) {
     $('body').on('click', '.jsv-rmv', function (e) {
 
         e.preventDefault();
-        sync(null);
+        sync({
+            jsv_notifier_image: null
+        });
     });
 
     $('body').on('click', '#jsv-save-settings', function (e) {
