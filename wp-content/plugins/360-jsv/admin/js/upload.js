@@ -38,8 +38,7 @@ jQuery(function ($) {
                 sync(
                     {jsv_notifier_image: attachment.id}
                 )
-            })
-                .open();
+            }).open();
 
     });
 

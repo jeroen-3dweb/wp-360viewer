@@ -70,7 +70,7 @@ class JSV_360
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
         $this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
-        $this->loader->add_action('admin_menu', $plugin_admin, 'load_menu');
+        $this->loader->add_action('admin_menu', $plugin_admin, 'loadPageMenu');
 
         register_activation_hook(JSV360_MAIN_URL, [$plugin_admin, 'activation']);
         register_deactivation_hook(JSV360_MAIN_URL, [$plugin_admin, 'de_activation']);
