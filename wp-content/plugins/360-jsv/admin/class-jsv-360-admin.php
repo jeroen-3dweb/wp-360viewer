@@ -22,27 +22,11 @@ class JSV_360_Admin
         $this->pluginName = $pluginName;
         $this->version    = $version;
         $this->loadPages();
-        $this->loadAjaxHooks();
+        $this->loadHooks();
     }
 
-    private function loadAjaxHooks()
-    {
-        add_action('wp_ajax_jsv_save_settings', array($this, 'save_settings'));
-        add_action('wp_ajax_nopriv_jsv_save_settings', array($this, 'save_settings'));
-    }
 
-    public function save_settings()
-    {
-        if (isset($_POST['jsv_notifier_image'])) {
-            $jsvNotifierImage = _sanitize_text_fields($_POST['jsv_notifier_image']);
-            update_option(self::NOTIFIER_IMAGE_ID, $jsvNotifierImage);
-        }
-        if (isset($_POST['jsv_license'])) {
-            $jsvLicense = _sanitize_text_fields($_POST['jsv_license']);
-            update_option(self::NOTIFIER_LICENSE, $jsvLicense);
-        }
-        wp_send_json_success('success');
-    }
+
 
     /**
      * Register the stylesheets for the admin area.
@@ -71,6 +55,7 @@ class JSV_360_Admin
             wp_enqueue_media();
         }
         wp_enqueue_script('jsv-upload', plugin_dir_url(__FILE__) . 'js/upload.js', array('jquery'), $this->version);
+        wp_enqueue_script('jsv-save-setting', plugin_dir_url(__FILE__) . 'js/save-settings.js', array('jquery'), $this->version);
 
         wp_localize_script(
             'jsv-upload',
@@ -90,13 +75,20 @@ class JSV_360_Admin
             $page->loadMenuItem(self::PLUGIN_MENU_SLUG);
         }
     }
+    public function loadHooks()
+    {
+        /** @var JSV_360_ADMIN_PAGE_INTERFACE $page */
+        foreach ($this->pages as $page) {
+            $page->loadHooks();
+        }
+    }
 
     public function load_startup()
     {
         if (get_option(self::REDIRECT_OPTION_NAME, false)) {
             delete_option(self::REDIRECT_OPTION_NAME);
             if (!isset($_GET['activate-multi'])) {
-                wp_redirect("admin.php?page=360-javascript-viewer");
+                wp_redirect("admin.php?page=jsv-main-settings");
             }
         }
     }

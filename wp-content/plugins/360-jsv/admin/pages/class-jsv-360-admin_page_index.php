@@ -20,7 +20,11 @@ class JSV_360_ADMIN_INDEX implements JSV_360_ADMIN_PAGE_INTERFACE
 
     public function init_360_admin()
     {
-        $license  = get_option(self::NOTIFIER_LICENSE, null);
         echo require(__DIR__ . '/../partials/jsv-360-admin-display.php');
+    }
+
+    public function loadHooks()
+    {
+        // TODO: Implement loadHooks() method.
     }
 }

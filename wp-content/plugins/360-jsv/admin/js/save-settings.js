@@ -16,12 +16,12 @@ jQuery(function ($) {
     }
 
     $('body').on('click', '#jsv-save-settings', function (e) {
+        e.preventDefault();
         const endPoint = $(this).data('source');
-        const license = $('#jsv-license').val();
-        sync(endPoint,{
-            jsv_license: license
-        });
+        const data = $(this).parent().find('form').serializeArray().reduce(function (obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+        sync(endPoint,data);
     });
-
-
 });

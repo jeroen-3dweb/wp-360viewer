@@ -91,39 +91,6 @@ include('header.php') ?>
                                 </span>
         </a>
     </div>
-    <!--                                settings section-->
-    <div class="jsv-settings">
-        <a href="<?php echo admin_url(JSV_360_ADMIN_NOTIFIER::PATH); ?>">Notifier settings</a>
-        <form method='post'>
-            <h2>Viewer Settings</h2>
-            <p>These settings applies to all presentations on your site.</p>
-            <table class="form-table">
-                <tr>
-                    <th scope="row">
-                        <label for="jsv-license">License</label>
-                    </th>
-                    <td>
-                        <div class="jsv-notifier-settings">
-                            <?php
-                            include 'jsv-360-admin-display-license.php' ?>
-                            <p class="description">To remove the powered by icon you need to have a licence.
-                                You can get it <a id="jsv-purchase-link" target="_blank" href="#">here </a>
-                            </p>
-                        </div>
-                    </td>
-                </tr>
-            </table>
 
-
-            <div class="jsv-notifier-settings">
-
-            </div>
-        </form>
-        <button class="jsv-button-base-root jsv-button-root jsv-button-contained jsv-button-contained-primary"
-                id="jsv-save-settings">Save
-        </button>
-
-
-    </div>
 <?php
 include('footer.php'); ?>
