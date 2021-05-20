@@ -1,30 +1,14 @@
 <?php
 
-class JSV_360_ADMIN_INDEX implements JSV_360_ADMIN_PAGE_INTERFACE
+class JSV_360_ADMIN_INDEX extends JSV_360_ADMIN_PAGE_ABSTRACT
 {
 
+    const PATH = 'jsv-main-settings';
+
+    protected $pageTitle = '360 Javascript Viewer Settings';
+    protected $menuTitle = '360 Javascript Viewer';
+    protected $template = 'jsv-360-admin-display';
+    protected $isMainMenu = true;
 
 
-    public function loadMenuItem($mainSlug)
-    {
-        add_menu_page(
-            '360 Javascript Viewer Setting',
-            '360 Javascript Viewer',
-            'manage_options',
-            $mainSlug,
-            [$this, 'init_360_admin'],
-            plugin_dir_url( __FILE__ ) . '../img/sign-36-bw.svg'
-        );
-    }
-
-
-    public function init_360_admin()
-    {
-        echo require(__DIR__ . '/../partials/jsv-360-admin-display.php');
-    }
-
-    public function loadHooks()
-    {
-        // TODO: Implement loadHooks() method.
-    }
 }

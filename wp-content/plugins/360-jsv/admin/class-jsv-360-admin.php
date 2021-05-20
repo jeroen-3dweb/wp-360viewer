@@ -70,14 +70,14 @@ class JSV_360_Admin
 
     public function loadPageMenu()
     {
-        /** @var JSV_360_ADMIN_PAGE_INTERFACE $page */
+        /** @var JSV_360_ADMIN_PAGE_ABSTRACT $page */
         foreach ($this->pages as $page) {
             $page->loadMenuItem(self::PLUGIN_MENU_SLUG);
         }
     }
     public function loadHooks()
     {
-        /** @var JSV_360_ADMIN_PAGE_INTERFACE $page */
+        /** @var JSV_360_ADMIN_PAGE_ABSTRACT $page */
         foreach ($this->pages as $page) {
             $page->loadHooks();
         }
@@ -109,7 +109,7 @@ class JSV_360_Admin
     private function loadPages()
     {
         $path = plugin_dir_path(dirname(__FILE__)) . 'admin/pages/';
-        require_once $path . DIRECTORY_SEPARATOR . 'class-jsv-360-admin_page_interface.php';
+        require_once $path . DIRECTORY_SEPARATOR . 'class-jsv-360-admin_page_abstract.php';
 
         foreach (scandir($path) as $memberFile) {
             if (strlen($memberFile) > 10) {

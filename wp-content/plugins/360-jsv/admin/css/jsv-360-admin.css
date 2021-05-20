@@ -3,6 +3,23 @@
     margin-top: 10px;
 }
 
+.jsv-error li {
+    color: red;
+}
+
+.jsv-save-settings-holder{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.jsv-save-settings-holder button{
+    min-width: 200px;
+    align-items: center;
+    margin-left: 20px;
+}
+
 .jsv-admin-wrapper {
     margin-right: 20px;
     margin-top: 20px;
