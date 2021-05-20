@@ -3,12 +3,13 @@
 class JSV_360_Admin
 {
     const REDIRECT_OPTION_NAME = 'jsv360_do_activation_redirect';
-    const NOTIFIER_IMAGE_ID = 'jsv360_notifier_image_id';
-    const NOTIFIER_LICENSE = 'jsv360_license';
+
+    const PLUGIN_MENU_SLUG = 'jsv-main-settings';
 
     private $pluginName;
 
     private $version;
+    private $pages = [];
 
 
     /**
@@ -20,28 +21,12 @@ class JSV_360_Admin
     {
         $this->pluginName = $pluginName;
         $this->version    = $version;
-
-        $this->loadAjaxHooks();
+        $this->loadPages();
+        $this->loadHooks();
     }
 
-    private function loadAjaxHooks()
-    {
-        add_action('wp_ajax_jsv_save_settings', array($this, 'save_settings'));
-        add_action('wp_ajax_nopriv_jsv_save_settings', array($this, 'save_settings'));
-    }
 
-    public function save_settings()
-    {
-        if(isset($_POST['jsv_notifier_image'])) {
-            $jsvNotifierImage = _sanitize_text_fields($_POST['jsv_notifier_image']);
-            update_option(self::NOTIFIER_IMAGE_ID, $jsvNotifierImage);
-        }
-        if(isset($_POST['jsv_license'])) {
-            $jsvLicense= _sanitize_text_fields($_POST['jsv_license']);
-            update_option(self::NOTIFIER_LICENSE, $jsvLicense);
-        }
-        wp_send_json_success( 'success' );
-    }
+
 
     /**
      * Register the stylesheets for the admin area.
@@ -50,18 +35,6 @@ class JSV_360_Admin
      */
     public function enqueue_styles()
     {
-        /**
-         * This function is provided for demonstration purposes only.
-         *
-         * An instance of this class should be passed to the run() function
-         * defined in Plugin_Name_Loader as all of the hooks are defined
-         * in that particular class.
-         *
-         * The Plugin_Name_Loader will then create the relationship
-         * between the defined hooks and the functions defined in this
-         * class.
-         */
-
         wp_enqueue_style(
             $this->pluginName,
             plugin_dir_url(__FILE__) . 'css/jsv-360-admin.css',
@@ -81,10 +54,10 @@ class JSV_360_Admin
         if (!did_action('wp_enqueue_media')) {
             wp_enqueue_media();
         }
-        wp_enqueue_script('jsv-upload', plugin_dir_url(__FILE__) . 'js/upload.js', array('jquery'), $this->version);
+        wp_enqueue_script('jsv-admin', plugin_dir_url(__FILE__) . 'js/admin.js', array('jquery'), $this->version);
 
         wp_localize_script(
-            'jsv-upload',
+            'jsv-admin',
             'jsvUpload',
             [
                 'ajaxUrl'  => admin_url('admin-ajax.php'),
@@ -93,23 +66,20 @@ class JSV_360_Admin
         );
     }
 
-    public function init_360_admin()
-    {
-        $image_id = get_option(self::NOTIFIER_IMAGE_ID, null);
-        $license = get_option(self::NOTIFIER_LICENSE, null);
-        echo require(__DIR__ . '/partials/jsv-360-admin-display.php');
-    }
 
-    public function load_menu()
+    public function loadPageMenu()
     {
-        add_menu_page(
-            '360 Javascript Viewer Setting',
-            '360 Javascript Viewer',
-            'manage_options',
-            '360-javascript-viewer',
-            [$this, 'init_360_admin'],
-            plugin_dir_url( __FILE__ ) . 'img/sign-36-bw.svg'
-        );
+        /** @var JSV_360_ADMIN_PAGE_ABSTRACT $page */
+        foreach ($this->pages as $page) {
+            $page->loadMenuItem(self::PLUGIN_MENU_SLUG);
+        }
+    }
+    public function loadHooks()
+    {
+        /** @var JSV_360_ADMIN_PAGE_ABSTRACT $page */
+        foreach ($this->pages as $page) {
+            $page->loadHooks();
+        }
     }
 
     public function load_startup()
@@ -117,7 +87,7 @@ class JSV_360_Admin
         if (get_option(self::REDIRECT_OPTION_NAME, false)) {
             delete_option(self::REDIRECT_OPTION_NAME);
             if (!isset($_GET['activate-multi'])) {
-                wp_redirect("admin.php?page=360-javascript-viewer");
+                wp_redirect("admin.php?page=jsv-main-settings");
             }
         }
     }
@@ -132,5 +102,23 @@ class JSV_360_Admin
         delete_option(self::REDIRECT_OPTION_NAME);
     }
 
+    /**
+     * Load pages for the admin menu
+     */
+    private function loadPages()
+    {
+        $path = plugin_dir_path(dirname(__FILE__)) . 'admin/pages/';
+        require_once $path . DIRECTORY_SEPARATOR . 'class-jsv-360-admin_page_abstract.php';
 
+        foreach (scandir($path) as $memberFile) {
+            if (strlen($memberFile) > 10) {
+                require_once($path . DIRECTORY_SEPARATOR . $memberFile);
+            }
+        }
+        $this->pages = [
+            new JSV_360_ADMIN_INDEX(),
+            new JSV_360_ADMIN_NOTIFIER(),
+            new JSV_360_ADMIN_LICENSE()
+        ];
+    }
 }

@@ -41,14 +41,14 @@ class JSV_360_Parser
             }
 
             $data  = shortcode_parse_atts($shortCode);
-            $imageId = get_option(JSV_360_Admin::NOTIFIER_IMAGE_ID, null);
+            $imageId = get_option(JSV_360_ADMIN_NOTIFIER::NOTIFIER_IMAGE_ID, null);
             if ($imageId) {
                $image = wp_get_attachment_image_src($imageId ) ;
                 $data['notification-config_drag-to-rotate_show-start-to-rotate-default-notification'] = false;
                 $data['notification-config_drag-to-rotate_image-url'] = $image[0];
             }
 
-            $license = get_option(JSV_360_Admin::NOTIFIER_LICENSE, null);
+            $license = get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, null);
             if ($license) {
                 $data['license'] = $license;
             }

@@ -2,7 +2,9 @@ version: '3.3'
 
 services:
   wordpress:
-    image: wordpress:latest
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
     ports:
       - "8000:80"
     env_file:
