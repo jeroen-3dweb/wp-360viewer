@@ -1,18 +1,30 @@
 jQuery(function ($) {
-
-    const sync = function (endPoint, values) {
+    window.JSV_ADMIN = [];
+    window.JSV_ADMIN.sync = function (endPoint, values, method) {
+        method = method || 'post';
         const defaultValues = {
             _ajax_nonce: jsvUpload['security'],
             action: endPoint,
         }
         return new Promise((resolve, reject) => {
-            $.post(jsvUpload['ajaxUrl'], {...defaultValues, ...values}, function (response) {
-                if (response['success'] === true) {
-                    resolve(response)
-                } else {
-                    reject(response)
-                }
-            }, "json");
+            if(method === 'post') {
+                $.post(jsvUpload['ajaxUrl'], {...defaultValues, ...values}, function (response) {
+                    if (response['success'] === true) {
+                        resolve(response)
+                    } else {
+                        reject(response)
+                    }
+                }, "json");
+            }
+            else{
+                $.get(jsvUpload['ajaxUrl'], {...defaultValues, ...values}, function (response) {
+                    if (response['success'] === true) {
+                        resolve(response)
+                    } else {
+                        reject(response)
+                    }
+                }, "json");
+            }
         })
     }
 
@@ -34,7 +46,7 @@ jQuery(function ($) {
 
             let errorText = '<ul>';
             $.each(data.data, function (key, val) {
-                if(val.error){
+                if (val.error) {
                     errorText += `<li>${val.error}</li>`;
                 }
             });
@@ -50,7 +62,7 @@ jQuery(function ($) {
             $(e.target).parent().find('#jsv-save-settings-error').html('');
         }
 
-        sync(endPoint, data).then((data) => {
+        window.JSV_ADMIN.sync(endPoint, data).then((data) => {
 
             if (data.success) {
                 handleSuccess(data);

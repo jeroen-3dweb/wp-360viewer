@@ -14,4 +14,21 @@ class JSV_360_ADMIN_NOTIFIER extends JSV_360_ADMIN_PAGE_ABSTRACT
         self::NOTIFIER_IMAGE_ID
     ];
 
+    protected $customAjaxHooks = [
+        'get_notifier_image' => 'getNotifierImage'
+    ];
+
+    public function getNotifierImage()
+    {
+        $imageId = $_GET[$this::NOTIFIER_IMAGE_ID];
+        $image   = wp_get_attachment_image_src($imageId);
+        $url     = $image && count( $image        ) > 0
+            ? $image[0]
+            : '';
+        return wp_send_json_success(
+            [
+                'url' => $url
+            ]
+        );
+    }
 }

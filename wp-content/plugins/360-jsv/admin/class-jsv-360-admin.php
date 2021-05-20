@@ -54,11 +54,10 @@ class JSV_360_Admin
         if (!did_action('wp_enqueue_media')) {
             wp_enqueue_media();
         }
-        wp_enqueue_script('jsv-upload', plugin_dir_url(__FILE__) . 'js/upload.js', array('jquery'), $this->version);
-        wp_enqueue_script('jsv-save-setting', plugin_dir_url(__FILE__) . 'js/save-settings.js', array('jquery'), $this->version);
+        wp_enqueue_script('jsv-admin', plugin_dir_url(__FILE__) . 'js/admin.js', array('jquery'), $this->version);
 
         wp_localize_script(
-            'jsv-upload',
+            'jsv-admin',
             'jsvUpload',
             [
                 'ajaxUrl'  => admin_url('admin-ajax.php'),

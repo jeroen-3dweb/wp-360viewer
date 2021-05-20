@@ -10,8 +10,10 @@ include('header.php');
 ?>
     <div class="jsv-settings">
         <form method='post' data-source="<?= JSV_360_ADMIN_LICENSE::PATH; ?>">
-            <h2>Viewer Settings</h2>
-            <p>These settings applies to all presentations on your site.</p>
+            <h2>Remove powered by icon</h2>
+            <p>To remove the powered by icon when you rotate you need a license. The license is valid forever for the domain you choose.
+            No limits in usage.<br> You can get it <a id="jsv-purchase-link" target="_blank" href="#">here </a>
+            </p>
             <table class="form-table">
                 <tr>
                     <th scope="row">
@@ -23,9 +25,6 @@ include('header.php');
                                 <input class="regular-text ltr" type="text"
                                        name="<?= JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE; ?>"
                                        value="<?= get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, '') ?>"/>
-                                <p class="description">To remove the powered by icon you need to have a licence.<br>
-                                    You can get it <a id="jsv-purchase-link" target="_blank" href="#">here </a>
-                                </p>
                             </div>
                     </td>
                 </tr>
