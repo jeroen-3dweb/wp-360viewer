@@ -6,29 +6,29 @@
 
 
 include('header.php');
+include('jsv-settings-helper.php');
 
 ?>
     <div class="jsv-settings">
-        <form method='post' data-source="<?= JSV_360_ADMIN_LICENSE::PATH; ?>">
-            <h2>Remove powered by icon</h2>
-            <p>To remove the powered by icon when you rotate you need a license. The license is valid forever for the domain you choose.
+        <h2>Remove powered by icon</h2>
+        <p>To remove the powered by icon when you rotate you need a license. The license is valid forever for the domain
+            you choose.
             No limits in usage.<br> You can get it <a id="jsv-purchase-link" target="_blank" href="#">here </a>
-            </p>
-            <table class="form-table">
-                <tr>
-                    <th scope="row">
-                        <label for="jsv-license">License</label>
-                    </th>
-                    <td>
-                        <div class="jsv-notifier-settings">
-                            <div>
-                                <input class="regular-text ltr" type="text"
-                                       name="<?= JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE; ?>"
-                                       value="<?= get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, '') ?>"/>
-                            </div>
-                    </td>
-                </tr>
-            </table>
+        </p>
+
+
+        <form method='post' data-source="<?= JSV_360_ADMIN_LICENSE::PATH; ?>">
+
+            <div class="jsv-settings__table">
+                <?= jsv_setting_create_row(
+                    'License',
+                    '',
+                    JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE,
+                    get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, ''),
+                    'text'
+                )
+                ?>
+            </div>
         </form>
         <?php
         include('button.php'); ?>

@@ -1,4 +1,3 @@
-
 <div class="jsv-admin-wrapper">
     <header class="jsv-swoosh-header"></header>
     <div class="jsv-swoosh-container">

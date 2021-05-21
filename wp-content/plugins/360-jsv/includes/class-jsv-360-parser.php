@@ -40,18 +40,19 @@ class JSV_360_Parser
                 continue;
             }
 
-            $data  = shortcode_parse_atts($shortCode);
+            $data    = shortcode_parse_atts($shortCode);
             $imageId = get_option(JSV_360_ADMIN_NOTIFIER::NOTIFIER_IMAGE_ID, null);
             if ($imageId) {
-               $image = wp_get_attachment_image_src($imageId ) ;
+                $image                                                                                = wp_get_attachment_image_src(
+                    $imageId
+                );
                 $data['notification-config_drag-to-rotate_show-start-to-rotate-default-notification'] = false;
-                $data['notification-config_drag-to-rotate_image-url'] = $image[0];
+                $data['notification-config_drag-to-rotate_image-url']                                 = $image[0];
             }
 
-            $license = get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, null);
-            if ($license) {
-                $data['license'] = $license;
-            }
+            $this->applyDefault('license', get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, null), $data);
+            $this->applyDefault('auto-rotate', get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE, null), $data);
+
 
             if (empty($data)) {
                 echo 'error in shortcode:' . $shortCode . PHP_EOL;
@@ -61,6 +62,13 @@ class JSV_360_Parser
         };
 
         return $this->replaceJsvShortCodes($content, $codes);
+    }
+
+    private function applyDefault($key, $value, &$data)
+    {
+        if (!isset($data[$key]) && !is_null($value)) {
+            $data[$key] = $value;
+        }
     }
 
     /**

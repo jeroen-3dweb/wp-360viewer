@@ -118,7 +118,8 @@ class JSV_360_Admin
         $this->pages = [
             new JSV_360_ADMIN_INDEX(),
             new JSV_360_ADMIN_NOTIFIER(),
-            new JSV_360_ADMIN_LICENSE()
+            new JSV_360_ADMIN_AUTOROTATE(),
+            new JSV_360_ADMIN_LICENSE(),
         ];
     }
 }
