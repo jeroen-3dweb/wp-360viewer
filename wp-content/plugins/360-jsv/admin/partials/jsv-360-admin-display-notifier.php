@@ -8,15 +8,15 @@ include('header.php');
     <form method='post' data-source="<?= JSV_360_ADMIN_NOTIFIER::PATH; ?>">
         <h2>Notifier Settings</h2>
         <p>Change the notifier when the presentation is loaded.</p>
-        <table class="form-table">
+        <table class="jsv-settings table">
             <tr>
                 <td scope="row">
                     <label for="notifierImage">Notifier image</label>
                 </td>
                 <td>
-                    <div class="jsv-notifier-settings">
+                    <div class="jsv-settings__settings-holder">
                         <a href="#" class="jsv-upl">
-                            <img alt="preview" id="jsv-notifier-thumb" class="jsv-notifier-upload-thumb" src="" />
+                            <img alt="preview" id="jsv-notifier-thumb" class="jsv-settings__upload-thumb" src="" />
                         </a>
                         <input type="hidden"
                                name="<?= JSV_360_ADMIN_NOTIFIER::NOTIFIER_IMAGE_ID; ?>"

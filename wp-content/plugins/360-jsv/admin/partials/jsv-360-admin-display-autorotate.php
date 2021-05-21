@@ -1,40 +1,38 @@
 <?php
 
-/** @var string $license */
-
-/** @var string $source */
-
-
 include('header.php');
-
+include('jsv-settings-helper.php')
 ?>
     <div class="jsv-settings">
+        <h2>Autorotate at start</h2>
+        <p>When the viewer is loaded you can autorotate your product to get the attention of your visitor.
+            This setting adds the autorotate parameter to your presentation. If your code already has an autorotate
+            parameter then that one
+            will be used.
+        </p>
         <form method='post' data-source="<?= JSV_360_ADMIN_AUTOROTATE::PATH; ?>">
-            <h2>Autorotate at start</h2>
-            <p>When the viewer is loaded you can autorotate your product to get the attention of your visitor.
-            This setting adds the autorotate parameter to your presentation. If your code already has an autorotate parameter then that one
-                will be used.
-            </p>
-            <table class="form-table">
-                <tr>
-                    <th scope="row">
-                        <label for="jsv-autorotate">Amount of rotations</label>
-                    </th>
-                    <td>
-                        <div class="jsv-notifier-settings">
-                            <div>
-                                <input class="regular-text ltr" type="number"
-                                       name="<?= JSV_360_ADMIN_AUTOROTATE::AUTOROTATE; ?>"
-                                       value="<?= get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE, '') ?>"/>
-                            </div>
-                    </td>
-                </tr>
-            </table>
-        </form>
-        <?php
-        include('button.php'); ?>
-    </div>
+            <div class="jsv-settings__table">
+                <?= jsv_setting_create_row(
+                    'Amount of rotations',
+                    'Specify how many rotations your product does
+                            when the viewer is loaded',
+                    JSV_360_ADMIN_AUTOROTATE::AUTOROTATE,
+                    get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE, '')
+                )
+                ?>
 
+                <?= jsv_setting_create_row(
+                    'Autorotate speed',
+                    'Define the speed for autorotate, if empty it will use the rotation speed of dragging',
+                    JSV_360_ADMIN_AUTOROTATE::AUTOROTATE_SPEED,
+                    get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE_SPEED, '')
+                )
+                ?>
+            </div>
+        </form>
+<?php
+include('button.php'); ?>
+    </div>
 
 <?php
 include('footer.php'); ?>
