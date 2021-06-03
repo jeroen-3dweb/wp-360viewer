@@ -35,6 +35,10 @@ include('header.php') ?>
                         ) ?>
                     </p>
                     <div>
+
+                        <img src="<?php
+                        echo plugins_url('admin/img/first_image_select.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
+                             alt="Select the first image">
                         <a id='jsv-go-button'
                            href="#"
                            class="jsv-button-base-root jsv-button-root jsv-button-contained jsv-button-contained-primary jsv-mb-4 jsv-mt-2"
@@ -51,9 +55,6 @@ include('header.php') ?>
                                     </span>
                                 </span>
                         </a>
-                        <img src="<?php
-                        echo plugins_url('admin/img/first_image_select.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
-                             alt="Select the first image">
                     </div>
                 </div>
             </li>
@@ -72,6 +73,9 @@ include('header.php') ?>
                             'jsv'
                         ) ?>
                     </p>
+                    <img width="200px" src="<?php
+                    echo plugins_url('admin/img/copy_code.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
+                         alt="Select the first image">
                 </div>
             </li>
             <li class="jsv-list-item-root" style="max-width: 550px;">
