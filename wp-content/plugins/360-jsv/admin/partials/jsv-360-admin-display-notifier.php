@@ -106,8 +106,6 @@ include('header.php');
                 }).open();
 
         });
-
-
     });
 </script>
 
