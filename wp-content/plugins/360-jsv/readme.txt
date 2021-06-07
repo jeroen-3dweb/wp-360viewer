@@ -7,7 +7,7 @@ Requires PHP: 5.6
 Tested up to: 5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.6.9
+Stable tag: 1.6.10
 
 Turn a series of images into an interactive 360 degree view.
 

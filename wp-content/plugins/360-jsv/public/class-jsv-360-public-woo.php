@@ -33,9 +33,10 @@ class JSV_360_Public_Woo
         $this->version     = $version;
     }
 
-    private function generateId() {
+    private function generateId()
+    {
         $permitted_chars = implode('', range('a', 'z'));
-        return 'jsv-' .  '-' . substr(str_shuffle($permitted_chars), 0, 10);
+        return 'jsv-' . '-' . substr(str_shuffle($permitted_chars), 0, 10);
     }
 
     public function add_360_icon($d, $e)
@@ -50,23 +51,29 @@ class JSV_360_Public_Woo
                 $randomId = $this->generateId();
 
                 $thumbImage = plugins_url('/img/icon.png', __FILE__);
-                $text       =
-                    <<<EOD
-                        <div data-thumb="$thumbImage"  class="woocommerce-product-gallery__image">
-                            <script lang="text/javascript">createJsvWooInstance(`$html`, `$randomId`, `$htmlLarge`)</script>
-                              <a href="$thumbImage" id="$randomId">
+                $text       = sprintf(
+                    '          <div data-thumb="%s"  class="woocommerce-product-gallery__image">
+                            <script lang="text/javascript">createJsvWooInstance(`%s`, `%s`, `%s`)</script>
+                              <a href="%s" id="%s">
                                 <img width="416" height="312"
                                 src="" 
                                 class="wp-post-image" alt="" loading="lazy" title="blauw" data-caption=""  
-                                data-large_image="$thumbImage" 
+                                data-large_image="%s" 
                                 data-large_image_width="640" 
                                 data-large_image_height="480"
                                  />                                
                             </a>                            
-                        </div>                    
-                    EOD;
+                        </div> ',
+                    $thumbImage,
+                    $html,
+                    $randomId,
+                    $htmlLarge,
+                    $thumbImage,
+                    $randomId,
+                    $thumbImage
+                );
 
-                return $d .$text;
+                return $d . $text;
             }
         }
         return $d;
@@ -87,7 +94,12 @@ class JSV_360_Public_Woo
      */
     public function enqueue_scripts()
     {
-        wp_enqueue_script($this->plugin_name . '_woo_js', plugin_dir_url(__FILE__) . 'js/woo.js', array('javascriptviewer'), $this->version);
+        wp_enqueue_script(
+            $this->plugin_name . '_woo_js',
+            plugin_dir_url(__FILE__) . 'js/woo.js',
+            array('javascriptviewer'),
+            $this->version
+        );
     }
 
     /**
@@ -97,6 +109,12 @@ class JSV_360_Public_Woo
      */
     public function enqueue_styles()
     {
-        wp_enqueue_style($this->plugin_name . '_woo_css', plugin_dir_url(__FILE__) . 'css/woo.css', array(), $this->version, 'all');
+        wp_enqueue_style(
+            $this->plugin_name . '_woo_css',
+            plugin_dir_url(__FILE__) . 'css/woo.css',
+            array(),
+            $this->version,
+            'all'
+        );
     }
 }
