@@ -2,12 +2,9 @@
 
 include('header.php') ?>
 
-    <div class="jsv-px-4 jsv-pt-4">
+    <div class="jsv-360__home">
         <h1 class="jsv-typography-root jsv-typography-h1">
-            <?= __('360 Product Viewer', 'jsv360') ?><br/><?= __(
-                'for WordPress and WooCommerce',
-                'jsv'
-            ) ?>
+            <?= __('360 Javascript Viewer', 'jsv360') ?>
         </h1>
         <h6 class="jsv-typography-root jsv-typography-h6 jsv-mt-4 jsv-mb-2">
             <?= __(
@@ -15,30 +12,25 @@ include('header.php') ?>
                 'jsv'
             ) ?>
         </h6>
-        <h6 class="jsv-typography-root jsv-typography-h6 jsv-mt-4 jsv-mb-2">
+        <h2>
             <?= __('How it works:', 'jsv') ?>
-        </h6>
-        <ul class="jsv-list-root pb-4 jsv-list-padding">
-            <li class="jsv-list-item-root" style="max-width: 550px;">
-                <div class="jsv-list-item-icon-root jsv-pr-3 jsv-mt-2">
-                    <svg class="jsv-svg-icon-root jsv-svg-icon-color" focusable="false"
-                         viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M4.75 8.12891L12.6953 0.183594L13.75 1.23828L4.75 10.2383L0.566406 6.05469L1.62109 5L4.75 8.12891Z"
-                              fill="#7A5CBD"/>
-                    </svg>
-                </div>
-                <div class="jsv-list-item-text-root jsv-d-flex jsv-flex-column jsv-m-0">
-                    <p class="jsv-typography-root jsv-body2" style="color: rgba(0, 0, 0, 0.6);">
-                        <?= __(
-                            'Use the tool to fine tune your 360 product presentation',
+        </h2>
+        <ul>
+            <li>
+                <div class="jsv-360__home__step">
+                    <p>
+                    <?= __(
+                        'Upload your images to wordpress',
+                        'jsv'
+                    ) ?></p>
+                </div></li>
+            <li>
+                <div class="jsv-360__home__step">
+                    <p>       <?= __(
+                            'Select the first image (yourimage_01.jpg) from your uploads and use the tool to fine tune your 360 product presentation',
                             'jsv'
                         ) ?>
-                    </p>
-                    <div>
 
-                        <img src="<?php
-                        echo plugins_url('admin/img/first_image_select.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
-                             alt="Select the first image">
                         <a id='jsv-go-button'
                            href="#"
                            class="jsv-button-base-root jsv-button-root jsv-button-contained jsv-button-contained-primary jsv-mb-4 jsv-mt-2"
@@ -48,55 +40,40 @@ include('header.php') ?>
                                 <span class="jsv-button-label" style="width: 100%;">
                                     <?= __('select your first image and get started!', 'jsv') ?><span
                                             class="jsv-button-endIcon">
-                                    <svg class="jsv-Svgicon-root" focusable="false" viewBox="0 0 24 24"
-                                         aria-hidden="true">
-                                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"></path>
-                                    </svg>
                                     </span>
                                 </span>
-                        </a>
-                    </div>
+                        </a></p>
+                    <img src="<?php
+                    echo plugins_url('admin/img/first_image_select.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
+                         alt="Select the first image">
+
                 </div>
             </li>
-            <li class="jsv-list-item-root" style="max-width: 550px;">
-                <div class="jsv-list-item-icon-root jsv-pr-3 jsv-mt-2">
-                    <svg class="jsv-svg-icon-root jsv-svg-icon-color" focusable="false"
-                         viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M4.75 8.12891L12.6953 0.183594L13.75 1.23828L4.75 10.2383L0.566406 6.05469L1.62109 5L4.75 8.12891Z"
-                              fill="#7A5CBD"/>
-                    </svg>
-                </div>
-                <div class="jsv-list-item-text-root jsv-d-flex jsv-flex-column jsv-m-0">
-                    <p class="jsv-typography-root jsv-body2" style="color: rgba(0, 0, 0, 0.6);">
-                        <?= __(
+            <li>
+                <div class="jsv-360__home__step">
+                    <p>           <?= __(
                             'Copy/paste the code in a widget, on a page or in WooCommerce',
                             'jsv'
-                        ) ?>
-                    </p>
-                    <img width="200px" src="<?php
+                        ) ?></p>
+
+               <img width="200px" src="<?php
                     echo plugins_url('admin/img/copy_code.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
                          alt="Select the first image">
+
                 </div>
             </li>
-            <li class="jsv-list-item-root" style="max-width: 550px;">
-                <div class="jsv-list-item-icon-root jsv-pr-3 jsv-mt-2">
-                    <svg class="jsv-svg-icon-root jsv-svg-icon-color" focusable="false"
-                         viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M4.75 8.12891L12.6953 0.183594L13.75 1.23828L4.75 10.2383L0.566406 6.05469L1.62109 5L4.75 8.12891Z"
-                              fill="#7A5CBD"/>
-                    </svg>
-                </div>
-                <div class="jsv-list-item-text-root jsv-d-flex jsv-flex-column jsv-m-0">
-                    <p class="jsv-typography-root jsv-body2" style="color: rgba(0, 0, 0, 0.6);">
-                        <?= __(
+            <li>
+                <div class="jsv-360__home__step">
+                    <p>                 <?= __(
                             'If you need other specific options check the <a href="https://wordpress.org/plugins/360deg-javascript-viewer/#installation" target="_blank">readme</a>. Like margins, floats and width',
                             'jsv'
-                        ) ?>
-                    </p>
+                        ) ?></p>
+
+
                 </div>
             </li>
-
         </ul>
+
 
 
     </div>

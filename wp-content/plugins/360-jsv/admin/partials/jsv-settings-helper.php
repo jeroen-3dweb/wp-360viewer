@@ -2,11 +2,11 @@
 function jsv_setting_create_row($label, $description, $name, $value, $type= 'number'){
     return sprintf(
         '
-            <div class="jsv-settings__row">
-                    <div class="jsv-settings__label">
+            <div class="jsv-360__settings__row">
+                    <div class="jsv-360__settings__label">
                         %s
                     </div>
-                    <div class="jsv-settings__settings-holder">
+                    <div class="jsv-360__settings-holder">
                         <input class="regular-text ltr" type="%s"
                                name="%s"
                                value="%s"/>

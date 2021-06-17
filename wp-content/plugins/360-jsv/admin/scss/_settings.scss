@@ -1,0 +1,60 @@
+//settings
+.jsv-360 {
+
+  &__button {
+    width: 105px;
+  }
+
+  &__settings {
+    background-color: #f6f6f6;
+    padding: 10px;
+    min-height: 300px;
+
+    &__holder {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+
+      button {
+        min-width: 200px;
+      @include btn;
+
+      }
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    &__upload-thumb {
+      width: 80px;
+      margin: 0 10px;
+    }
+
+    &__settings-holder {
+      padding: 10px;
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      align-content: flex-start;
+      max-width: 400px;
+    }
+
+    &__settings-holder__description {
+      margin-top: 2px;
+    }
+
+
+    &__row {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__label {
+      min-width: 150px;
+      padding-top: 10px;
+    }
+  }
+}
