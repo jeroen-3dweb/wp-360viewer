@@ -37,7 +37,7 @@ class JSV_360_Admin
     {
         wp_enqueue_style(
             $this->pluginName,
-            plugin_dir_url(__FILE__) . 'css/jsv-360-admin.css',
+            plugin_dir_url(__FILE__) . 'scss/jsv-360-admin.css',
             array(),
             $this->version,
             'all'

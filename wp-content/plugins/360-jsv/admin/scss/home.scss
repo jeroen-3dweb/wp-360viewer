@@ -1,0 +1,28 @@
+.jsv-360__home {
+
+  ul {
+    li {
+      &:nth-child(even) {
+        //background-color: #d7d7d9;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__step {
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+
+    p {
+      width: 50%;
+    }
+  }
+}

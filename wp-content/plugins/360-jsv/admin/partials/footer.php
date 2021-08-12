@@ -1,4 +1,4 @@
-<div class="jsv-rating">If you like this plugin please leave us a 5 &#9733 rating. A
+<div class="jsv-360__rating">If you like this plugin please leave us a 5 &#9733 rating. A
     huge
     thanks in
     advance!

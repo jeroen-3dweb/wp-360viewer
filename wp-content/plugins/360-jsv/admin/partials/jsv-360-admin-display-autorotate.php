@@ -3,7 +3,7 @@
 include('header.php');
 include('jsv-settings-helper.php')
 ?>
-    <div class="jsv-settings">
+    <div class="jsv-360__settings">
         <h2>Autorotate at start</h2>
         <p>When the viewer is loaded you can autorotate your product to get the attention of your visitor.
             This setting adds the autorotate parameter to your presentation. If your code already has an autorotate
@@ -11,7 +11,7 @@ include('jsv-settings-helper.php')
             will be used.
         </p>
         <form method='post' data-source="<?= JSV_360_ADMIN_AUTOROTATE::PATH; ?>">
-            <div class="jsv-settings__table">
+            <div class="jsv-360__settings__table">
                 <?= jsv_setting_create_row(
                     'Amount of rotations',
                     'Specify how many rotations your product does

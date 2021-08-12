@@ -9,7 +9,7 @@ include('header.php');
 include('jsv-settings-helper.php');
 
 ?>
-    <div class="jsv-settings">
+    <div class="jsv-360__settings">
         <h2>Remove powered by icon</h2>
         <p>To remove the powered by icon when you rotate you need a license. The license is valid forever for the domain
             you choose.
@@ -19,7 +19,7 @@ include('jsv-settings-helper.php');
 
         <form method='post' data-source="<?= JSV_360_ADMIN_LICENSE::PATH; ?>">
 
-            <div class="jsv-settings__table">
+            <div class="jsv-360__settings__table">
                 <?= jsv_setting_create_row(
                     'License',
                     '',

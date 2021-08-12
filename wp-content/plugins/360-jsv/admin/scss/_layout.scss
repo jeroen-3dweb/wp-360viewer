@@ -1,0 +1,104 @@
+.jsv-360 {
+  &__admin-wrapper {
+    margin-right: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-family: 'Roboto,Helvetica Neue,Arial', sans-serif;
+  }
+
+  &__card {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    background-origin: padding-box;
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-size: auto;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 2px 4px 0px, rgba(0, 0, 0, 0.08) 0px 2px 1px 0px;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.9);
+    display: block;
+    font-size: 15px;
+    letter-spacing: normal;
+    margin-bottom: 24px;
+    min-height: 150px;
+    min-width: 200px;
+    overflow: hidden;
+    position: relative;
+    transition-delay: 0s;
+    transition-duration: 0.3s;
+    transition-property: box-shadow;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-font-smoothing: antialiased;
+    padding: 15px;
+  }
+
+  &__swoosh-container {
+    margin: 0 auto;
+    position: relative;
+  }
+
+  &__swoosh-header {
+    align-items: center;
+    display: flex;
+    position: relative;
+  }
+
+  &__swoosh-header::after {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 350px;
+    content: "";
+    position: absolute;
+    background-size: cover;
+    background-color: transparent;
+    background-image: url("../img/swoosh.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    bottom: auto !important;
+  }
+
+  &__backdrop {
+    padding: 0 20px;
+  }
+
+  &__backdrop-container {
+    margin: 0 auto;
+    position: relative;
+    padding-top: 40px;
+    @media (min-width: 600px) {
+      max-width: 890px;
+    }
+  }
+
+
+  &__backdrop-header {
+    margin-bottom: 20px;
+  }
+
+  &__logo-poppins {
+    background-size: contain;
+    background-position-y: 50%;
+    width: 272px;
+    height: 72px;
+    background-repeat: no-repeat;
+  }
+
+  &__logo {
+    position: absolute;
+    right: 48px;
+    top: 40px;
+    z-index: 10;
+  }
+
+
+  &__rating {
+    color: white;
+    padding: 10px;
+    background-color: #a2a2a2;
+    text-align: center;
+  }
+}

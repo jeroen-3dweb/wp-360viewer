@@ -53,7 +53,7 @@ class JSV_360_Public_Woo
                 $thumbImage = plugins_url('/img/icon.png', __FILE__);
                 $text       = sprintf(
                     '          <div data-thumb="%s"  class="woocommerce-product-gallery__image">
-                            <script lang="text/javascript">createJsvWooInstance(`%s`, `%s`, `%s`)</script>
+                            <script lang="text/javascript">setTimeout(function(){createJsvWooInstance(`%s`, `%s`, `%s`)}, 2000)</script>
                               <a href="%s" id="%s">
                                 <img width="416" height="312"
                                 src="" 
