@@ -105,7 +105,6 @@ class JsvWooProductGalleryInstance {
 
         const parent = document.getElementById(this.idInProductGallery);
         parent.innerHTML = this.generatedHtml;
-        parent.style.opacity = '0.5';
         parent.className = '360-viewer-ignore'
         parent.addEventListener('touchstart', (e) => {
             e.stopPropagation()
