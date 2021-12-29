@@ -7,7 +7,7 @@ Requires PHP: 5.6
 Tested up to: 5.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.6.14
+Stable tag: 1.6.15
 
 Turn a series of images into an interactive 360 degree view.
 
@@ -98,3 +98,5 @@ Turn a series of images into an interactive 360 degree view.
 * Added object support in bb code for notification
 = 1.6.0 =
 * Use your own notifier
+= 1.6.15 =
+* Support quotes in shortcode for translation plugins

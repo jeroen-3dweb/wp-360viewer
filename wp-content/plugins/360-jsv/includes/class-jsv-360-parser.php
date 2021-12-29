@@ -40,6 +40,7 @@ class JSV_360_Parser
                 continue;
             }
 
+            $shortCode = str_replace(['"',"'", '’'], "", html_entity_decode($shortCode)) ;
             $data    = shortcode_parse_atts($shortCode);
             $imageId = get_option(JSV_360_ADMIN_NOTIFIER::NOTIFIER_IMAGE_ID, null);
             if ($imageId) {
