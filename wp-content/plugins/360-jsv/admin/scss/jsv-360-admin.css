@@ -1,0 +1,170 @@
+.jsv-360-mt-2 {
+  margin-top: 0.5rem !important;
+}
+.jsv-360-mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.jsv-360__admin-wrapper {
+  margin-right: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-family: "Roboto,Helvetica Neue,Arial", sans-serif;
+}
+.jsv-360__card {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: white;
+  background-image: none;
+  background-origin: padding-box;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-size: auto;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 0px 1px, rgba(0, 0, 0, 0.05) 0px 2px 4px 0px, rgba(0, 0, 0, 0.08) 0px 2px 1px 0px;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.9);
+  display: block;
+  font-size: 15px;
+  letter-spacing: normal;
+  margin-bottom: 24px;
+  min-height: 150px;
+  min-width: 200px;
+  overflow: hidden;
+  position: relative;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-font-smoothing: antialiased;
+  padding: 15px;
+}
+.jsv-360__swoosh-container {
+  margin: 0 auto;
+  position: relative;
+}
+.jsv-360__swoosh-header {
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+.jsv-360__swoosh-header::after {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 350px;
+  content: "";
+  position: absolute;
+  background-size: cover;
+  background-color: transparent;
+  background-image: url("../img/swoosh.svg");
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  bottom: auto !important;
+}
+.jsv-360__backdrop {
+  padding: 0 20px;
+}
+.jsv-360__backdrop-container {
+  margin: 0 auto;
+  position: relative;
+  padding-top: 40px;
+}
+@media (min-width: 600px) {
+  .jsv-360__backdrop-container {
+    max-width: 890px;
+  }
+}
+.jsv-360__backdrop-header {
+  margin-bottom: 20px;
+}
+.jsv-360__logo-poppins {
+  background-size: contain;
+  background-position-y: 50%;
+  width: 272px;
+  height: 72px;
+  background-repeat: no-repeat;
+}
+.jsv-360__logo {
+  position: absolute;
+  right: 48px;
+  top: 40px;
+  z-index: 10;
+}
+.jsv-360__rating {
+  color: white;
+  padding: 10px;
+  background-color: #a2a2a2;
+  text-align: center;
+}
+
+.jsv-360__button {
+  width: 105px;
+}
+.jsv-360__settings {
+  background-color: #f6f6f6;
+  padding: 10px;
+  min-height: 300px;
+}
+.jsv-360__settings__holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.jsv-360__settings__holder button {
+  min-width: 200px;
+  min-width: 200px;
+  align-items: center;
+  margin-left: 20px;
+  background-color: #a5c100;
+  color: #ffffff;
+  border: 1px solid #a5c100;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px 16px;
+  border-radius: 10px;
+}
+.jsv-360__settings a {
+  text-decoration: none;
+  font-weight: 600;
+}
+.jsv-360__settings__upload-thumb {
+  width: 80px;
+  margin: 0 10px;
+}
+.jsv-360__settings__settings-holder {
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  align-content: flex-start;
+  max-width: 400px;
+}
+.jsv-360__settings__settings-holder__description {
+  margin-top: 2px;
+}
+.jsv-360__settings__row {
+  display: flex;
+  align-items: flex-start;
+}
+.jsv-360__settings__label {
+  min-width: 150px;
+  padding-top: 10px;
+}
+
+.jsv-360__home ul li:not(:last-child) {
+  border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+  margin-bottom: 10px;
+}
+.jsv-360__home__step {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.jsv-360__home__step p {
+  width: 50%;
+}
+
+/*# sourceMappingURL=jsv-360-admin.css.map */

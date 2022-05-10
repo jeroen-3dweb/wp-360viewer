@@ -9,7 +9,7 @@
                             <div class="jsv-360__logo-poppins"></div>
                             <div>
                                 <img src="<?php
-                                echo plugins_url('360-jsv/admin/img/sign-130.png', 'jsv-360') ?>" class="jsv-360__logo"
+                                echo plugins_url('admin/img/sign-130.png', JSV360_MAIN_URL) ?>" class="jsv-360__logo"
                                      alt="logo">
                             </div>
                         </div>
