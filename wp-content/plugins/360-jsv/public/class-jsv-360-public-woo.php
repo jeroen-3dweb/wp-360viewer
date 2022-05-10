@@ -83,7 +83,7 @@ class JSV_360_Public_Woo
     {
         /** @var WC_Product $product */
         global $product;
-        return $product->get_meta(JSV_360_WOO_METABOX::FIELD_BBCODE) ?: null;
+        return $product ? $product->get_meta(JSV_360_WOO_METABOX::FIELD_BBCODE) ?: null : null;
     }
 
 
