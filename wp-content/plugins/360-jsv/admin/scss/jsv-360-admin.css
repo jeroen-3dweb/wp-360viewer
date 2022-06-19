@@ -1,3 +1,13 @@
+.jsv-typography-grey {
+  color: #a2a2a2;
+}
+.jsv-typography-h1 {
+  font-size: 2em;
+}
+.jsv-typography-h6 {
+  font-size: 1em;
+}
+
 .jsv-360-mt-2 {
   margin-top: 0.5rem !important;
 }
@@ -164,7 +174,7 @@
   justify-content: space-between;
 }
 .jsv-360__home__step p {
-  width: 50%;
+  width: 70%;
 }
 
 /*# sourceMappingURL=jsv-360-admin.css.map */
