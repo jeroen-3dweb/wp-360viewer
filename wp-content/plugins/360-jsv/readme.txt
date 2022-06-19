@@ -100,3 +100,5 @@ Turn a series of images into an interactive 360 degree view.
 * Use your own notifier
 = 1.6.15 =
 * Support quotes in shortcode for translation plugins
+= 1.6.18 =
+* Support for extra classes on images
