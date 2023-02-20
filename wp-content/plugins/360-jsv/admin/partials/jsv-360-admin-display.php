@@ -21,7 +21,7 @@ include('header.php') ?>
                     echo plugins_url('admin/img/local.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
                          alt="Use your own hosted images">
                 </div>
-                <a class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined">start uploading</a>
+                <a href="<?= menu_page_url(JSV_360_ADMIN_DEDICATED::PATH, false)  ?>" class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined">start uploading</a>
             </div>
         <div class="jsv-360__home__card-holder__card">
             <h2>Central managed and hosted</h2>
@@ -30,37 +30,9 @@ include('header.php') ?>
                 echo plugins_url('admin/img/cloud.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
                      alt="Use central hosted presentations">
             </div>
-            <a class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined">select presentation</a>
+            <a href="<?= menu_page_url(JSV_360_ADMIN_CLOUD::PATH, false)  ?>" class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined">select presentation</a>
         </div>
 
     </div>
-
-    <script type="application/javascript">
-      jQuery(function ($) {
-        $('body').on('click', '#jsv-go-button', function (e) {
-
-          e.preventDefault()
-
-          const button = $(this),
-            custom_uploader = wp.media({
-              title: 'Select the first image',
-              library: {
-                type: 'image'
-              },
-              button: {
-                text: 'This is the first image of the serie'
-              },
-              multiple: false
-            }).on('close', function () {
-              const attachment = custom_uploader.state().get('selection').first().toJSON()
-              const img = btoa(attachment.url)
-              const url = `https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=pluginhome&utm_campaign=3dweb&main_url=${img}`
-              window.open(url, '_blank')
-            }).open()
-
-        })
-      })
-    </script>
-
 <?php
 include('footer.php'); ?>

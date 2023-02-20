@@ -11,7 +11,7 @@
   border-radius: 10px;
 }
 
-@mixin card {
+@mixin card-defaults {
   padding: 2em;
   box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -1px #0000000f !important;
   border: 0 solid rgba(0, 0, 0, .125);
