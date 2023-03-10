@@ -299,6 +299,9 @@
 .jsv-360__home__card-holder__card a {
   margin-top: 2em;
 }
+.jsv-360__home__card-holder__card p {
+  text-align: center;
+}
 .jsv-360__home ul li:not(:last-child) {
   border-bottom: 2px solid rgba(128, 128, 128, 0.3);
   margin-bottom: 10px;

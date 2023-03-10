@@ -124,14 +124,14 @@ class JSV_360_Parser
     /**
      * @param $dataAttributes
      *
-     * @return mixed|string
+     * @return mixed|string|null
      */
     private function getImageUrl($dataAttributes)
     {
         if (isset($dataAttributes['main-image-url'])) {
             return $dataAttributes['main-image-url'];
         }
-        return self::DEFAULT_URL;
+        return null;
     }
 
     /**
@@ -188,6 +188,7 @@ class JSV_360_Parser
     private function getDataAttributes($data, $holderId, $imageId)
     {
         $arr = [];
+
 
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);

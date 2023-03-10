@@ -49,6 +49,7 @@ class JSV_360
         require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-jsv-360-public.php';
         require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-jsv-360-admin.php';
         require_once plugin_dir_path(dirname(__FILE__)) . 'widgets/class-jsv-360-widget.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'blocks/class-jsv-360-block.php';
 
         //  Plugins
         require_once plugin_dir_path(dirname(__FILE__)) . 'includes/woo/class-jsv-360-woo.php';
@@ -91,10 +92,12 @@ class JSV_360
         $pluginPublic = new JSV_360_Public($this->pluginName, $this->version);
         $parser       = new JSV_360_Parser($this->pluginName, $this->version);
         $widget       = new JSV_360_Widget();
+        $block       = new JSV_360_Block();
 
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_scripts');
         $this->loader->add_action('widgets_init', $widget, 'register');
+        $this->loader->add_action('init', $block, 'register');
 
         $this->loader->add_filter('the_content', $parser, 'parse');
     }

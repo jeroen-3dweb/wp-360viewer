@@ -15,7 +15,8 @@ include('header.php') ?>
 
         <div class="jsv-360__home__card-holder">
             <div class="jsv-360__home__card-holder__card">
-                <h2>Use local hosting</h2>
+                <h2>Traditional</h2>
+                <p>Use your own hosting for images and configure your presentation local.</p>
                 <div class="jsv-360__home__card__image">
                     <img src="<?php
                     echo plugins_url('admin/img/local.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
@@ -25,6 +26,7 @@ include('header.php') ?>
             </div>
         <div class="jsv-360__home__card-holder__card">
             <h2>Central managed and hosted</h2>
+            <p>Manage your presentations in one place. Use optimised images loaded from a fast CDN.</p>
             <div class="jsv-360__home__card__image">
                 <img src="<?php
                 echo plugins_url('admin/img/cloud.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"

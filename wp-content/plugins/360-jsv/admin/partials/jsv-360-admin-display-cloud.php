@@ -10,24 +10,11 @@ include('jsv-settings-helper.php');
         </h1>
         <div class="jsv-360__settings">
             <h2>Use presentations by their id</h2>
-            <p>
+            <p class="external-link">
+                Go to <a href="https://3dweb.io" target="_blank">https://3dweb.io</a> and get the shortcode for Wordpress.
             </p>
-            <form method='post' data-source="<?= JSV_360_ADMIN_AUTOROTATE::PATH; ?>">
-                <div class="jsv-360__settings__table">
-                    <?= jsv_setting_create_row(
-                        'API Key',
-                        'Enter your API key here',
-                        JSV_360_ADMIN_AUTOROTATE::AUTOROTATE,
-                        get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE, '')
-                    )
-                    ?>
-                </div>
-            </form>
-            <?php
-            include('button.php'); ?>
-        </div>
-        <p>cloud hosting</p>
 
+        </div>
     </div>
 
 <?php
