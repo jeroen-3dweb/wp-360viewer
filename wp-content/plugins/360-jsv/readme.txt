@@ -35,6 +35,7 @@ Turn a series of images into an interactive 360 degree view.
 * Float and margin for some placement control
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
 * Widget
+* Gutenberg block
 * Very lightweight (50kb)
 
 == Installation ==
