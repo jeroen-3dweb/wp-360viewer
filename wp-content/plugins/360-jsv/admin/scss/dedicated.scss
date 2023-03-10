@@ -1,0 +1,59 @@
+.jsv-360__dedicated {
+
+  &__card-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $back-ground-grey;
+
+    &__card {
+      @include card-defaults;
+      background-color: #fff;
+      margin: 3em;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      a {
+        margin-top: 2em;
+      }
+
+      &-right {
+        width: 50%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      &-left {
+        width: 50%;
+      }
+    }
+  }
+
+  ul {
+    li {
+      &:nth-child(even) {
+        //background-color: #d7d7d9;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__step {
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+
+    p {
+      width: 70%;
+    }
+  }
+}
