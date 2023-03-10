@@ -3,117 +3,38 @@
 include('header.php') ?>
 
     <div class="jsv-360__home">
-        <h1 class="jsv-typography-root jsv-typography-h1">
+        <h1 class="jsv-typography-root jsv-typography-dark jsv-typography-h1">
             <?= __('360 Javascript Viewer', 'jsv360') ?>
         </h1>
-        <h6 class="jsv-typography-root jsv-typography-grey jsv-typography-h6 jsv-mt-4 jsv-mb-2">
+        <h6 class="jsv-typography-root jsv-typography-grey jsv-typography-h6 jsv-mt-4 jsv-mb-2 external-link">
             <?= __(
-                'Official plugin for the 360° javascript viewer. <br>Create unlimited 360° product presentations with all kind of options.',
+                'Official plugin for the 360° javascript viewer made by <a target="_blank" href="https://3dweb.io?utm_source=plugin-page&utm_id=wordpress">3dweb.io</a> . <br>Create unlimited 360° product presentations with all kind of options.',
                 'jsv'
             ) ?>
         </h6>
-        <ul>
-            <li>
-                <div class="jsv-360__home__step">
-                    <div>
-                        <h3 style="clear: both">
-                            <?= __(
-                                'Upload your images to wordpress',
-                                'jsv'
-                            ) ?></h3>
 
-                        <p>       <?= __(
-                                'Select the first image (yourimage_01.jpg) from your uploads and use the tool to fine tune your 360 product presentation',
-                                'jsv'
-                            ) ?>
-
-                            <a id='jsv-go-button'
-                               href="#"
-                               class="jsv-button-base-root jsv-button-root jsv-button-contained jsv-button-contained-primary jsv-mb-4 jsv-mt-2"
-                               tabindex="0"
-                               type="button"
-                               data-element-type="button">
-                                <span class="jsv-button-label" style="width: 100%;">
-                                    <?= __('select your first image and get started!', 'jsv') ?><span
-                                            class="jsv-button-endIcon">
-                                    </span>
-                                </span>
-                            </a>
-                            <br>
-                            <br>
-                            <?= __(
-                                'Are your images hosted somewhere else? Click <a target="_blank" href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=pluginhome&utm_campaign=3dweb">here</a> to configure your presentation<',
-                                'jsv'
-                            ) ?>
-                        </p>
-                    </div>
+        <div class="jsv-360__home__card-holder">
+            <div class="jsv-360__home__card-holder__card">
+                <h2>Traditional</h2>
+                <p>Use your own hosting for images and configure your presentation local.</p>
+                <div class="jsv-360__home__card__image">
                     <img src="<?php
-                    echo plugins_url('admin/img/first_image_select.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
-                         alt="Select the first image">
-
+                    echo plugins_url('admin/img/local.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
+                         alt="Use your own hosted images">
                 </div>
-            </li>
-            <li>
-                <div class="jsv-360__home__step">
-                    <div>
-                        <h3 style="clear: both">
-                            <?= __(
-                                'Paste the shortcode',
-                                'jsv'
-                            ) ?></h3>
-                        <p>           <?= __(
-                                'Copy/paste the code in a widget, on a page or in WooCommerce',
-                                'jsv'
-                            ) ?></p>
-
-                    </div>
-                        <img width="200px" src="<?php
-                        echo plugins_url('admin/img/copy_code.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
-                             alt="Select the first image">
-
-                </div>
-            </li>
-            <li>
-                <div class="jsv-360__home__step">
-                    <p>                 <?= __(
-                            'If you need other specific options check the <a href="https://wordpress.org/plugins/360deg-javascript-viewer/#installation" target="_blank">readme</a>. Like margins, floats and width',
-                            'jsv'
-                        ) ?></p>
-
-
-                </div>
-            </li>
-        </ul>
-
+                <a href="<?= menu_page_url(JSV_360_ADMIN_DEDICATED::PATH, false)  ?>" class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined">start uploading</a>
+            </div>
+        <div class="jsv-360__home__card-holder__card">
+            <h2>Central managed and hosted</h2>
+            <p>Manage your presentations in one place. Use optimised images loaded from a fast CDN.</p>
+            <div class="jsv-360__home__card__image">
+                <img src="<?php
+                echo plugins_url('admin/img/cloud.png', JSV360_MAIN_URL) ?>" class="jsv__image-select"
+                     alt="Use central hosted presentations">
+            </div>
+            <a href="<?= menu_page_url(JSV_360_ADMIN_CLOUD::PATH, false)  ?>" class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined">select presentation</a>
+        </div>
 
     </div>
-
-    <script type="application/javascript">
-      jQuery(function ($) {
-        $('body').on('click', '#jsv-go-button', function (e) {
-
-          e.preventDefault()
-
-          const button = $(this),
-            custom_uploader = wp.media({
-              title: 'Select the first image',
-              library: {
-                type: 'image'
-              },
-              button: {
-                text: 'This is the first image of the serie'
-              },
-              multiple: false
-            }).on('close', function () {
-              const attachment = custom_uploader.state().get('selection').first().toJSON()
-              const img = btoa(attachment.url)
-              const url = `https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=pluginhome&utm_campaign=3dweb&main_url=${img}`
-              window.open(url, '_blank')
-            }).open()
-
-        })
-      })
-    </script>
-
 <?php
 include('footer.php'); ?>

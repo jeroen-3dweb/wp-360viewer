@@ -1,6 +1,17 @@
 //settings
 .jsv-360 {
 
+  p {
+    font-size: 1em;
+    line-height: 1.5em;
+    color: #3b3b3b;
+  }
+ p.warning {
+   background-color:#eae3c1;
+   padding: 0.5em;
+   font-size: 0.8em;
+ }
+
   &__button {
     width: 105px;
   }

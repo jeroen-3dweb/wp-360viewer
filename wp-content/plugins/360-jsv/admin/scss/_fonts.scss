@@ -1,14 +1,35 @@
-.jsv-typography{
+.jsv-typography {
 
-  &-grey{
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+
+
+
+  &-grey {
     color: #a2a2a2;
+
+    a {
+      color: #3b3b3b;
+      text-decoration: none;
+    }
   }
 
-  &-h1{
+  &-dark {
+    color:   #344767;
+  }
+
+  &-h1 {
     font-size: 2em;
   }
 
-  &-h6 {
-    font-size: 1em ;
+  &-h3 {
+    color:   #344767;
+    font-size: 1.5em;
   }
+
+  &-h6 {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+
 }

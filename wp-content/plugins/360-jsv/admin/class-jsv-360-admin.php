@@ -25,9 +25,6 @@ class JSV_360_Admin
         $this->loadHooks();
     }
 
-
-
-
     /**
      * Register the stylesheets for the admin area.
      *
@@ -117,6 +114,8 @@ class JSV_360_Admin
         }
         $this->pages = [
             new JSV_360_ADMIN_INDEX(),
+            new JSV_360_ADMIN_CLOUD(),
+            new JSV_360_ADMIN_DEDICATED(),
             new JSV_360_ADMIN_NOTIFIER(),
             new JSV_360_ADMIN_AUTOROTATE(),
             new JSV_360_ADMIN_LICENSE(),
