@@ -8,7 +8,7 @@ include('header.php') ?>
         </h1>
         <h6 class="jsv-typography-root jsv-typography-grey jsv-typography-h6 jsv-mt-4 jsv-mb-2 external-link">
             <?= __(
-                'In two steps you can create your presentation',
+                'In two steps you can create your presentation, need more help? Check out this <a target="_blank" href="https://www.youtube.com/watch?v=qYCD2sL1lM0">video</a>',
                 'jsv'
             ) ?>
         </h6>
