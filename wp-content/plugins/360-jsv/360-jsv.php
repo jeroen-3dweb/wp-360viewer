@@ -7,7 +7,7 @@ Author: 360 Javascript Viewer
 Author URI: https://3dweb.io
 Developer: Jeroen Termaat
 Developer URI: https://www.360-javscriptviewer.com/
-Version: 1.6.21
+Version: 1.6.22
 Last Modified: 2023-03-16
 License: GPLv2
 */
@@ -15,10 +15,11 @@ error_reporting(E_ALL);
 if (!defined('WPINC')) {
     die;
 }
-$jsvVersion = '1.6.21';
+$jsvVersion = '1.6.22';
 define('JSV360_VERSION', $jsvVersion);
 define('JSV360_PATH', plugin_dir_path(__FILE__));
 define('JSV360_MAIN_URL', __FILE__);
+define('JSV360_DOMAIN', 'jsv-360');
 
 require plugin_dir_path(__FILE__) . 'includes/class-jsv-360.php';
 

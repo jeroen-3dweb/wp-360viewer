@@ -74,7 +74,6 @@ registerBlockType('jsviewer/default-viewer', {
     
   },
   save: (props) => {
-    console.log('save', props)
     return <div>{props.attributes.code}</div>
   }
 })

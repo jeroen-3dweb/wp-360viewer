@@ -4,7 +4,7 @@ Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image
 Requires at least: 5.0
 Tested up to: 6.1
 Requires PHP: 7.0.0
-Stable tag: 1.6.21
+Stable tag: 1.6.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,7 @@ Turn a series of images into an interactive 360 degree view.
 * ShortCodes system, [generate the shortcodes online for more control](https://www.360-javascriptviewer.com/wordpress)
 * Widget
 * Gutenberg block
+* Elementor block
 * Very lightweight (50kb)
 
 == Installation ==

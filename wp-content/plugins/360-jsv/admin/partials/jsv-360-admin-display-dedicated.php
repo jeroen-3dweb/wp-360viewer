@@ -50,6 +50,9 @@ include('header.php') ?>
                         </a>
 
                     </p>
+                    <?php
+                        if(JSV_360_Admin_HELPER::isLocalhost()) {
+                    ?>
                     <p class="warning">
                         <span class="warn warning"></span>
                         <?= __(
@@ -57,6 +60,7 @@ include('header.php') ?>
                             'jsv'
                         ) ?>
                     </p>
+                    <?php } ?>
                 </div>
                 <div class="jsv-360__dedicated__card-holder__card-right">
                     <img src="<?php
@@ -74,7 +78,7 @@ include('header.php') ?>
                         ) ?></h3>
 
                     <p>           <?= __(
-                            'Copy/paste the code in a widget, on a page or in WooCommerce',
+                            'Copy/paste the code in a widget, on a page, in a block or in WooCommerce',
                             'jsv'
                         ) ?></p>
                 </div>

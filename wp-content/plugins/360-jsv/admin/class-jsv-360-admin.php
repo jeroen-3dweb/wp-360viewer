@@ -21,6 +21,7 @@ class JSV_360_Admin
     {
         $this->pluginName = $pluginName;
         $this->version    = $version;
+        $this->loadHelpers();
         $this->loadPages();
         $this->loadHooks();
     }
@@ -119,6 +120,18 @@ class JSV_360_Admin
             new JSV_360_ADMIN_NOTIFIER(),
             new JSV_360_ADMIN_AUTOROTATE(),
             new JSV_360_ADMIN_LICENSE(),
+            new JSV_360_ADMIN_ABOUT(),
         ];
+    }
+
+    private function loadHelpers()
+    {
+        $path = plugin_dir_path(dirname(__FILE__)) . 'admin/helpers/';
+
+        foreach (scandir($path) as $memberFile) {
+            if (strlen($memberFile) > 10) {
+                require_once($path . DIRECTORY_SEPARATOR . $memberFile);
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@ include('header.php') ?>
         <h6 class="jsv-typography-root jsv-typography-grey jsv-typography-h6 jsv-mt-4 jsv-mb-2 external-link">
             <?= __(
                 'Official plugin for the 360° javascript viewer made by <a target="_blank" href="https://3dweb.io?utm_source=plugin-page&utm_id=wordpress">3dweb.io</a> . <br>Create unlimited 360° product presentations with all kind of options.',
-                'jsv'
+                JSV360_DOMAIN
             ) ?>
         </h6>
 
