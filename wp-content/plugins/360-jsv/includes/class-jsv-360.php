@@ -52,7 +52,9 @@ class JSV_360
         require_once plugin_dir_path(dirname(__FILE__)) . 'blocks/class-jsv-360-block.php';
 
         //  Plugins
-        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/woo/class-jsv-360-woo.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/woo/class-jsv-360-woo.php'; //woo
+
+        require_once plugin_dir_path(dirname(__FILE__)) . 'includes/elementor/class-jsv-360-elementor.php'; //Elementor
 
         $this->loader = new JSV_360_Loader();
     }
@@ -115,6 +117,11 @@ class JSV_360
         // Woocommerce
         if (JSV_360_WOO::woocommerceIsActive()) {
             (new JSV_360_WOO($this->version, $this->pluginName, $this->loader))->run();
+        }
+
+        // Elementor
+        if (JSV_360_Elementor::elementorIsActive()) {
+            (new JSV_360_Elementor($this->version, $this->pluginName, $this->loader))->run();
         }
     }
 }
