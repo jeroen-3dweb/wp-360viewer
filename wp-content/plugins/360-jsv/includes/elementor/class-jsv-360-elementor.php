@@ -55,12 +55,23 @@ class JSV_360_ELEMENTOR
     private function definePublicHooks(){
 
         $this->loader->add_action( 'elementor/widgets/register', $this,'registerWidgets' );
+        $this->loader->add_action( 'woocommerce_after_main_content', $this, 'getWooCommerceProduct' );
     }
 
     public function registerWidgets() {
         $this->loadDependencies();
         \Elementor\Plugin::instance()->widgets_manager->register( new JSV_360_ELEMENTOR_WIDGET());
     }
+
+    public function getWooCommerceProduct() {
+        global $jsvWooCommerceShortCode;
+        global $product;
+        $shortCode = $product->get_meta('jsv_360_woo_bbcode_');
+        if (isset($shortCode) && !empty($shortCode)){
+            $jsvWooCommerceShortCode = $shortCode;
+        }
+    }
+
     /**
      * @since 1.0.0
      */

@@ -40,6 +40,16 @@ module.exports = window["wp"]["components"];
 
 module.exports = window["wp"]["element"];
 
+/***/ }),
+
+/***/ "@wordpress/shortcode":
+/*!***********************************!*\
+  !*** external ["wp","shortcode"] ***!
+  \***********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["shortcode"];
+
 /***/ })
 
 /******/ 	});
@@ -125,6 +135,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_shortcode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/shortcode */ "@wordpress/shortcode");
+/* harmony import */ var _wordpress_shortcode__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_shortcode__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -154,10 +167,13 @@ __webpack_require__.r(__webpack_exports__);
       type: 'string',
       default: '[360-jsv total-frames=72 main-image-url=https://cdn1.360-javascriptviewer.com/images/blue-shoe-small/20180906-001-blauw.jpg image-url-format=20180906-0xx-blauw.jpg speed=90 inertia=12 zoom=true reverse=true auto-rotate=1 notification-config_drag-to-rotate_show-start-to-rotate-default-notification=true ]',
       source: 'text'
+    },
+    useWooCommerceProduct: {
+      type: 'boolean',
+      default: false
     }
   },
   edit: props => {
-    console.log('edit', props);
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Card, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardHeader, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Flex, {
       align: true
     }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.FlexItem, {
@@ -185,6 +201,13 @@ __webpack_require__.r(__webpack_exports__);
         code: value
       }),
       value: props.attributes.code
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+      label: "Use WooCommerce Product",
+      help: "Do you want to use the WooCommerce product for the shortcode?",
+      checked: props.attributes.useWooCommerceProduct,
+      onChange: value => props.setAttributes({
+        useWooCommerceProduct: value
+      })
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You can find the shortcode on ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       class: "is_link",
       target: "_blank",
@@ -195,8 +218,21 @@ __webpack_require__.r(__webpack_exports__);
     }, "3DWeb.io"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardFooter, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalText, null, "The shortcode is placed into the source. Then it will be converted to a 360 presentation."))));
   },
   save: props => {
-    console.log('save', props);
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, props.attributes.code);
+    let code = props.attributes.code;
+    code = code.replace('[360-jsv', '');
+    code = code.replace(']', '');
+    let sc = new (_wordpress_shortcode__WEBPACK_IMPORTED_MODULE_4___default())({
+      attrs: code,
+      tag: '360-jsv',
+      content: '',
+      type: 'single'
+    });
+    let val = props.attributes.code;
+    if (props.attributes.useWooCommerceProduct) {
+      sc.set('use-woo-commerce-product', props.attributes.useWooCommerceProduct);
+      val = sc.string().replace(/"|'/g, '');
+    }
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, val);
   }
 });
 })();

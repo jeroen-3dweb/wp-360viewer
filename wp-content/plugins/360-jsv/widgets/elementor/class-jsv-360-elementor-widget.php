@@ -31,6 +31,23 @@ class JSV_360_ELEMENTOR_WIDGET  extends Widget_Base
         ?>
         <div <?php echo $this->get_render_attribute_string( 'code' ); ?><?php echo wp_kses( $settings['code'], array() ); ?></div>
         <?php
+        global $product;
+
+// Get all attributes and their data
+        if($product) {
+            $attributes = $product->get_attributes();
+            var_dump($attributes);
+            die;
+
+            foreach ($attributes as $attribute) {
+                if (is_object($attribute)) {
+                    // Array of attribute data
+                    $attribute_data = $attribute->get_data();
+                    // Do what you need to do...
+
+                }
+            }
+        }
     }
     protected function _register_controls() {
         $this->start_controls_section(

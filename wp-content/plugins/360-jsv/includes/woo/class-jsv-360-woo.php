@@ -90,6 +90,7 @@ class JSV_360_WOO
         $this->loadDependencies();
         $this->definePublicHooks();
         $this->define_admin_hooks();
+        $this->initGlobals();
     }
 
     /**
@@ -99,5 +100,12 @@ class JSV_360_WOO
     {
         return in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')));
     }
-}
 
+    private function initGlobals()
+    {
+        if (self::woocommerceIsActive()) {
+            global $jsvWooCommerceShortCode;
+            $jsvWooCommerceShortCode= null;
+        }
+    }
+}

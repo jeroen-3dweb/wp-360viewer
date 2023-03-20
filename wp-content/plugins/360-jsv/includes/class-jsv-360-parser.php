@@ -27,7 +27,6 @@ class JSV_360_Parser
         $this->version    = $version;
     }
 
-
     /**
      * @param $content
      * @return string
@@ -40,20 +39,26 @@ class JSV_360_Parser
                 continue;
             }
 
-            $shortCode = str_replace(['"',"'", '’'], "", html_entity_decode($shortCode)) ;
-            $data    = shortcode_parse_atts($shortCode);
+            $shortCode = str_replace(['"', "'", '’'], "", html_entity_decode($shortCode));
+            $data      = shortcode_parse_atts($shortCode);
+
+            // check if the shortcode must be obtained from a woocommerce product
+            if (isset($data['use-woo-product']) && $data['use-woo-product'] == 'true') {
+                global $jsvWooCommerceShortCode;
+                if ($jsvWooCommerceShortCode !== null) {
+                    $data = shortcode_parse_atts($jsvWooCommerceShortCode);
+                }
+            }
+
             $imageId = get_option(JSV_360_ADMIN_NOTIFIER::NOTIFIER_IMAGE_ID, null);
             if ($imageId) {
-                $image                                                                                = wp_get_attachment_image_src(
-                    $imageId
-                );
+                $image                                                                                = wp_get_attachment_image_src($imageId);
                 $data['notification-config_drag-to-rotate_show-start-to-rotate-default-notification'] = false;
                 $data['notification-config_drag-to-rotate_image-url']                                 = $image[0];
             }
 
             $this->applyDefault('license', get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, null), $data);
             $this->applyDefault('auto-rotate', get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE, null), $data);
-
 
             if (empty($data)) {
                 echo 'error in shortcode:' . $shortCode . PHP_EOL;
@@ -188,7 +193,6 @@ class JSV_360_Parser
     private function getDataAttributes($data, $holderId, $imageId)
     {
         $arr = [];
-
 
         foreach ($data as $key => $value) {
             $saveKey = strtolower($key);
