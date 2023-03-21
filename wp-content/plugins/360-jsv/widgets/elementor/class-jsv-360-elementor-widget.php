@@ -3,71 +3,109 @@
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-class JSV_360_ELEMENTOR_WIDGET  extends Widget_Base
+class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
 {
-     public function get_name() {
+    const USE_ACF_FIELD = 'use_acf_field';
+
+    const USE_WOO_PRODUCT = 'use_woo_product';
+
+    public function get_name()
+    {
         return '360 Javascript Viewer';
     }
 
-    public function get_title() {
-        return esc_html__( '360 Javascript Viewer', JSV360_DOMAIN );
+    public function get_title()
+    {
+        return esc_html__('360 Javascript Viewer', JSV360_DOMAIN);
     }
 
-    public function get_icon() {
+    public function get_icon()
+    {
         return 'eicon-code';
     }
 
-    public function get_categories() {
-        return [ 'basic' ];
+    public function get_categories()
+    {
+        return ['basic'];
     }
 
-    public function get_keywords() {
-        return [ '360', 'javascript viewer' ];
+    public function get_keywords()
+    {
+        return ['360', 'javascript viewer'];
     }
 
-    protected function render() {
+    protected function render()
+    {
         $settings = $this->get_settings_for_display();
-        $this->add_inline_editing_attributes( 'code', 'advanced' );
-        ?>
-        <div <?php echo $this->get_render_attribute_string( 'code' ); ?><?php echo wp_kses( $settings['code'], array() ); ?></div>
-        <?php
-        global $product;
+        $code     = $settings['code'];
 
-// Get all attributes and their data
-        if($product) {
-            $attributes = $product->get_attributes();
-            var_dump($attributes);
-            die;
-
-            foreach ($attributes as $attribute) {
-                if (is_object($attribute)) {
-                    // Array of attribute data
-                    $attribute_data = $attribute->get_data();
-                    // Do what you need to do...
-
-                }
-            }
+        if ($settings[self::USE_ACF_FIELD]) {
+            $acfCode = $this->getACFCode();
+            $code    = $acfCode ?: $settings['code'];
         }
+
+        if ($settings[self::USE_WOO_PRODUCT]) {
+            $wooCommerceCode = $this->getWooCommerceCode();
+            $code            = $wooCommerceCode ?: $settings['code'];
+        }
+
+        $output = (new JSV_360_Parser('360 jsv', ''))->parse($code);
+
+        echo $output;
     }
-    protected function _register_controls() {
+
+    private function getWooCommerceCode()
+    {
+        global $product;
+        return $product ? get_post_meta($product->get_id(), 'jsv_360_woo_bbcode_', true) : false;
+    }
+
+    private function getACFCode()
+    {
+        $acfFieldName = get_option(JSV_360_ADMIN_ACF::ACF_FIELD, '');
+        $post_id      = get_queried_object_id();
+        return $post_id ? get_post_meta($post_id, $acfFieldName, true) : false;
+    }
+
+    protected function _register_controls()
+    {
         $this->start_controls_section(
             'section_content',
             array(
-                'label' => __( 'Content', JSV360_DOMAIN ),
+                'label' => __('Content', JSV360_DOMAIN),
             )
         );
         $this->add_control(
             'code',
             array(
-                'label'   => __( 'Enter shortcode', JSV360_DOMAIN),
+                'label'   => __('Enter shortcode', JSV360_DOMAIN),
                 'type'    => Controls_Manager::TEXTAREA,
-                'default' => __( '[360-jsv total-frames=72 main-image-url=https://cdn1.360-javascriptviewer.com/images/blue-shoe-small/20180906-001-blauw.jpg image-url-format=20180906-0xx-blauw.jpg speed=90 inertia=12 zoom=true reverse=true auto-rotate=1 notification-config_drag-to-rotate_show-start-to-rotate-default-notification=true ]', JSV360_DOMAIN ),
+                'default' => __('[360-jsv total-frames=72 main-image-url=https://cdn1.360-javascriptviewer.com/images/blue-shoe-small/20180906-001-blauw.jpg image-url-format=20180906-0xx-blauw.jpg speed=90 inertia=12 zoom=true reverse=true auto-rotate=1 notification-config_drag-to-rotate_show-start-to-rotate-default-notification=true ]',
+                    JSV360_DOMAIN),
             )
         );
+        $this->add_control(
+            'Use dynamic shortcode',
+            [
+                'label' => esc_html__( 'Use Dynamic Shortcode', JSV360_DOMAIN ),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'default' => '',
+                'options' => [
+                    '' => esc_html__( 'Default', 'textdomain' ),
+                    self::USE_WOO_PRODUCT => esc_html__( 'Use WooCommerce Shortcode', JSV360_DOMAIN ),
+                    self::USE_ACF_FIELD  => esc_html__( 'Use ACF Shortcode', JSV360_DOMAIN ),
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .your-class' => 'border-style: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->end_controls_section();
     }
 
-    protected function _content_template() {
+    protected function _content_template()
+    {
         ?>
         <#
         view.addInlineEditingAttributes( 'code', 'none' );
@@ -75,4 +113,5 @@ class JSV_360_ELEMENTOR_WIDGET  extends Widget_Base
         <div {{{ view.getRenderAttributeString( 'code' ) }}}>{{{ settings.code }}}</div>
         <?php
     }
+
 }

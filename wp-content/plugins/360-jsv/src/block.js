@@ -5,6 +5,7 @@ import {
   __experimentalHeading as Heading, FlexBlock, FlexItem, Flex, FlexItemBase, FlexBlockBase, FlexBase,
 } from '@wordpress/components'
 import shortcode from '@wordpress/shortcode'
+import ShortCode from './ShortCode'
 
 registerBlockType('jsviewer/default-viewer', {
   icon: {
@@ -33,6 +34,7 @@ registerBlockType('jsviewer/default-viewer', {
     useWooCommerceProduct: {
       type: 'boolean',
       default: false,
+      source: 'attribute',
     }
   },
   edit: (props) => {
@@ -89,22 +91,15 @@ registerBlockType('jsviewer/default-viewer', {
     
   },
   save: (props) => {
-    let code = props.attributes.code
-    code = code.replace('[360-jsv', '')
-    code = code.replace(']', '')
-    let sc = new shortcode({
-      attrs: code,
-      tag: '360-jsv',
-      content: '',
-      type: 'single'
-    })
-    
     let val = props.attributes.code
-    if (props.attributes.useWooCommerceProduct) {
-      sc.set('use-woo-commerce-product', props.attributes.useWooCommerceProduct)
-      val = sc.string().replace(/"|'/g, '')
+    const sc = new ShortCode(props.attributes.code)
+    
+    sc.setValue('use-woo-commerce-product', props.attributes.useWooCommerceProduct)
+    
+    if (sc.isDirty()) {
+      val = sc.getShortCodeText()
     }
-
+    
     return <div>{val}</div>
   }
 })
