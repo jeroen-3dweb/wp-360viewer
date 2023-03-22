@@ -1,10 +1,15 @@
 import { registerBlockType } from '@wordpress/blocks'
 import { useBlockProps } from '@wordpress/block-editor'
 import {
-  TextControl, TextareaControl, CheckboxControl, Card, CardBody, CardHeader, CardFooter, __experimentalText as Text,
-  __experimentalHeading as Heading, FlexBlock, FlexItem, Flex, FlexItemBase, FlexBlockBase, FlexBase,
+  __experimentalText as Text,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Flex,
+  FlexItem,
+  TextareaControl,
 } from '@wordpress/components'
-import shortcode from '@wordpress/shortcode'
 import ShortCode from './ShortCode'
 
 registerBlockType('jsviewer/default-viewer', {
