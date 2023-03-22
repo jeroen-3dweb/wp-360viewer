@@ -36,6 +36,7 @@ Turn a series of images into an interactive 360 degree view.
 * Widget
 * Gutenberg block
 * Elementor block
+* Use ACF or WooCommerce product code for presentation
 * Very lightweight (50kb)
 
 == Installation ==
@@ -105,4 +106,6 @@ Turn a series of images into an interactive 360 degree view.
 = 1.6.18 =
 * Support for extra classes on images
 = 1.6.20 =
-* Support for 3dweb.io and Gutenberg editor
+* Support for 3dweb.io and Gutenberg editor=
+= 1.7.0 =
+* Support for Advanced Custom Fields and WooCommerce product code for presentations in Elementor block

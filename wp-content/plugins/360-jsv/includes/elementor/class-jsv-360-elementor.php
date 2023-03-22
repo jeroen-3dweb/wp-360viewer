@@ -44,7 +44,6 @@ class JSV_360_ELEMENTOR
         require_once JSV360_PATH . 'widgets/elementor/class-jsv-360-elementor-widget.php';
     }
 
-
     /**
      * Register all of the hooks related to the public-facing functionality
      * of the plugin.
@@ -61,6 +60,7 @@ class JSV_360_ELEMENTOR
         $this->loadDependencies();
         \Elementor\Plugin::instance()->widgets_manager->register( new JSV_360_ELEMENTOR_WIDGET());
     }
+
     /**
      * @since 1.0.0
      */

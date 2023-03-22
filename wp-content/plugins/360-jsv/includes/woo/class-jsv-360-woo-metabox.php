@@ -83,8 +83,8 @@ class JSV_360_WOO_METABOX
                             <a target="_blank" href="https://www.360-javascriptviewer.com/wordpress" title="create code online">
                                 tool for creating code
                             </a> </strong>
-                        <input class="jsv-360-woo-bbcode" type="text" name="<?= self::FIELD_BBCODE ?>"
-                               value="<?= $bbCode ?>"/>
+                        <textarea rows="10" cols="100" class="jsv-360-woo-bbcode" type="text" name="<?= self::FIELD_BBCODE ?>"
+                                  ><?= $bbCode ?> </textarea>
                     </div>
                 </td>
             </tr>

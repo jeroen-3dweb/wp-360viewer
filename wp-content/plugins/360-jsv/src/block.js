@@ -1,9 +1,16 @@
 import { registerBlockType } from '@wordpress/blocks'
 import { useBlockProps } from '@wordpress/block-editor'
 import {
-  TextControl, TextareaControl, Card, CardBody, CardHeader, CardFooter, __experimentalText as Text,
-  __experimentalHeading as Heading, FlexBlock, FlexItem, Flex, FlexItemBase, FlexBlockBase, FlexBase,
+  __experimentalText as Text,
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Flex,
+  FlexItem,
+  TextareaControl,
 } from '@wordpress/components'
+import ShortCode from './ShortCode'
 
 registerBlockType('jsviewer/default-viewer', {
   icon: {
@@ -28,10 +35,14 @@ registerBlockType('jsviewer/default-viewer', {
       type: 'string',
       default: '[360-jsv total-frames=72 main-image-url=https://cdn1.360-javascriptviewer.com/images/blue-shoe-small/20180906-001-blauw.jpg image-url-format=20180906-0xx-blauw.jpg speed=90 inertia=12 zoom=true reverse=true auto-rotate=1 notification-config_drag-to-rotate_show-start-to-rotate-default-notification=true ]',
       source: 'text'
+    },
+    useWooCommerceProduct: {
+      type: 'boolean',
+      default: false,
+      source: 'attribute',
     }
   },
   edit: (props) => {
-    console.log('edit', props)
     return <div {...useBlockProps()}><Card>
       <CardHeader>
         <Flex align>
@@ -59,11 +70,22 @@ registerBlockType('jsviewer/default-viewer', {
       </CardHeader>
       <CardBody>
         <TextareaControl
-          label={'Enter shortcode'} onChange={(value) => props.setAttributes(
-          { code: value })}
-          value={props.attributes.code}/>
-        <p>You can find the shortcode on <a class="is_link" target="_blank" href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">360-javascriptviewer.com </a>
-          or on <a target="_blank" href="https://3dweb.io/?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">3DWeb.io</a>
+          label={'Enter shortcode'}
+          onChange={(value) => props.setAttributes({ code: value })}
+          value={props.attributes.code}
+        />
+        
+      {/*  <CheckboxControl*/}
+      {/*    label="Use WooCommerce Product"*/}
+      {/*    help="Do you want to use the WooCommerce product for the shortcode?"*/}
+      {/*    checked={props.attributes.useWooCommerceProduct}*/}
+      {/*    onChange={(value) => props.setAttributes({ useWooCommerceProduct: value })}*/}
+      {/*  />*/}
+      {/*  */}
+        <p>You can find the shortcode on <a class="is_link" target="_blank"
+                                            href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">360-javascriptviewer.com </a>
+          or on <a target="_blank"
+                   href="https://3dweb.io/?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">3DWeb.io</a>
         </p>
       </CardBody>
       <CardFooter>
@@ -74,6 +96,15 @@ registerBlockType('jsviewer/default-viewer', {
     
   },
   save: (props) => {
-    return <div>{props.attributes.code}</div>
+    let val = props.attributes.code
+    const sc = new ShortCode(props.attributes.code)
+    
+    sc.setValue('use-woo-commerce-product', props.attributes.useWooCommerceProduct)
+    
+    if (sc.isDirty()) {
+      val = sc.getShortCodeText()
+    }
+    
+    return <div>{val}</div>
   }
 })
