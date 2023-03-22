@@ -44,7 +44,6 @@ class JSV_360_ELEMENTOR
         require_once JSV360_PATH . 'widgets/elementor/class-jsv-360-elementor-widget.php';
     }
 
-
     /**
      * Register all of the hooks related to the public-facing functionality
      * of the plugin.
@@ -55,21 +54,11 @@ class JSV_360_ELEMENTOR
     private function definePublicHooks(){
 
         $this->loader->add_action( 'elementor/widgets/register', $this,'registerWidgets' );
-        $this->loader->add_action( 'woocommerce_after_main_content', $this, 'getWooCommerceProduct' );
     }
 
     public function registerWidgets() {
         $this->loadDependencies();
         \Elementor\Plugin::instance()->widgets_manager->register( new JSV_360_ELEMENTOR_WIDGET());
-    }
-
-    public function getWooCommerceProduct() {
-        global $jsvWooCommerceShortCode;
-        global $product;
-        $shortCode = $product->get_meta('jsv_360_woo_bbcode_');
-        if (isset($shortCode) && !empty($shortCode)){
-            $jsvWooCommerceShortCode = $shortCode;
-        }
     }
 
     /**

@@ -42,14 +42,6 @@ class JSV_360_Parser
             $shortCode = str_replace(['"', "'", '’'], "", html_entity_decode($shortCode));
             $data      = shortcode_parse_atts($shortCode);
 
-            // check if the shortcode must be obtained from a woocommerce product
-            if (isset($data['use-woo-product']) && $data['use-woo-product'] == 'true') {
-                global $jsvWooCommerceShortCode;
-                if ($jsvWooCommerceShortCode !== null) {
-                    $data = shortcode_parse_atts($jsvWooCommerceShortCode);
-                }
-            }
-
             $imageId = get_option(JSV_360_ADMIN_NOTIFIER::NOTIFIER_IMAGE_ID, null);
             if ($imageId) {
                 $image                                                                                = wp_get_attachment_image_src($imageId);

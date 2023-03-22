@@ -38,15 +38,17 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
     {
         $settings = $this->get_settings_for_display();
         $code     = $settings['code'];
+        $override = $settings['dynamic_shortcode'];
 
-        if ($settings[self::USE_ACF_FIELD]) {
-            $acfCode = $this->getACFCode();
-            $code    = $acfCode ?: $settings['code'];
-        }
-
-        if ($settings[self::USE_WOO_PRODUCT]) {
-            $wooCommerceCode = $this->getWooCommerceCode();
-            $code            = $wooCommerceCode ?: $settings['code'];
+        switch ($override) {
+            case self::USE_ACF_FIELD:
+                $acfCode = $this->getACFCode();
+                $code    = $acfCode ?: $settings['code'];
+                break;
+            case self::USE_WOO_PRODUCT:
+                $wooCommerceCode = $this->getWooCommerceCode();
+                $code            = $wooCommerceCode ?: $settings['code'];
+                break;
         }
 
         $output = (new JSV_360_Parser('360 jsv', ''))->parse($code);
@@ -85,13 +87,13 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
             )
         );
         $this->add_control(
-            'Use dynamic shortcode',
+            'dynamic_shortcode',
             [
                 'label' => esc_html__( 'Use Dynamic Shortcode', JSV360_DOMAIN ),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'default' => '',
                 'options' => [
-                    '' => esc_html__( 'Default', 'textdomain' ),
+                    'Use code above' => esc_html__( 'Default', 'textdomain' ),
                     self::USE_WOO_PRODUCT => esc_html__( 'Use WooCommerce Shortcode', JSV360_DOMAIN ),
                     self::USE_ACF_FIELD  => esc_html__( 'Use ACF Shortcode', JSV360_DOMAIN ),
                 ],
