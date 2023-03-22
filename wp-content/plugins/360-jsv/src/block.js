@@ -70,13 +70,13 @@ registerBlockType('jsviewer/default-viewer', {
           value={props.attributes.code}
         />
         
-        <CheckboxControl
-          label="Use WooCommerce Product"
-          help="Do you want to use the WooCommerce product for the shortcode?"
-          checked={props.attributes.useWooCommerceProduct}
-          onChange={(value) => props.setAttributes({ useWooCommerceProduct: value })}
-        />
-        
+      {/*  <CheckboxControl*/}
+      {/*    label="Use WooCommerce Product"*/}
+      {/*    help="Do you want to use the WooCommerce product for the shortcode?"*/}
+      {/*    checked={props.attributes.useWooCommerceProduct}*/}
+      {/*    onChange={(value) => props.setAttributes({ useWooCommerceProduct: value })}*/}
+      {/*  />*/}
+      {/*  */}
         <p>You can find the shortcode on <a class="is_link" target="_blank"
                                             href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">360-javascriptviewer.com </a>
           or on <a target="_blank"

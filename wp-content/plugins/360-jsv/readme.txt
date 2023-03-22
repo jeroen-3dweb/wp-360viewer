@@ -108,4 +108,4 @@ Turn a series of images into an interactive 360 degree view.
 = 1.6.20 =
 * Support for 3dweb.io and Gutenberg editor=
 = 1.7.0 =
-* Support for Advanced Custom Fields and WooCommerce product code for presentation
+* Support for Advanced Custom Fields and WooCommerce product code for presentations in Elementor block

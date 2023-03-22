@@ -218,7 +218,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     useWooCommerceProduct: {
       type: 'boolean',
-      default: false
+      default: false,
+      source: 'attribute'
     }
   },
   edit: props => {
@@ -249,13 +250,6 @@ __webpack_require__.r(__webpack_exports__);
         code: value
       }),
       value: props.attributes.code
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: "Use WooCommerce Product",
-      help: "Do you want to use the WooCommerce product for the shortcode?",
-      checked: props.attributes.useWooCommerceProduct,
-      onChange: value => props.setAttributes({
-        useWooCommerceProduct: value
-      })
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You can find the shortcode on ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       class: "is_link",
       target: "_blank",
