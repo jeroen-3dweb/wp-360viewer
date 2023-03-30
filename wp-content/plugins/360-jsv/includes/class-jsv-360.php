@@ -94,7 +94,7 @@ class JSV_360
         $pluginPublic = new JSV_360_Public($this->pluginName, $this->version);
         $parser       = new JSV_360_Parser($this->pluginName, $this->version);
         $widget       = new JSV_360_Widget();
-        $block       = new JSV_360_Block();
+        $block       = new JSV_360_Block($this->pluginName, $this->version);
 
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_styles');
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublic, 'enqueue_scripts');
