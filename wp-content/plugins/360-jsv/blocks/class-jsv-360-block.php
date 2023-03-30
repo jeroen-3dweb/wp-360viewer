@@ -56,7 +56,7 @@ class JSV_360_Block
             }
         }
 
-        if (!strpos($source, '[360') === false) {
+        if (strpos($source, '[360') === false) {
             return '';
         }
 
