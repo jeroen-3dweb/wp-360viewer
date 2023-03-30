@@ -2,7 +2,7 @@
 Contributors: jtermaat
 Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin
 Requires at least: 5.0
-Tested up to: 6.1
+Tested up to: 6.2
 Requires PHP: 7.0.0
 Stable tag: 1.7.0
 License: GPLv2 or later
@@ -109,3 +109,5 @@ Turn a series of images into an interactive 360 degree view.
 * Support for 3dweb.io and Gutenberg editor=
 = 1.7.0 =
 * Support for Advanced Custom Fields and WooCommerce product code for presentations in Elementor block
+= 1.7.1 =
+* Support for Advanced Custom Fields and WooCommerce product code for presentations in Gutenberg block
