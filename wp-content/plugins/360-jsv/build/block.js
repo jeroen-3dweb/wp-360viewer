@@ -33,6 +33,7 @@ class ShortCode {
     return this.sc.string().replace(/"|'/g, '');
   }
   setValue(key, value, defaults) {
+    console.log('setValue', key, value, defaults);
     const oldValue = this.sc.get(key);
     if (typeof oldValue === 'undefined' && value === defaults) {
       return false;
@@ -181,10 +182,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_shortcode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/shortcode */ "@wordpress/shortcode");
-/* harmony import */ var _wordpress_shortcode__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_shortcode__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _ShortCode__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ShortCode */ "./src/ShortCode.js");
-
+/* harmony import */ var _ShortCode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ShortCode */ "./src/ShortCode.js");
 
 
 
@@ -218,8 +216,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     useWooCommerceProduct: {
       type: 'boolean',
-      default: false,
-      source: 'attribute'
+      default: false
+    },
+    useACFProduct: {
+      type: 'boolean',
+      default: false
     }
   },
   edit: props => {
@@ -250,6 +251,20 @@ __webpack_require__.r(__webpack_exports__);
         code: value
       }),
       value: props.attributes.code
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+      label: "Use WooCommerce Product if there is one",
+      help: "It will override the default code.",
+      checked: props.attributes.useWooCommerceProduct,
+      onChange: value => props.setAttributes({
+        useWooCommerceProduct: value
+      })
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+      label: "Use ACF Field if there is one",
+      help: "It will override the default code.",
+      checked: props.attributes.useACFProduct,
+      onChange: value => props.setAttributes({
+        useACFProduct: value
+      })
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You can find the shortcode on ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
       class: "is_link",
       target: "_blank",
@@ -260,13 +275,7 @@ __webpack_require__.r(__webpack_exports__);
     }, "3DWeb.io"))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CardFooter, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.__experimentalText, null, "The shortcode is placed into the source. Then it will be converted to a 360 presentation."))));
   },
   save: props => {
-    let val = props.attributes.code;
-    const sc = new _ShortCode__WEBPACK_IMPORTED_MODULE_5__["default"](props.attributes.code);
-    sc.setValue('use-woo-commerce-product', props.attributes.useWooCommerceProduct);
-    if (sc.isDirty()) {
-      val = sc.getShortCodeText();
-    }
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, val);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, props.attributes.code);
   }
 });
 })();

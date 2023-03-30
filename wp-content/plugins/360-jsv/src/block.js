@@ -5,7 +5,7 @@ import {
   Card,
   CardBody,
   CardFooter,
-  CardHeader,
+  CardHeader, CheckboxControl,
   Flex,
   FlexItem,
   TextareaControl,
@@ -39,7 +39,10 @@ registerBlockType('jsviewer/default-viewer', {
     useWooCommerceProduct: {
       type: 'boolean',
       default: false,
-      source: 'attribute',
+    },
+    useACFProduct: {
+      type: 'boolean',
+      default: false,
     }
   },
   edit: (props) => {
@@ -75,13 +78,20 @@ registerBlockType('jsviewer/default-viewer', {
           value={props.attributes.code}
         />
         
-      {/*  <CheckboxControl*/}
-      {/*    label="Use WooCommerce Product"*/}
-      {/*    help="Do you want to use the WooCommerce product for the shortcode?"*/}
-      {/*    checked={props.attributes.useWooCommerceProduct}*/}
-      {/*    onChange={(value) => props.setAttributes({ useWooCommerceProduct: value })}*/}
-      {/*  />*/}
-      {/*  */}
+        <CheckboxControl
+          label="Use WooCommerce Product if there is one"
+          help="It will override the default code."
+          checked={props.attributes.useWooCommerceProduct}
+          onChange={(value) => props.setAttributes({ useWooCommerceProduct: value })}
+        />
+        
+        <CheckboxControl
+          label="Use ACF Field if there is one"
+          help="It will override the default code."
+          checked={props.attributes.useACFProduct}
+          onChange={(value) => props.setAttributes({ useACFProduct: value })}
+        />
+        
         <p>You can find the shortcode on <a class="is_link" target="_blank"
                                             href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">360-javascriptviewer.com </a>
           or on <a target="_blank"
@@ -96,15 +106,6 @@ registerBlockType('jsviewer/default-viewer', {
     
   },
   save: (props) => {
-    let val = props.attributes.code
-    const sc = new ShortCode(props.attributes.code)
-    
-    sc.setValue('use-woo-commerce-product', props.attributes.useWooCommerceProduct)
-    
-    if (sc.isDirty()) {
-      val = sc.getShortCodeText()
-    }
-    
-    return <div>{val}</div>
+    return <div>{props.attributes.code}</div>
   }
 })

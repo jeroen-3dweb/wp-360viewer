@@ -33,6 +33,9 @@ class JSV_360_Parser
      */
     public function parse($content)
     {
+        global $wp_embed;
+        $content = $wp_embed->run_shortcode( $content);
+
         $codes = [];
         foreach ($this->getShortCodes($content) as $shortCode) {
             if (empty($shortCode)) {
