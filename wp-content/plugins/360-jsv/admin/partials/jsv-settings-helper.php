@@ -10,7 +10,7 @@ function jsv_setting_create_row($label, $description, $name, $value, $type= 'num
                         <input class="regular-text ltr" type="%s"
                                name="%s"
                                value="%s"/>
-                        <p class="jsv-settings__settings-holder__description">%s. </p>
+                        <small class="jsv-360-settings__settings-holder__description">%s. </small>
                     </div>
                 </div>
       ',

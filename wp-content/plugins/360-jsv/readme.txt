@@ -4,7 +4,7 @@ Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 7.0.0
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -77,6 +77,20 @@ Turn a series of images into an interactive 360 degree view.
 4. Responsive viewer integrated on a page
 5. WooCommerce front in product gallery with support for photoswipe in lightbox
 6. WooCommerce product admin, add shortcode to show an 360 product view
+
+== Frequently Asked Questions ==
+= Why am I redirected to your website for creating a shortcode? =
+Some people find it hard to construct a shortcode by hand, that's why we created a tool te make it more convenient.
+
+= How does it work with WooCommerce? =
+You need to have images in your gallery and you need the shortcode filled into the product properties.
+Then the viewer will be shown in the product gallery. You can also use the shortcode in combination with a Gutenberg lock or Elementor block. In that case you must set the block to use the WooCommerce product code for presentation.
+
+= How does it work with Advanced Custom Fields? =
+In the settings there is an options to define the ACF field what must be used by the Gutenberg block or Elementor block. In that case you must set the block to use the ACF code for presentation. You can fill the ACF field with the shortcode and it will be used by the block.
+
+= Can I use global settings? =
+Yes, you can use global settings in the settings page. You can also use the shortcode to override the global settings.
 
 == Changelog ==
 = 1.0 =
