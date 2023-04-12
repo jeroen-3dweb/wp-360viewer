@@ -56,6 +56,8 @@ class JSV_360_Widget extends WP_Widget
 
     public function widget($args, $instance)
     {
-        echo (new JSV_360_Parser('360 jsv', ''))->parse($instance['code']);
+        if(isset($instance['code'])){
+            echo (new JSV_360_Parser('360 jsv', JSV360_VERSION))->parse($instance['code']);
+        }
     }
 }
