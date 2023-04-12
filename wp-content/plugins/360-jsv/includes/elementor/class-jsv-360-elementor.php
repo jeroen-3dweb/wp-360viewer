@@ -56,9 +56,9 @@ class JSV_360_ELEMENTOR
         $this->loader->add_action( 'elementor/widgets/register', $this,'registerWidgets' );
     }
 
-    public function registerWidgets() {
+    public function registerWidgets($widgetsManager) {
         $this->loadDependencies();
-        \Elementor\Plugin::instance()->widgets_manager->register( new JSV_360_ELEMENTOR_WIDGET());
+        $widgetsManager->register( new JSV_360_ELEMENTOR_WIDGET());
     }
 
     /**

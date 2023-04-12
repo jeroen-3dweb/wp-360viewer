@@ -9,9 +9,11 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
 
     const USE_WOO_PRODUCT = 'use_woo_product';
 
+    const USE_DEFAULT = 'use_default';
+
     public function get_name()
     {
-        return '360 Javascript Viewer';
+        return '360-javascript-viewer';
     }
 
     public function get_title()
@@ -26,7 +28,7 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
 
     public function get_categories()
     {
-        return ['basic'];
+        return ['general'];
     }
 
     public function get_keywords()
@@ -75,6 +77,7 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
             'section_content',
             array(
                 'label' => __('Content', JSV360_DOMAIN),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             )
         );
         $this->add_control(
@@ -91,29 +94,15 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
             [
                 'label' => esc_html__( 'Use Dynamic Shortcode', JSV360_DOMAIN ),
                 'type' => \Elementor\Controls_Manager::SELECT,
-                'default' => '',
+                'default' => 'Use code above',
                 'options' => [
-                    'Use code above' => esc_html__( 'Default', 'textdomain' ),
+                    self::USE_DEFAULT => esc_html__( 'Default', 'textdomain' ),
                     self::USE_WOO_PRODUCT => esc_html__( 'Use WooCommerce Shortcode', JSV360_DOMAIN ),
                     self::USE_ACF_FIELD  => esc_html__( 'Use ACF Shortcode', JSV360_DOMAIN ),
-                ],
-                'selectors' => [
-                    '{{WRAPPER}} .your-class' => 'border-style: {{VALUE}};',
-                ],
+                ]
             ]
         );
 
         $this->end_controls_section();
     }
-
-    protected function _content_template()
-    {
-        ?>
-        <#
-        view.addInlineEditingAttributes( 'code', 'none' );
-        #>
-        <div {{{ view.getRenderAttributeString( 'code' ) }}}>{{{ settings.code }}}</div>
-        <?php
-    }
-
 }
