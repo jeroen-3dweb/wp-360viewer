@@ -4,7 +4,7 @@ Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 7.0.0
-Stable tag: 1.7.4
+Stable tag: 1.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -125,3 +125,5 @@ Yes, you can use global settings in the settings page. You can also use the shor
 * Support for Advanced Custom Fields and WooCommerce product code for presentations in Elementor block
 = 1.7.1 =
 * Support for Advanced Custom Fields and WooCommerce product code for presentations in Gutenberg block
+= 1.7.5 =
+* Fix for woocommerce, no 360 icon when there is no shortcode

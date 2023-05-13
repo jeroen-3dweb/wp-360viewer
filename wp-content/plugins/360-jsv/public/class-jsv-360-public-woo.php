@@ -41,7 +41,8 @@ class JSV_360_Public_Woo
 
     public function add_360_icon($d, $e)
     {
-        if ($bbCode = $this->getBBCode()) {
+        $bbCode = $this->getBBCode();
+        if (!empty($bbCode) and strlen($bbCode) > 10) {
             global $product;
             $attachment_ids = $product->get_gallery_image_ids();
 
