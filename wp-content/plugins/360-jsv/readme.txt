@@ -4,7 +4,7 @@ Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image
 Requires at least: 5.0
 Tested up to: 6.2
 Requires PHP: 7.0.0
-Stable tag: 1.7.7
+Stable tag: 1.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -129,3 +129,5 @@ Yes, you can use global settings in the settings page. You can also use the shor
 * Fix for woocommerce, no 360 icon when there is no shortcode
 = 1.7.7 =
 * Fix for icon in lightbox with swipe in woocommerce
+= 1.7.8 =
+* Default blank pixel for presentations without main image

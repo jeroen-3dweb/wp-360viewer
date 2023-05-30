@@ -133,7 +133,7 @@ class JSV_360_Parser
         if (isset($dataAttributes['main-image-url'])) {
             return $dataAttributes['main-image-url'];
         }
-        return null;
+        return 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
     }
 
     /**
