@@ -58,7 +58,7 @@ class JSV_360_Public_Woo
                               <a href="%s" id="%s">
                                 <img width="416" height="312"
                                 src="" 
-                                class="wp-post-image" alt="" loading="lazy" title="blauw" data-caption=""  
+                                class="wp-post-image" alt="" loading="lazy" data-caption=""  
                                 data-large_image="%s" 
                                 data-large_image_width="640" 
                                 data-large_image_height="480"
