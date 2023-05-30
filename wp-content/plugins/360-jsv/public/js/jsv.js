@@ -7,7 +7,15 @@ class JsvInstance {
       this.mainImageId = this.getMainImageId(node)
       this.jsv = new JavascriptViewer(this.data)
       this.jsv.start()
-        .then()
+        .then(() => {
+          const elements = document.getElementsByClassName('360-viewer-ignore')
+          for (let element of elements) {
+            element.addEventListener('click', (e) => {
+              e.stopPropagation()
+              e.preventDefault()
+            })
+          }
+        })
         .catch((reason => console.warn(reason)))
     } else {
       console.warn('JavascriptViewer is not loaded')
