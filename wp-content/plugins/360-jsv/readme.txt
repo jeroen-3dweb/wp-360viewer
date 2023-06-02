@@ -131,3 +131,5 @@ Yes, you can use global settings in the settings page. You can also use the shor
 * Fix for icon in lightbox with swipe in woocommerce
 = 1.7.8 =
 * Default blank pixel for presentations without main image
+= 1.7.9 =
+* Added helper for referencing the presentation for use with the API. Create you own controls to switch presentations and rotate to frames for example.

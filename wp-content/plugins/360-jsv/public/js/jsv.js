@@ -100,6 +100,18 @@ window.JSV = {
 
 // Search for presentations.
 window.addEventListener('load', () => {
+  window.JSV.run = (reference, cb) => {
+    let found = false
+    for (let index = 0; index < window.JSV.items.length; ++index) {
+      if (window.JSV.items[index].mainHolderId === 'jsv-holder-' + reference) {
+        cb.call(window.JSV.items[index].jsv, window.JSV.items[index].jsv)
+        found = true
+      }
+    }
+    if (!found) {
+      window.JSV.errors.push('JSV with reference ' + reference + ' not found')
+    }
+  }
   const nodes = document.getElementsByClassName('jsv-holder')
   for (let index = 0; index < nodes.length; ++index) {
     const parent = nodes[index].parentElement
