@@ -77,6 +77,7 @@ Turn a series of images into an interactive 360 degree view.
 4. Responsive viewer integrated on a page
 5. WooCommerce front in product gallery with support for photoswipe in lightbox
 6. WooCommerce product admin, add shortcode to show an 360 product view
+7. Control the viewer with the elementor widget
 
 == Frequently Asked Questions ==
 = Why am I redirected to your website for creating a shortcode? =
@@ -132,4 +133,6 @@ Yes, you can use global settings in the settings page. You can also use the shor
 = 1.7.8 =
 * Default blank pixel for presentations without main image
 = 1.7.9 =
-* Added helper for referencing the presentation for use with the API. Create you own controls to switch presentations and rotate to frames for example.
+* Added
+= 1.7.10 =
+* Elementor options for id and overrides on shortcode
