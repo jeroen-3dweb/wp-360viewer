@@ -31,7 +31,7 @@ class JSV_360_Parser
      * @param $content
      * @return string
      */
-    public function parse($content, $ref = null)
+    public function parse($content, $reference = null, $overrides =[])
     {
         global $wp_embed;
         $content = $wp_embed->run_shortcode($content);
@@ -59,7 +59,13 @@ class JSV_360_Parser
                 echo 'error in shortcode:' . $shortCode . PHP_EOL;
                 continue;
             }
-            $codes[] = $this->getHtml($data, $ref);
+
+            foreach ($overrides as $key => $override) {
+                $key = strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $key));
+                $data[$key] = $override;
+            }
+
+            $codes[] = $this->getHtml($data, $reference);
         };
 
         return $this->replaceJsvShortCodes($content, $codes);
