@@ -83,7 +83,7 @@ registerBlockType('jsviewer/default-viewer', {
         />
         
         <TextControl
-          label={'Enter ref'}
+          label={'Enter reference'}
           help={'It can be useful if you need to acces the viewer from your website.'}
           onChange={(value) => props.setAttributes({ reference: value })}
           value={props.attributes.reference}

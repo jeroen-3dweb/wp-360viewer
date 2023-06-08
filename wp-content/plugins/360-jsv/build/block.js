@@ -256,7 +256,7 @@ __webpack_require__.r(__webpack_exports__);
       }),
       value: props.attributes.code
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
-      label: 'Enter ref',
+      label: 'Enter reference',
       help: 'It can be useful if you need to acces the viewer from your website.',
       onChange: value => props.setAttributes({
         reference: value
