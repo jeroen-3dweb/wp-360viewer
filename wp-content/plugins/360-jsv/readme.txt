@@ -136,3 +136,5 @@ Yes, you can use global settings in the settings page. You can also use the shor
 * Added
 = 1.7.10 =
 * Elementor options for id and overrides on shortcode
+= 1.7.11 =
+* WooCommerce fix for dragged icon

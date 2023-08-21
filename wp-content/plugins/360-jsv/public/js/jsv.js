@@ -10,6 +10,9 @@ class JsvInstance {
         .then(() => {
           const elements = document.getElementsByClassName('360-viewer-ignore')
           for (let element of elements) {
+            if(element.nodeName === 'A') {
+              element.setAttribute('href', '#')
+            }
             element.addEventListener('click', (e) => {
               e.stopPropagation()
               e.preventDefault()
