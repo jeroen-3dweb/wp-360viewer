@@ -44,6 +44,7 @@ abstract class JSV_360_ADMIN_PAGE_ABSTRACT
         $nUpdated  = 0;
         $nExpected = count($_POST) - 2;
         $response  = [];
+        check_ajax_referer('jsv_save_setting');
         foreach ($_POST as $key => $value) {
             if(in_array($key, ['action','_ajax_nonce'])){
                 continue;
