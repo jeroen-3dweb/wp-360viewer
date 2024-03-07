@@ -15,7 +15,7 @@ error_reporting(E_ALL);
 if (!defined('WPINC')) {
     die;
 }
-$jsvVersion = '1.7.12';
+$jsvVersion = '1.7.13';
 define('JSV360_VERSION', $jsvVersion);
 define('JSV360_PATH', plugin_dir_path(__FILE__));
 define('JSV360_MAIN_URL', __FILE__);

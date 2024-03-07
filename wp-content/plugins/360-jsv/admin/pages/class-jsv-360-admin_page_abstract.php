@@ -49,6 +49,12 @@ abstract class JSV_360_ADMIN_PAGE_ABSTRACT
             if(in_array($key, ['action','_ajax_nonce'])){
                 continue;
             }
+            if( !current_user_can('manage_options') ) {
+                return wp_send_json_error([
+                    $key => ['error' => 'user does not have permission to manage options']
+                ]);
+            }
+
             $response[$key] = ['value' => '', 'error' => ''];
             if (in_array($key, $this->fields)) {
                 $value = _sanitize_text_fields($_POST[$key]);
