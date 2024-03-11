@@ -4,7 +4,7 @@ Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.0.0
-Stable tag: 1.7.14
+Stable tag: 1.7.15
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,7 @@ Turn a series of images into an interactive 360 degree view.
 * Gutenberg block
 * Elementor block
 * Use ACF or WooCommerce product code for presentation
+* Template function for developers
 * Very lightweight (50kb)
 
 == Installation ==
@@ -93,6 +94,10 @@ In the settings there is an options to define the ACF field what must be used by
 = Can I use global settings? =
 Yes, you can use global settings in the settings page. You can also use the shortcode to override the global settings.
 
+= Can I use it in my templates? =
+Yes, you can call parse_jsv360_shortcode() function within your template. Use the shortcode as a parameter.
+
+
 == Changelog ==
 = 1.0 =
 * Basic version, still under development
@@ -138,3 +143,5 @@ Yes, you can use global settings in the settings page. You can also use the shor
 * Elementor options for id and overrides on shortcode
 = 1.7.11 =
 * WooCommerce fix for dragged icon
+= 1.7.15 =
+* Added function for developers to use in templates
