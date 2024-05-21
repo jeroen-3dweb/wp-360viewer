@@ -124,6 +124,7 @@ class JSV_360_Admin
             new JSV_360_ADMIN_NOTIFIER(),
             new JSV_360_ADMIN_AUTOROTATE(),
             new JSV_360_ADMIN_ACF(),
+            new JSV_360_ADMIN_WOOCOMMERCE(),
             new JSV_360_ADMIN_LICENSE(),
             new JSV_360_ADMIN_ABOUT(),
         ];
