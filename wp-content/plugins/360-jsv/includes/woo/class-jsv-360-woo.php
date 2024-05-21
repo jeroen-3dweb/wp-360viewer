@@ -55,8 +55,8 @@ class JSV_360_WOO
     private function define_admin_hooks()
     {
         $metaBox = new JSV_360_WOO_METABOX($this->pluginName, $this->version);
-        $this->loader->add_action('add_meta_boxes',$metaBox, 'addBoxes');
-        $this->loader->add_action('save_post', $metaBox,'saveBoxes');
+        $this->loader->add_action('add_meta_boxes', $metaBox, 'addBoxes');
+        $this->loader->add_action('save_post', $metaBox, 'saveBoxes');
     }
 
     /**
@@ -70,13 +70,16 @@ class JSV_360_WOO
     {
         $pluginPublicWoo = new JSV_360_Public_Woo($this->pluginName, $this->version);
 
-        $this->loader->add_filter(
-            'woocommerce_single_product_image_thumbnail_html',
-            $pluginPublicWoo,
-            'add_360_icon',
-            10,
-            2
-        );
+        $alterWooCommerce = get_option(JSV_360_ADMIN_WOOCOMMERCE::ALTER_GALLERY, true);
+        if ($alterWooCommerce) {
+            $this->loader->add_filter(
+                'woocommerce_single_product_image_thumbnail_html',
+                $pluginPublicWoo,
+                'add_360_icon',
+                10,
+                2
+            );
+        }
 
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_scripts');
         $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_styles');
