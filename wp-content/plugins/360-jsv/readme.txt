@@ -1,6 +1,6 @@
 === 360 Javascript Viewer ===
 Contributors: jtermaat
-Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin
+Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin, 360-degree
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.0.0
@@ -145,3 +145,5 @@ Yes, you can call parse_jsv360_shortcode() function within your template. Use th
 * WooCommerce fix for dragged icon
 = 1.7.15 =
 * Added function for developers to use in templates
+= 1.7.16 =
+* Added option to disable WooCommerce gallery integration
