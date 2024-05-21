@@ -5,6 +5,7 @@ abstract class JSV_360_ADMIN_PAGE_ABSTRACT
     const PATH = '';
     protected $template = '';
     protected $fields = [];
+    protected $checkBoxes = [];
     protected $pageTitle = 'n.a';
     protected $menuTitle = 'n.a';
     protected $isMainMenu = false;
@@ -41,13 +42,31 @@ abstract class JSV_360_ADMIN_PAGE_ABSTRACT
 
     public function saveSettings()
     {
+
+        $response  = [];
+        check_ajax_referer('jsv_save_setting');
+        // add default values checkboxes
+        foreach ($this->checkBoxes as $checkBox) {
+            if (!isset($_POST[$checkBox])) {
+                $_POST[$checkBox] = 0;
+            }
+        }
+
         $nUpdated  = 0;
         $nExpected = count($_POST) - 2;
-        $response  = [];
+
         foreach ($_POST as $key => $value) {
             if(in_array($key, ['action','_ajax_nonce'])){
                 continue;
             }
+            if( !current_user_can('manage_options') ) {
+                wp_send_json_error([
+                    $key => ['error' => 'user does not have permission to manage options']
+                ]);
+            }
+
+
+
             $response[$key] = ['value' => '', 'error' => ''];
             if (in_array($key, $this->fields)) {
                 $value = _sanitize_text_fields($_POST[$key]);

@@ -41,7 +41,8 @@ class JSV_360_Public_Woo
 
     public function add_360_icon($d, $e)
     {
-        if ($bbCode = $this->getBBCode()) {
+        $bbCode = $this->getBBCode();
+        if (!empty($bbCode) and strlen($bbCode) > 10) {
             global $product;
             $attachment_ids = $product->get_gallery_image_ids();
 
@@ -57,7 +58,7 @@ class JSV_360_Public_Woo
                               <a href="%s" id="%s">
                                 <img width="416" height="312"
                                 src="" 
-                                class="wp-post-image" alt="" loading="lazy" title="blauw" data-caption=""  
+                                class="wp-post-image" alt="" loading="lazy" data-caption=""  
                                 data-large_image="%s" 
                                 data-large_image_width="640" 
                                 data-large_image_height="480"

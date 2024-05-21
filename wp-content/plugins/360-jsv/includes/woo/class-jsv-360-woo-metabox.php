@@ -79,12 +79,15 @@ class JSV_360_WOO_METABOX
             <tr>
                 <td>
                     <div>
-                        <strong><?= __('Shortcode:', 'jsv_360_view'); ?>
-                            <a target="_blank" href="https://www.360-javascriptviewer.com/wordpress" title="create code online">
-                                tool for creating code
-                            </a> </strong>
-                        <textarea rows="10" cols="100" class="jsv-360-woo-bbcode" type="text" name="<?= self::FIELD_BBCODE ?>"
-                                  ><?= $bbCode ?> </textarea>
+                        <p>Enter your shortcode like <code> [360-jsv id=afaff1b2-deca-4c03-955c-3be498ee32b8 ] </code>
+                            <strong><?= __('Shortcode:', 'jsv_360_view'); ?>
+                                <a target="_blank" href="https://www.360-javascriptviewer.com/wordpress" title="create code online">
+                                    tool for creating code
+                                </a> </strong>
+                        </p>
+                        <br>
+
+                        <textarea placeholder="[360-jsv id=<3dweb id>]" rows="10" cols="100" class="jsv-360-woo-bbcode" type="text" name="<?= self::FIELD_BBCODE ?>"    ><?= $bbCode ?> </textarea>
                     </div>
                 </td>
             </tr>

@@ -6,8 +6,8 @@ window.JSVWoo = {
 function createJsvWooInstance(generatedHtml, id, generatedHtmlLarge) {
     const existing = window.JSVWoo.items.filter(instance => {
         return instance.idInProductGallery === id;
-
     })
+    
     if (existing.length === 0) {
         window.JSVWoo.items.push(new JsvWooProductGalleryInstance(generatedHtml, id, generatedHtmlLarge));
     }
@@ -105,7 +105,8 @@ class JsvWooProductGalleryInstance {
 
         const parent = document.getElementById(this.idInProductGallery);
         parent.innerHTML = this.generatedHtml;
-        parent.className = '360-viewer-ignore'
+        parent.className = '360-viewer-ignore';
+   
         parent.addEventListener('touchstart', (e) => {
             e.stopPropagation()
         })

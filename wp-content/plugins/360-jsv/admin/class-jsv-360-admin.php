@@ -47,12 +47,16 @@ class JSV_360_Admin
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts()
+    public function enqueue_scripts($hook)
     {
         if (!did_action('wp_enqueue_media')) {
             wp_enqueue_media();
         }
         wp_enqueue_script('jsv-admin', plugin_dir_url(__FILE__) . 'js/admin.js', array('jquery'), $this->version);
+
+        if(strpos($hook, 'page_jsv-') === false){
+            return;
+        }
 
         wp_localize_script(
             'jsv-admin',
@@ -120,6 +124,7 @@ class JSV_360_Admin
             new JSV_360_ADMIN_NOTIFIER(),
             new JSV_360_ADMIN_AUTOROTATE(),
             new JSV_360_ADMIN_ACF(),
+            new JSV_360_ADMIN_WOOCOMMERCE(),
             new JSV_360_ADMIN_LICENSE(),
             new JSV_360_ADMIN_ABOUT(),
         ];

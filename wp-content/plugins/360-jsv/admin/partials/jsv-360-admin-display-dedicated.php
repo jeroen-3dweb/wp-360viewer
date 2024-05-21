@@ -19,7 +19,7 @@ include('header.php') ?>
                 <div class="jsv-360__dedicated__card-holder__card-left external-link">
                     <h3 style="clear: both">
                         <?= __(
-                            'Configure your presentation',
+                            'Generate your shortcode',
                             'jsv'
                         ) ?></h3>
                     <p>       <?= __(
@@ -38,7 +38,7 @@ include('header.php') ?>
                         <br>
                         <a id='jsv-go-button'
                            href="#"
-                           class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined jsv-mb-4 jsv-mt-2"
+                           class="jsv-360__button jsv-360__button--normal  jsv-mb-4 jsv-mt-2"
                            tabindex="0"
                            type="button"
                            data-element-type="button">

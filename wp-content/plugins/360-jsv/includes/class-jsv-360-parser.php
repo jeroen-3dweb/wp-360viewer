@@ -31,10 +31,10 @@ class JSV_360_Parser
      * @param $content
      * @return string
      */
-    public function parse($content)
+    public function parse($content, $reference = null, $overrides =[])
     {
         global $wp_embed;
-        $content = $wp_embed->run_shortcode( $content);
+        $content = $wp_embed->run_shortcode($content);
 
         $codes = [];
         foreach ($this->getShortCodes($content) as $shortCode) {
@@ -59,7 +59,13 @@ class JSV_360_Parser
                 echo 'error in shortcode:' . $shortCode . PHP_EOL;
                 continue;
             }
-            $codes[] = $this->getHtml($data);
+
+            foreach ($overrides as $key => $override) {
+                $key = strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $key));
+                $data[$key] = $override;
+            }
+
+            $codes[] = $this->getHtml($data, $reference);
         };
 
         return $this->replaceJsvShortCodes($content, $codes);
@@ -91,10 +97,12 @@ class JSV_360_Parser
      *
      * @return string
      */
-    private function getHtml($data)
+    private function getHtml($data, $ref = null)
     {
-        $holderId = $this->getRandomId('holder');
-        $imageId  = $this->getRandomId('img');
+        $ref = $ref ?: $this->getAttribute($data, 'ref');
+
+        $holderId = $this->getRandomId('holder', $ref);
+        $imageId  = $this->getRandomId('img', $ref);
 
         $dataAttributes = $this->getDataAttributes($data, $holderId, $imageId);
         $src            = $this->getImageUrl($data);
@@ -131,7 +139,7 @@ class JSV_360_Parser
         if (isset($dataAttributes['main-image-url'])) {
             return $dataAttributes['main-image-url'];
         }
-        return null;
+        return 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
     }
 
     /**
@@ -151,10 +159,11 @@ class JSV_360_Parser
      * @param $type
      * @return string
      */
-    private function getRandomId($type)
+    private function getRandomId($type, $ref = null)
     {
         $permitted_chars = implode('', range('a', 'z'));
-        return 'jsv-' . $type . '-' . substr(str_shuffle($permitted_chars), 0, 10);
+        $ref             = !is_null($ref) ? $ref : substr(str_shuffle($permitted_chars), 0, 10);
+        return 'jsv-' . $type . '-' . $ref;
     }
 
     /**

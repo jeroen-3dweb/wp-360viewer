@@ -18,20 +18,17 @@
 
   &__settings {
     background-color: #f6f6f6;
-    padding: 10px;
+    padding:30px 10px 10px 10px;
     min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &__holder {
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
-
-      button {
-        min-width: 200px;
-      @include btn;
-
-      }
     }
 
     a {
@@ -44,7 +41,7 @@
       margin: 0 10px;
     }
 
-    &__settings-holder {
+    &-holder {
       padding: 10px;
       display: flex;
       align-items: flex-start;
@@ -53,8 +50,10 @@
       max-width: 400px;
     }
 
-    &__settings-holder__description {
+    &-holder__description {
       margin-top: 2px;
+      font-size: 0.8em;
+      display: inline-block;
     }
 
 
@@ -64,7 +63,7 @@
     }
 
     &__label {
-      min-width: 150px;
+      min-width: 40%;
       padding-top: 10px;
     }
   }
