@@ -145,3 +145,5 @@ Yes, you can call parse_jsv360_shortcode() function within your template. Use th
 * WooCommerce fix for dragged icon
 = 1.7.15 =
 * Added function for developers to use in templates
+= 1.7.16 =
+* Added option to disable WooCommerce gallery integration
