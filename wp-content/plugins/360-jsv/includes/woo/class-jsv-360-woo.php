@@ -70,8 +70,8 @@ class JSV_360_WOO
     {
         $pluginPublicWoo = new JSV_360_Public_Woo($this->pluginName, $this->version);
 
-        $alterWooCommerce = get_option(JSV_360_ADMIN_WOOCOMMERCE::ALTER_GALLERY, true);
-        if ($alterWooCommerce) {
+        $alterWooCommerce = (int) get_option(JSV_360_ADMIN_WOOCOMMERCE::ALTER_GALLERY, 1);
+        if ($alterWooCommerce === 1) {
             $this->loader->add_filter(
                 'woocommerce_single_product_image_thumbnail_html',
                 $pluginPublicWoo,
@@ -79,10 +79,10 @@ class JSV_360_WOO
                 10,
                 2
             );
-        }
 
-        $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_scripts');
-        $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_styles');
+            $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_scripts');
+            $this->loader->add_action('wp_enqueue_scripts', $pluginPublicWoo, 'enqueue_styles');
+        }
     }
 
     /**

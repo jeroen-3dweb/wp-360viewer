@@ -1,6 +1,6 @@
 === 360 Javascript Viewer ===
 Contributors: jtermaat
-Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin
+Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin, 360-degree
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.0.0
