@@ -4,7 +4,7 @@ Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image
 Requires at least: 5.0
 Tested up to: 6.5
 Requires PHP: 7.0.0
-Stable tag: 1.7.15
+Stable tag: 1.7.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
