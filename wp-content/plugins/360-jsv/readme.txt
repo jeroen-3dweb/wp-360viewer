@@ -1,10 +1,10 @@
 === 360 Javascript Viewer ===
 Contributors: jtermaat
-Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin
+Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin, 360-degree
 Requires at least: 5.0
-Tested up to: 6.2
+Tested up to: 6.5
 Requires PHP: 7.0.0
-Stable tag: 1.7.1
+Stable tag: 1.7.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,7 @@ Turn a series of images into an interactive 360 degree view.
 * Gutenberg block
 * Elementor block
 * Use ACF or WooCommerce product code for presentation
+* Template function for developers
 * Very lightweight (50kb)
 
 == Installation ==
@@ -77,6 +78,25 @@ Turn a series of images into an interactive 360 degree view.
 4. Responsive viewer integrated on a page
 5. WooCommerce front in product gallery with support for photoswipe in lightbox
 6. WooCommerce product admin, add shortcode to show an 360 product view
+7. Control the viewer with the elementor widget
+
+== Frequently Asked Questions ==
+= Why am I redirected to your website for creating a shortcode? =
+Some people find it hard to construct a shortcode by hand, that's why we created a tool te make it more convenient.
+
+= How does it work with WooCommerce? =
+You need to have images in your gallery and you need the shortcode filled into the product properties.
+Then the viewer will be shown in the product gallery. You can also use the shortcode in combination with a Gutenberg lock or Elementor block. In that case you must set the block to use the WooCommerce product code for presentation.
+
+= How does it work with Advanced Custom Fields? =
+In the settings there is an options to define the ACF field what must be used by the Gutenberg block or Elementor block. In that case you must set the block to use the ACF code for presentation. You can fill the ACF field with the shortcode and it will be used by the block.
+
+= Can I use global settings? =
+Yes, you can use global settings in the settings page. You can also use the shortcode to override the global settings.
+
+= Can I use it in my templates? =
+Yes, you can call parse_jsv360_shortcode() function within your template. Use the shortcode as a parameter.
+
 
 == Changelog ==
 = 1.0 =
@@ -111,3 +131,19 @@ Turn a series of images into an interactive 360 degree view.
 * Support for Advanced Custom Fields and WooCommerce product code for presentations in Elementor block
 = 1.7.1 =
 * Support for Advanced Custom Fields and WooCommerce product code for presentations in Gutenberg block
+= 1.7.5 =
+* Fix for woocommerce, no 360 icon when there is no shortcode
+= 1.7.7 =
+* Fix for icon in lightbox with swipe in woocommerce
+= 1.7.8 =
+* Default blank pixel for presentations without main image
+= 1.7.9 =
+* Added
+= 1.7.10 =
+* Elementor options for id and overrides on shortcode
+= 1.7.11 =
+* WooCommerce fix for dragged icon
+= 1.7.15 =
+* Added function for developers to use in templates
+= 1.7.16 =
+* Added option to disable WooCommerce gallery integration
