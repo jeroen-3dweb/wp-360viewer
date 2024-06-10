@@ -7,7 +7,7 @@ Author: 360 Javascript Viewer
 Author URI: https://360-javascriptviewer.com
 Developer: Jeroen Termaat
 Developer URI: https://www.360-javscriptviewer.com/
-Version: 1.7.18
+Version: 1.7.19
 Last Modified: 2023-08-21
 License: GPLv2
 */
