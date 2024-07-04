@@ -56,13 +56,11 @@ class JSV_360_Block
             }
         }
 
-        $reference = $attributes['reference'] ?? null;
-
         if (strpos($source, '[360') === false) {
             return '';
         }
 
-        return (new JSV_360_Parser($this->pluginName, $this->version))->parse($source, $reference);
+        return (new JSV_360_Parser($this->pluginName, $this->version))->parse($source);
     }
 
     private function getACFCode()

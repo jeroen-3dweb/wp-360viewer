@@ -269,6 +269,9 @@
   color: #000000e6;
 }
 
+.jsv-360__home__negative {
+  color: red;
+}
 .jsv-360__home__card-holder {
   display: flex;
   justify-content: space-between;
@@ -293,9 +296,31 @@
 .jsv-360__home__card-holder__card p {
   text-align: center;
 }
+.jsv-360__home ul li {
+  list-style-type: none;
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+  color: #000;
+  font-weight: 500;
+  line-height: 2em;
+  text-align: left;
+}
+.jsv-360__home ul li:before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #a5c100;
+}
 .jsv-360__home ul li:not(:last-child) {
-  border-bottom: 2px solid rgba(128, 128, 128, 0.3);
-  margin-bottom: 10px;
+  color: #000;
+}
+.jsv-360__home ul li.negative:before {
+  background-color: red;
 }
 .jsv-360__home__step {
   margin-bottom: 20px;

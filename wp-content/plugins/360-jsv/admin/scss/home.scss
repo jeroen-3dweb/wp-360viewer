@@ -1,5 +1,9 @@
 .jsv-360__home {
 
+  &__negative{
+    color:red;
+  }
+
   &__card-holder {
     display: flex;
     justify-content: space-between;
@@ -26,13 +30,41 @@
 
   ul {
     li {
+      // green round bullet
+        list-style-type: none;
+        position: relative;
+        padding-left: 1.5em;
+        margin-bottom: 0.5em;
+        color: #000;
+        font-weight: 500;
+        line-height: 2em;
+        text-align: left;
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0.5em;
+          left: 0;
+          width: 1em;
+          height: 1em;
+          border-radius: 50%;
+          background-color: $primary;
+        }
+
+
       &:nth-child(even) {
         //background-color: #d7d7d9;
       }
 
       &:not(:last-child) {
-        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
-        margin-bottom: 10px;
+        //border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+        //margin-bottom: 10px;
+        color: #000;
+
+      }
+    }
+    li.negative {
+      &:before {
+        background-color: red;
       }
     }
   }
