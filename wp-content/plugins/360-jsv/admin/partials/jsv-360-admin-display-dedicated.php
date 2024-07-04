@@ -23,7 +23,7 @@ include('header.php') ?>
                             'jsv'
                         ) ?></h3>
                     <p>       <?= __(
-                            'Select the first image (yourimage_01.jpg) from your uploads and use the tool to fine tune your 360 product presentation',
+                            'Select the first image (yourimage_01.jpg) from your media library, You will be redirected to our website where you can easily generate your shortcode',
                             'jsv360'
                         ) ?>
 

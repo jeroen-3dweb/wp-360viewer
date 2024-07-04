@@ -1,8 +1,8 @@
 === 360 Javascript Viewer ===
 Contributors: jtermaat
-Tags: 360, 360 product view, 360 product rotation, 360 product viewer, 360 image, 3d product viewer, 360 view software, product rotation, objectvr, object vr, 3D product rotation, 3D, product spin, 360 product spin, 360-degree
+Tags: 360, 360 product viewer, elementor, 360-degree, woocommerce
 Requires at least: 5.0
-Tested up to: 6.5
+Tested up to: 6.6
 Requires PHP: 7.0.0
 Stable tag: 1.7.19
 License: GPLv2 or later
@@ -74,7 +74,7 @@ Turn a series of images into an interactive 360 degree view.
 
 1. Put your 360 images in your own media library.
 2. Configure the viewer and create a shortcode at 360-javascriptviewer.com
-3. Paste the shortcode anywhere in a post or page
+3. Paste the shortcode anywhere in a post, page, block or Elementor block
 4. Responsive viewer integrated on a page
 5. WooCommerce front in product gallery with support for photoswipe in lightbox
 6. WooCommerce product admin, add shortcode to show an 360 product view
