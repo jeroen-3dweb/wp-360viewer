@@ -139,12 +139,7 @@ window.addEventListener('load', () => {
         }
     })
 
-    // check if body has any elementor-popup-modal class elements
-    const popups = document.getElementsByClassName('elementor-popup-modal')
-    if (popups.length > 0) {
-      setTimeout(() => {
-        jsvObserver.observe(document.body, {childList: true, subtree: true})
-    }, 500)
-    }
+    jsvObserver.observe(document.body, {childList: true, subtree: true})
+
 })
 
