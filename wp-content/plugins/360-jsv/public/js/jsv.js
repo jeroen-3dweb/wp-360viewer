@@ -123,3 +123,21 @@ window.addEventListener('load', () => {
     }
   }
 })
+
+// add observer for mutations in elementor-popup-modal class elements
+const jsvObserver = new MutationObserver((mutationsList, observer) => {
+  for (let mutation of mutationsList) {
+    if (mutation.type === 'childList') {
+      for (let node of mutation.addedNodes) {
+        if (node.classList && node.classList.contains('elementor-popup-modal')) {
+          const nodes = node.getElementsByClassName('jsv-holder')
+          for (let index = 0; index < nodes.length; ++index) {
+            window.JSV.items.push(new JsvInstance(nodes[index]))
+          }
+        }
+      }
+    }
+  }
+})
+
+jsvObserver.observe(document.body, { childList: true, subtree: true })
