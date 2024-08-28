@@ -27,7 +27,7 @@ class JSV_360_WOO
      */
     public function __construct($version, $pluginName, JSV_360_Loader $loader)
     {
-        $this->version    = $version;
+        $this->version = $version;
         $this->pluginName = $pluginName;
 
         $this->loader = $loader;
@@ -41,7 +41,7 @@ class JSV_360_WOO
      */
     private function loadDependencies()
     {
-        require_once plugin_dir_path(dirname(__FILE__)) . '/../public/class-jsv-360-public-woo.php';
+        require_once plugin_dir_path(dirname(__FILE__)) . '/../public/class-jsv-360-public-woo-factory.php';
         require_once plugin_dir_path(dirname(__FILE__)) . '/woo/class-jsv-360-woo-metabox.php';
     }
 
@@ -68,9 +68,10 @@ class JSV_360_WOO
      */
     private function definePublicHooks()
     {
-        $pluginPublicWoo = new JSV_360_Public_Woo($this->pluginName, $this->version);
+        $currentTheme = wp_get_theme();
+        $pluginPublicWoo = (new JSV_360_Public_Woo_Factory($this->pluginName, $this->version))->create($currentTheme->get('Name'));
 
-        $alterWooCommerce = (int) get_option(JSV_360_ADMIN_WOOCOMMERCE::ALTER_GALLERY, 1);
+        $alterWooCommerce = (int)get_option(JSV_360_ADMIN_WOOCOMMERCE::ALTER_GALLERY, 1);
         if ($alterWooCommerce === 1) {
             $this->loader->add_filter(
                 'woocommerce_single_product_image_thumbnail_html',
