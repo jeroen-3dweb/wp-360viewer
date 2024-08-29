@@ -25,10 +25,10 @@ class JSV_360_Public_Woo_Flatsome extends JSV_360_Public_Woo_Base
                             });
                             </script>
                             <div class="col"">
-				<a>
-					<img loading="lazy" src="%s" alt="" width="247" height="296" class="jsv-flatsome attachment-woocommerce_thumbnail">		
-							</a>
-			</div>
+				                <a class="jsv-flatsome">
+					                <img loading="lazy" src="%s" alt="" width="247" height="296" class="attachment-woocommerce_thumbnail">		
+							    </a>
+			                </div>
                             ',
                     $html,
                     $randomId,

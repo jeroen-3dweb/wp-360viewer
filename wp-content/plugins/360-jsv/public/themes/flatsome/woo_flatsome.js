@@ -18,16 +18,16 @@ function createJsvWooInstance(generatedHtml, id) {
             const firstItem = jsvFlatsome[0];
 
             //replace this node with generatedHtml
-            firstItem.parentNode.innerHTML = `<div id="${id}"> ${generatedHtml}</div>`;
+            firstItem.innerHTML = `<div id="${id}"> ${generatedHtml}</div>`;
 
-            const node = document.getElementById(id);
+            const node = document.getElementById(id). getElementsByClassName('jsv-holder') [0];
 
             // disable the pointerdown event on the parent node
             node.parentNode.addEventListener('pointerdown', (e) => {
                 e.stopPropagation()
             });
 
-            window.JSVWoo.items.push((new JsvInstance(node.lastChild)));
+            window.JSVWoo.items.push((new JsvInstance(node)));
         }
     }
 }
