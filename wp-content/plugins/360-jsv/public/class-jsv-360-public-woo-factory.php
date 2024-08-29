@@ -46,7 +46,6 @@ class JSV_360_Public_Woo_Factory
                 require_once dirname(__FILE__) . '/themes/flatsome/class-jsv-360-public-woo-flatsome.php';
                 return new JSV_360_Public_Woo_Flatsome($this->plugin_name, $this->version);
             default:
-                throw new Exception('Theme not supported' . $theme);
                 require_once dirname(__FILE__) . '/themes/twentytwentythree//class-jsv-360-public-woo-twentytwentythree.php';
                 return new JSV_360_Public_Woo_TwentyTwentyThree($this->plugin_name, $this->version);
         }
