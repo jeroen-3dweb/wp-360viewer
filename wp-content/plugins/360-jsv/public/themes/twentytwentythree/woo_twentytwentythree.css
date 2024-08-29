@@ -1,0 +1,27 @@
+/*Photoswipe css*/
+@media (max-width: 768px) {
+    .woo-photoswipe-holder > .jsv-holder img {
+        width: 100%;
+    }
+
+    .woo-photoswipe-holder > .jsv-holder {
+        width: 100%;
+    }
+}
+
+@media (min-width: 769px) {
+    .woo-photoswipe-holder > .jsv-holder img {
+        max-width: 80%;
+    }
+
+    .woo-photoswipe-holder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .woo-photoswipe-holder > .jsv-holder {
+        max-width: 80%;
+    }
+}
