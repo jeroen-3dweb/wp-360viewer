@@ -3,7 +3,7 @@ window.JSVWoo = {
     errors: []
 };
 
-function createJsvWooInstance(generatedHtml, id) {
+function createJsvWooInstance(generatedHtml, id, run) {
     const existing = window.JSVWoo.items.filter(instance => {
         return instance.idInProductGallery === id;
     })
@@ -20,14 +20,37 @@ function createJsvWooInstance(generatedHtml, id) {
             //replace this node with generatedHtml
             firstItem.innerHTML = `<div id="${id}"> ${generatedHtml}</div>`;
 
-            const node = document.getElementById(id). getElementsByClassName('jsv-holder') [0];
+            const node = document.getElementById(id).getElementsByClassName('jsv-holder') [0];
 
             // disable the pointerdown event on the parent node
             node.parentNode.addEventListener('pointerdown', (e) => {
                 e.stopPropagation()
             });
 
-            window.JSVWoo.items.push((new JsvInstance(node)));
+            if (run) {
+                const instance = new JsvInstance(node);
+                instance.jsv.events().started.on((boolean) => {
+                    const classObserver = new MutationObserver(function (mutations) {
+                        mutations.forEach(function (mutation) {
+                            if (mutation.attributeName === "style") {
+                                if (node.parentNode.parentNode.parentNode.classList.contains('is-selected')) {
+                                             const img = node.getElementsByTagName('img')[6];
+                                            document.querySelector('.flickity-viewport').style.height = `${img.height - 100}px`;
+                                }
+                            }
+                        });
+                    });
+
+                    classObserver.observe(document.getElementsByClassName('flickity-viewport')[0], {
+                        attributes: true,
+                    });
+
+
+                    console.log('observer started');
+
+                })
+                window.JSVWoo.items.push(instance);
+            }
         }
     }
 }
