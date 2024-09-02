@@ -10,7 +10,6 @@ function createJsvWooInstance(generatedHtml, id, run) {
 
     if (existing.length === 0) {
 
-        // get items with class jsv-flatsome
         const jsvFlatsome = document.getElementsByClassName('jsv-flatsome');
 
         if (jsvFlatsome.length > 1) {
@@ -30,12 +29,21 @@ function createJsvWooInstance(generatedHtml, id, run) {
             if (run) {
                 const instance = new JsvInstance(node);
                 instance.jsv.events().started.on((boolean) => {
+                    // navigation arrows
+                    const hideElements = document.getElementsByClassName('flickity-prev-next-button');
+                    for (let i = 0; i < hideElements.length; i++) {
+                        hideElements[i].style.display = 'none';
+                    }
+
                     const classObserver = new MutationObserver(function (mutations) {
                         mutations.forEach(function (mutation) {
                             if (mutation.attributeName === "style") {
                                 if (node.parentNode.parentNode.parentNode.classList.contains('is-selected')) {
-                                             const img = node.getElementsByTagName('img')[6];
-                                            document.querySelector('.flickity-viewport').style.height = `${img.height - 100}px`;
+
+                                    const newHeight = node.clientHeight;
+                                    document.querySelector('.flickity-viewport').style.height = `${newHeight}px`;
+
+
                                 }
                             }
                         });
@@ -44,9 +52,6 @@ function createJsvWooInstance(generatedHtml, id, run) {
                     classObserver.observe(document.getElementsByClassName('flickity-viewport')[0], {
                         attributes: true,
                     });
-
-
-                    console.log('observer started');
 
                 })
                 window.JSVWoo.items.push(instance);
