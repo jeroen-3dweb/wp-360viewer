@@ -140,6 +140,5 @@ window.addEventListener('load', () => {
     })
 
     jsvObserver.observe(document.body, {childList: true, subtree: true})
-
 })
 

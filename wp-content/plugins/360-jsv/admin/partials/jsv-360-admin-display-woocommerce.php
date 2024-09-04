@@ -11,7 +11,7 @@ include('jsv-settings-helper.php')
             <div class="jsv-360__settings__table">
                 <?= jsv_setting_create_row(
                     'Add icon to default gallery',
-                    'Uncheck this if you have your own gallery and don\'t want the icon to be added to the default gallery.',
+                    'Uncheck this if you don\'t want the icon to be added to the product gallery.',
                     JSV_360_ADMIN_WOOCOMMERCE::ALTER_GALLERY,
                     get_option(JSV_360_ADMIN_WOOCOMMERCE::ALTER_GALLERY, 1),
                     'checkbox'
