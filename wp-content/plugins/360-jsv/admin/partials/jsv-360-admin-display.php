@@ -12,6 +12,7 @@ include('header.php') ?>
                 JSV360_DOMAIN
             ) ?>
         </h6>
+    <h6 class="jsv-typography-root jsv-typography-grey jsv-typography-h6 jsv-mt-4 jsv-mb-2 external-link"> Check for more info at <a target="_blank" href="https://wordpress.360-javascriptviewer.com/">WordPress Demo 360</a> </h6>
 
         <div class="jsv-360__home__card-holder">
             <div class="jsv-360__home__card-holder__card">

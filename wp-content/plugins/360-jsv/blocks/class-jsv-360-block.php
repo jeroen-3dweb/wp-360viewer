@@ -60,7 +60,9 @@ class JSV_360_Block
             return '';
         }
 
-        return (new JSV_360_Parser($this->pluginName, $this->version))->parse($source);
+		$reference = isset($attributes['reference']) ? $attributes['reference'] : null;
+
+        return (new JSV_360_Parser($this->pluginName, $this->version))->parse($source, $reference);
     }
 
     private function getACFCode()

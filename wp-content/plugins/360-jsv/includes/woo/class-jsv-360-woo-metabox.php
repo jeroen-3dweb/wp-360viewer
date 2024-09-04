@@ -83,7 +83,9 @@ class JSV_360_WOO_METABOX
                             <strong><?= __('Shortcode:', 'jsv_360_view'); ?>
                                 <a target="_blank" href="https://www.360-javascriptviewer.com/wordpress" title="create code online">
                                     tool for creating code
-                                </a> </strong>
+                                </a></strong> <br>
+                            Make sure you have images in the product gallery, or else you won't see the 360 icon.
+                            You can use this shortcode also for the 360 widget if you want to show the 360 presentation somewhere else on the page.
                         </p>
                         <br>
 

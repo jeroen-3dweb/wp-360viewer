@@ -18,7 +18,7 @@ class JSV_360_Public_Woo_TwentyTwentyThree extends JSV_360_Public_Woo_Base
 
                 $thumbImage = plugins_url('/icon.png', __FILE__);
                 $text = sprintf(
-                    '          <div data-thumb="%s"  class="woocommerce-product-gallery__image">
+                    '          <div style="min-height:50px;" data-thumb="%s"  class="woocommerce-product-gallery__image">
                             <script lang="text/javascript">window.addEventListener("load", () => 
                             {setTimeout(function(){createJsvWooInstance(`%s`, `%s`, `%s`)}, 1000)
                             });
