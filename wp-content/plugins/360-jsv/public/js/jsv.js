@@ -131,7 +131,34 @@ window.addEventListener('load', () => {
                     if (node.classList && node.classList.contains('elementor-popup-modal')) {
                         const nodes = node.getElementsByClassName('jsv-holder')
                         for (let index = 0; index < nodes.length; ++index) {
-                            window.JSV.items.push(new JsvInstance(nodes[index]))
+                            let found = false
+                            let jsvIndex = 0
+
+                            for (let jsvIndex = 0; jsvIndex < window.JSV.items.length; ++jsvIndex) {
+                                if (window.JSV.items[jsvIndex].mainHolderId === nodes[index].id) {
+                                    found = true
+                                    break;
+                                }
+                            }
+                            if (found) {
+                                found = false
+
+                                // cleaning partial elements that are left behind
+                                const children = nodes[index].children
+                                for (let i = 0; i < children.length; i++) {
+                                    if (!children[i].id.includes('jsv-img')) {
+                                        nodes[index].removeChild(children[i])
+                                    }
+                                }
+
+                                window.JSV.items[jsvIndex].jsv.destroy().then(() => {
+                                    window.JSV.items.splice(jsvIndex, 1)
+                                    window.JSV.items.push(new JsvInstance(nodes[index]))
+                                });
+
+                            } else {
+                                window.JSV.items.push(new JsvInstance(nodes[index]))
+                            }
                         }
                     }
                 }
