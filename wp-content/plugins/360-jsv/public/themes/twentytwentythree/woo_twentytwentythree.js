@@ -35,7 +35,6 @@ class JsvWooProductGalleryInstance {
             }, 100)
             return
         }
-        this.loadedInPhotoSwipe = false;
         jQuery('.pswp__button--arrow--right,.pswp__button--arrow--right,.woocommerce-product-gallery__trigger')
             .click(this._addPresentationInPhotoSwipe.bind(this))
     }
@@ -74,7 +73,6 @@ class JsvWooProductGalleryInstance {
                         this.jsvViewerPopup.destroy();
                     }
                     this.jsvViewerPopup = (new JsvInstance(photoSwipeWrapNode.childNodes[index].childNodes[0]));
-                    this.loadedInPhotoSwipe = true;
                     jQuery('.woo-photoswipe-holder').on('pointerdown', (e) => {
                         e.stopPropagation()
                     })
@@ -110,11 +108,11 @@ class JsvWooProductGalleryInstance {
         parent.addEventListener('touchstart', (e) => {
             e.stopPropagation()
         })
-        for (let index = 0; index < parent.childNodes.length; ++index) {
+        for (let index = 0; index < parent.children.length; ++index) {
             if (this.jsvViewer) {
                 this.jsvViewer.destroy();
             }
-            this.jsvViewer = (new JsvInstance(parent.childNodes[index]));
+            this.jsvViewer = (new JsvInstance(parent.children[index]));
         }
     }
 }
