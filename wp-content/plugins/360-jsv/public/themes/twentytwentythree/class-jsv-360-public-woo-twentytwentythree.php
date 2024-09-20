@@ -10,17 +10,26 @@ class JSV_360_Public_Woo_TwentyTwentyThree extends JSV_360_Public_Woo_Base
         if (!empty($bbCode) and strlen($bbCode) > 10) {
             global $product;
             $attachment_ids = $product->get_gallery_image_ids();
+			$text = '';
 
             if ($e == end($attachment_ids)) {
                 $html = (new JSV_360_Parser($this->plugin_name, $this->version))->parse($bbCode);
-                $htmlLarge = (new JSV_360_Parser($this->plugin_name, $this->version))->parse($bbCode);
+				if(empty(trim($html))){
+					$text .= sprintf('<script lang="text/javascript">window.addEventListener("load", () => 
+							{
+                                console.warn("360-jsv: No valid shortcode found in product gallery. Please check your code: %s");
+							});
+							</script>', $bbCode);
+				}
+
                 $randomId = $this->generateId();
 
                 $thumbImage = plugins_url('/icon.png', __FILE__);
-                $text = sprintf(
+                $text .= sprintf(
                     '          <div style="min-height:50px;" data-thumb="%s"  class="woocommerce-product-gallery__image">
                             <script lang="text/javascript">window.addEventListener("load", () => 
-                            {setTimeout(function(){createJsvWooInstance(`%s`, `%s`, `%s`)}, 1000)
+                            {setTimeout(function(){
+                                createJsvWooInstance(`%s`, `%s`, `%s`)}, 1000)
                             });
                             </script>
                               <a href="%s" id="%s">
@@ -36,7 +45,7 @@ class JSV_360_Public_Woo_TwentyTwentyThree extends JSV_360_Public_Woo_Base
                     $thumbImage,
                     $html,
                     $randomId,
-                    $htmlLarge,
+                    $html,
                     $thumbImage,
                     $randomId,
                     $thumbImage

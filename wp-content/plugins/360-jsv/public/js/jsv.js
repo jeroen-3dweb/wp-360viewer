@@ -4,7 +4,6 @@ class JsvInstance {
         this.data = this.getData(node)
         if (window.JavascriptViewer !== undefined && Object.keys(this.data).length !== 0) {
             this.mainHolderId = this.getMainHolderId(node)
-            this.mainImageId = this.getMainImageId(node)
             this.jsv = new JavascriptViewer(this.data)
             this.jsv.start()
                 .then(() => {
@@ -19,7 +18,11 @@ class JsvInstance {
                         })
                     }
                 })
-                .catch((reason => console.warn(reason)))
+                .catch((reason => {
+                    console.error('Error starting JavascriptViewer, check your configuration, still having trouble> ' +
+                        'Contact us at https://www.360-javascriptviewer.com/contact en send the information below', this.data, node)
+                    console.warn(reason)
+                }))
         } else {
             console.warn('JavascriptViewer is not loaded')
         }
@@ -29,10 +32,6 @@ class JsvInstance {
         if (this.jsv) {
             this.jsv.destroy()
         }
-    }
-
-    getMainImageId(node) {
-        return node.getElementsByTagName('img')[0].id
     }
 
     getMainHolderId(node) {
