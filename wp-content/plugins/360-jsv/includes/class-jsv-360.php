@@ -75,6 +75,9 @@ class JSV_360
 
         $this->loader->add_action('admin_menu', $plugin_admin, 'loadPageMenu');
 
+		//add_action( 'admin_notices', 'wpb_admin_notice' );
+	    $this->loader->add_action('admin_notices', $plugin_admin, 'wpb_admin_notice');
+
         register_activation_hook(JSV360_MAIN_URL, [$plugin_admin, 'activation']);
         register_deactivation_hook(JSV360_MAIN_URL, [$plugin_admin, 'de_activation']);
 
