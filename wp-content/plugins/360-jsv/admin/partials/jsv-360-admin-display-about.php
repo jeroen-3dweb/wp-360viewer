@@ -13,7 +13,7 @@ include('jsv-settings-helper.php');
         <p>
             360 Javascript Viewer is a plugin to show 360 product images in your WordPress site.
             It is a plugin for WordPress and can be used in combination with woocommerce and elementor.
-            You can use your own hosted images or use presentations from 3DWeb.io.
+            You can use your own hosted images or use a CDN.
         </p>
 
         <h4>basic</h4>

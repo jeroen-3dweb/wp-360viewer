@@ -148,7 +148,6 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
                 'default'     => self::USE_DEFAULT,
                 'options'     => [
                     self::USE_DEFAULT     => esc_html__('Use shortcode', JSV360_DOMAIN),
-                    self::USE_DWEB        => esc_html__('Use id from 3dweb.io', JSV360_DOMAIN),
                     self::USE_WOO_PRODUCT => esc_html__('Use WooCommerce Shortcode', JSV360_DOMAIN),
                     self::USE_ACF_FIELD   => esc_html__('Use ACF Shortcode', JSV360_DOMAIN),
                 ]
@@ -175,24 +174,7 @@ class JSV_360_ELEMENTOR_WIDGET extends Widget_Base
             )
         );
 
-        $this->add_control(
-            'dweb_id',
-            array(
-                'label'       => __('Enter ID ', JSV360_DOMAIN),
-                'type'        => Controls_Manager::TEXT,
-                'description' => 'Enter your id from your presentation created on <a target="_blank" href="https://3dweb.io?utm_source=wordpress&utm_medium=link&utm_campaign=elementor">3DWeb.io</a>',
-                'default'     => __('',
-                    JSV360_DOMAIN),
-                'condition'   => [
-                    'dynamic_shortcode' => self::USE_DWEB,
-                ],
-                'label_block' => true,
-                'ai'          =>
-                    [
-                        'active' => false,
-                    ]
-            )
-        );
+
 
         $this->add_control(
             'hr',
