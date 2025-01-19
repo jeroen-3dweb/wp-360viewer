@@ -104,9 +104,8 @@ registerBlockType('jsviewer/default-viewer', {
         />
         
         <p>You can find the shortcode on <a className="is_link" target="_blank"
-                                            href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">360-javascriptviewer.com </a>
-          or on <a target="_blank"
-                   href="https://3dweb.io/?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">3DWeb.io</a>
+                                            href="https://www.360-javascriptviewer.com/wordpress?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">360-javascriptviewer.com </a>.
+
           <br/>
           Check for more examples on <a target="_blank"
                                         href="https://wordpress.360-javascriptviewer.com?utm_source=wordpress&utm_medium=gutenberg&utm_campaign=plugin">wordpress.360-javascriptviewer.com</a>

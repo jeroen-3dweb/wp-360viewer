@@ -21,7 +21,7 @@
 .jsv-360__button--outlined:hover {
   cursor: pointer;
   background-color: white;
-  color: #798e00;
+  color: rgb(121.3989637306, 142, 0);
 }
 
 .jsv-typography {
@@ -65,7 +65,7 @@
 .jsv-360__card {
   background-attachment: scroll;
   background-clip: border-box;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   background-image: none;
   background-origin: padding-box;
   background-position-x: 0%;
@@ -266,7 +266,7 @@
 }
 
 .jsv-360__card p {
-  color: #000000e6;
+  color: rgba(0, 0, 0, 0.9019607843);
 }
 
 .jsv-360__home__negative {
@@ -279,12 +279,12 @@
 }
 .jsv-360__home__card-holder__card {
   padding: 2em;
-  box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -1px #0000000f !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1019607843), 0 2px 4px -1px rgba(0, 0, 0, 0.0588235294) !important;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0.75rem;
-  max-width: 50%;
+  max-width: 80%;
   background-color: #fff;
-  margin: 3em;
+  margin: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -340,7 +340,7 @@
 }
 .jsv-360__dedicated__card-holder__card {
   padding: 2em;
-  box-shadow: 0 4px 6px -1px #0000001a, 0 2px 4px -1px #0000000f !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1019607843), 0 2px 4px -1px rgba(0, 0, 0, 0.0588235294) !important;
   border: 0 solid rgba(0, 0, 0, 0.125);
   border-radius: 0.75rem;
   background-color: #fff;

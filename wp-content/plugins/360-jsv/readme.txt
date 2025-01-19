@@ -4,7 +4,7 @@ Tags: 360, 360 product viewer, elementor, 360-degree, woocommerce
 Requires at least: 5.0
 Tested up to: 6.7.1
 Requires PHP: 7.0.0
-Stable tag: 1.7.30
+Stable tag: 1.7.31
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,7 +127,7 @@ Yes, you can call parse_jsv360_shortcode() function within your template. Use th
 = 1.6.18 =
 * Support for extra classes on images
 = 1.6.20 =
-* Support for 3dweb.io and Gutenberg editor=
+* Support for Gutenberg editor=
 = 1.7.0 =
 * Support for Advanced Custom Fields and WooCommerce product code for presentations in Elementor block
 = 1.7.1 =
