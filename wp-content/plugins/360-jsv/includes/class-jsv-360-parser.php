@@ -55,6 +55,10 @@ class JSV_360_Parser {
 
 			$this->applyDefault( 'license', get_option( JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, null ), $data );
 			$this->applyDefault( 'auto-rotate', get_option( JSV_360_ADMIN_AUTOROTATE::AUTOROTATE, null ), $data );
+			$autoRotateSpeed = get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE_SPEED, '');
+			if ($autoRotateSpeed !== '' && $autoRotateSpeed !== null) {
+				$this->applyDefault('auto-rotate-speed', $autoRotateSpeed, $data);
+			}
 
 			if ( empty( $data ) ) {
 				echo 'error in shortcode:' . $shortCode . PHP_EOL;

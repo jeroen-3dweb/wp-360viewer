@@ -30,7 +30,10 @@ class JSV_360_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles($hook) {
+		if (strpos($hook, 'page_jsv-') === false) {
+			return;
+		}
 		wp_enqueue_style(
 			$this->pluginName,
 			plugin_dir_url( __FILE__ ) . 'scss/jsv-360-admin.css',
@@ -38,6 +41,8 @@ class JSV_360_Admin {
 			$this->version,
 			'all'
 		);
+		wp_enqueue_style('jsv-admin-usability', plugin_dir_url(__FILE__) . 'scss/admin-usability.css',
+			array($this->pluginName), filemtime(__DIR__ . '/scss/admin-usability.css'));
 	}
 
 	/**
@@ -49,7 +54,7 @@ class JSV_360_Admin {
 		if ( ! did_action( 'wp_enqueue_media' ) ) {
 			wp_enqueue_media();
 		}
-		wp_enqueue_script( 'jsv-admin', plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), $this->version );
+		wp_enqueue_script( 'jsv-admin', plugin_dir_url( __FILE__ ) . 'js/admin.js', array( 'jquery' ), filemtime(__DIR__ . '/js/admin.js') );
 
 		if ( strpos( $hook, 'page_jsv-' ) === false ) {
 			return;
@@ -132,6 +137,10 @@ class JSV_360_Admin {
 	}
 
 	public function wpb_admin_notice() {
+		$screen = get_current_screen();
+		if (!$screen || $screen->id !== 'plugins') {
+			return;
+		}
 		// check if license is set
 		if ( get_option( JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, null ) ) {
 			return;
@@ -139,9 +148,9 @@ class JSV_360_Admin {
 
 		$url = admin_url('admin.php?page=jsv-license-settings');
 		echo sprintf(
-		'<div class="notice notice-warning is-dismissible">
-    <p><b>360 Javascript Viewer:</b> Please enter a license to remove the free version sign when you rotate your presentations.<br>
-    You can get it here: <a href="%s">Get your license</a>
+		'<div class="notice notice-info is-dismissible">
+    <p><b>360 Javascript Viewer:</b> You are using the free version with &ldquo;Powered by&rdquo; branding. A license is optional.
+    <a href="%s">License &amp; branding options</a>
     </p>
     </div>', $url);
 	}

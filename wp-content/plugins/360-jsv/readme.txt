@@ -2,9 +2,9 @@
 Contributors: jtermaat
 Tags: 360, 360 product viewer, elementor, 360-degree, woocommerce
 Requires at least: 5.0
-Tested up to: 6.8.2
+Tested up to: 7.1
 Requires PHP: 7.0.0
-Stable tag: 1.7.32
+Stable tag: 1.7.33
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -150,3 +150,5 @@ Yes, you can call parse_jsv360_shortcode() function within your template. Use th
 * Added option to disable WooCommerce gallery integration
 = 1.7.21 =
 * Added support for Elementor popups with 360 viewer in it
+= 1.7.33 =
+* Tested with WordPress 7.1

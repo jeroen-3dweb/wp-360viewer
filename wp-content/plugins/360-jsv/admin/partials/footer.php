@@ -1,15 +1,7 @@
-<div class="jsv-360__rating">If you like this plugin please leave us a 5 &#9733 rating. A
-    huge
-    thanks in
-    advance!
-    <a href="https://wordpress.org/plugins/360deg-javascript-viewer/#reviews?rate=5#new-post"
-       target="_blank" class="jsv-rating-link">&#9733;&#9733;&#9733;&#9733;&#9733;</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+    </div>
+    <footer class="jsv-admin-footer">
+        <a href="https://www.youtube.com/watch?v=qYCD2sL1lM0" target="_blank" rel="noopener noreferrer">Watch the setup video (opens in a new tab)</a>
+        <span aria-hidden="true"> &middot; </span>
+        <a href="https://wordpress.org/plugins/360deg-javascript-viewer/#reviews" target="_blank" rel="noopener noreferrer">Leave a review</a>
+    </footer>
 </div>
