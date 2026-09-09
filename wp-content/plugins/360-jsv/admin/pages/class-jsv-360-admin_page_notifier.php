@@ -4,8 +4,8 @@ class JSV_360_ADMIN_NOTIFIER extends JSV_360_ADMIN_PAGE_ABSTRACT
 {
     const PATH = 'jsv-license-notifier';
     
-    protected $pageTitle = 'Notifier Settings';
-    protected $menuTitle = 'Notifier';
+    protected $pageTitle = 'Drag-to-rotate hint';
+    protected $menuTitle = 'Drag-to-rotate hint';
     protected $template = 'jsv-360-admin-display-notifier';
 
     const NOTIFIER_IMAGE_ID = 'jsv360_notifier_image_id';

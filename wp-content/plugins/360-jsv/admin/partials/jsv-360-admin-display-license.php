@@ -10,19 +10,17 @@ include('jsv-settings-helper.php');
 
 ?>
     <div class="jsv-360__settings">
-        <h2>Remove powered by icon</h2>
-        <p>To remove the powered by icon when you rotate you need a license. The license is valid forever for the domain
-            you choose.
-            No limits in usage.<br>
-            You can get it <a id="jsv-purchase-link" target="_blank" href="#">here </a>
+        <h1>License &amp; branding</h1>
+        <p>The free version includes &ldquo;Powered by&rdquo; branding when visitors rotate a product. You can keep using it without a license. To remove this branding, purchase a license for your website domain.<br>
+            <a id="jsv-purchase-link" target="_blank" rel="noopener noreferrer" href="#">View license options (opens checkout in a new tab)</a>
         </p>
 
         <form method='post' data-source="<?= JSV_360_ADMIN_LICENSE::PATH; ?>">
 
             <div class="jsv-360__settings__table">
                 <?= jsv_setting_create_row(
-                    'License',
-                    '',
+                    'License key',
+                    'Already purchased a license? Paste your key here and save your changes',
                     JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE,
                     get_option(JSV_360_ADMIN_LICENSE::NOTIFIER_LICENSE, ''),
                     'text'

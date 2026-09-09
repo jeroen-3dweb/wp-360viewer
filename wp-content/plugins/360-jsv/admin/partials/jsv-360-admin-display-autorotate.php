@@ -4,26 +4,22 @@ include('header.php');
 include('jsv-settings-helper.php')
 ?>
     <div class="jsv-360__settings">
-        <h2>Autorotate at start</h2>
-        <p>When the viewer is loaded you can autorotate your product to get the attention of your visitor.
-            This setting adds the autorotate parameter to your presentation. If your code already has an autorotate
-            parameter then that one
-            will be used.
+        <h1>Automatic rotation</h1>
+        <p>Make products turn automatically when a view loads. These are defaults for shortcode views. Rotation settings already included in a shortcode take priority.
         </p>
         <form method='post' data-source="<?= JSV_360_ADMIN_AUTOROTATE::PATH; ?>">
             <div class="jsv-360__settings__table">
                 <?= jsv_setting_create_row(
-                    'Amount of rotations',
-                    'Specify how many rotations your product does
-                            when the viewer is loaded',
+                    'Number of full turns',
+                    'For example, enter 1 for one complete turn when the view loads. Enter 0 to turn automatic rotation off',
                     JSV_360_ADMIN_AUTOROTATE::AUTOROTATE,
                     get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE, '')
                 )
                 ?>
 
                 <?= jsv_setting_create_row(
-                    'Autorotate speed',
-                    'Define the speed for autorotate, if empty it will use the rotation speed of dragging',
+                    'Automatic rotation speed',
+                    'Optional. Leave blank to use the viewer speed. To choose a speed visually, use the online setup tool and copy its shortcode',
                     JSV_360_ADMIN_AUTOROTATE::AUTOROTATE_SPEED,
                     get_option(JSV_360_ADMIN_AUTOROTATE::AUTOROTATE_SPEED, '')
                 )

@@ -1,32 +1,22 @@
-<?php
-
-include('header.php') ?>
-
-    <div class="jsv-360__home">
-        <h1 class="jsv-typography-root jsv-typography-dark jsv-typography-h1">
-            <?= __('360 Javascript Viewer', 'jsv360') ?>
-        </h1>
-        <h6 class="jsv-typography-root jsv-typography-grey jsv-typography-h6 jsv-mt-4 jsv-mb-2 external-link">
-            <?= __(
-                'Official plugin for the 360° javascript viewer made by <a target="_blank" href="https://360-javascriptviewer.com?utm_source=plugin-page&utm_id=wordpress">360 Javascript Viewer</a>. <br>Create unlimited 360° product presentations with all kind of options.',
-                JSV360_DOMAIN
-            ) ?>
-        </h6>
-    <h6 class="jsv-typography-root jsv-typography-grey jsv-typography-h6 jsv-mt-4 jsv-mb-2 external-link"> Check for more info at <a target="_blank" href="https://wordpress.360-javascriptviewer.com/">WordPress Demo 360</a> </h6>
-
-        <div class="jsv-360__home__card-holder">
-            <div class="jsv-360__home__card-holder__card">
-                <h2>Before you begin</h2>
-                <p> The plugin use images from your media library or from a CDN. More images means a smoother 3D effect.
-                </p>
-                <ul>
-                    <li>Make sure your images have a name with a number in it, like yourimage_01.jpg.</li>
-                    <li>Resize the images or use a CDN with scaling options, otherwise your presentation becomes too heavy for your client.</li>
-                    <li>Use our tool to explore all the viewer options and all the integration options.</li>
-                </ul>
-                </p>
-                <a href="<?= menu_page_url(JSV_360_ADMIN_DEDICATED::PATH, false)  ?>" class="jsv-360__button jsv-360__button--normal jsv-360__button--outlined">start uploading</a>
-            </div>
-    </div>
-<?php
-include('footer.php'); ?>
+<?php include('header.php'); ?>
+<h1>Create a product view your visitors can rotate</h1>
+<p class="jsv-lead">Turn a sequence of product photos into an interactive 360&deg; view for your WordPress page or shop.</p>
+<div class="jsv-actions">
+    <a class="button button-primary button-hero" href="<?= esc_url(menu_page_url(JSV_360_ADMIN_DEDICATED::PATH, false)) ?>">Create your first 360&deg; view</a>
+    <a href="https://wordpress.360-javascriptviewer.com/" target="_blank" rel="noopener noreferrer">See a live example (new tab)</a>
+</div>
+<p class="description">You can use the free version with &ldquo;Powered by&rdquo; branding. A license is optional.</p>
+<section class="jsv-panel">
+    <h2>Start with photos from different angles</h2>
+    <p>You need a sequence of photos of the <strong>same product</strong>, taken as it turns through a full circle. The plugin plays these photos in order as a visitor drags. It does not create a 360&deg; view from a single photo.</p>
+    <?php include('image-sequence.php'); ?>
+</section>
+<section class="jsv-panel">
+    <h2>Your first 360&deg; view in 3 steps</h2>
+    <ol class="jsv-steps">
+        <li><h3>Upload your photo sequence</h3><p>Add all photos to your WordPress Media Library. Keep their numbered filenames in order.</p></li>
+        <li><h3>Configure your view</h3><p>Select the first photo, then continue to our online setup tool in a new tab. Check the image sequence and copy your shortcode.</p></li>
+        <li><h3>Add it to a page</h3><p>Return to WordPress. Add a Shortcode block to a page, paste the code and preview your 360&deg; view.</p></li>
+    </ol>
+</section>
+<?php include('footer.php'); ?>

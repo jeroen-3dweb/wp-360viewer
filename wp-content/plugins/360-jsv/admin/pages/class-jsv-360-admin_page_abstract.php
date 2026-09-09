@@ -37,7 +37,7 @@ abstract class JSV_360_ADMIN_PAGE_ABSTRACT
 
     public function init()
     {
-        echo require(sprintf('%s/../partials/%s.php', __DIR__, $this->template));
+        require(sprintf('%s/../partials/%s.php', __DIR__, $this->template));
     }
 
     public function saveSettings()
